@@ -1,0 +1,3459 @@
+# Japanese translation of REXML documentation
+# Copyright (C) YEAR Yukihiro Matsumoto
+# Copyright (C) 2023 gemmaro
+# This file is distributed under the same license as the REXML.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: REXML\n"
+"POT-Creation-Date: 2023-04-11 11:50+0900\n"
+"PO-Revision-Date: 2023-06-10 08:47+0900\n"
+"Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Headline =
+#: ../doc/rexml/tutorial.rdoc:1
+msgid "\\REXML Tutorial"
+msgstr "\\REXML入門"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:3
+msgid "Why \\REXML?"
+msgstr "なぜ\\REXMLなのか"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:5
+msgid "- Ruby's \\REXML library is part of the Ruby distribution,"
+msgstr "- Rubyの\\REXMLライブラリはRubyの配布物の一部です。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:6
+#, no-wrap
+msgid "  so using it requires no gem installations.\n"
+msgstr "  そのため使うのにgemのインストールを必要としません。\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:7
+msgid ""
+"- \\REXML is fully maintained.  - \\REXML is mature, having been in use for "
+"long years."
+msgstr ""
+"- \\REXMLは手厚く維持管理されています。\n"
+"- \\REXMLは成熟しており、長年使われてきました。"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:10
+msgid "To Include, or Not to Include?"
+msgstr "インクルードすべきや否や"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:12
+msgid "REXML is a module.  To use it, you must require it:"
+msgstr "REXMLはモジュールです。使うためにはrequireせねばなりません。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:15
+#, no-wrap
+msgid "  require 'rexml' # => true\n"
+msgstr "  require 'rexml' # => true\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:17
+msgid ""
+"If you do not also include it, you must fully qualify references to REXML:"
+msgstr "また、includeしなければREXMLを参照するのに完全な修飾を付けねばなりません。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:19
+#, no-wrap
+msgid "  REXML::Document # => REXML::Document\n"
+msgstr "  REXML::Document # => REXML::Document\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:21
+msgid ""
+"If you also include the module, you may optionally omit <tt>REXML::</tt>:"
+msgstr "ここからモジュールをincludeすれば、お好みで<tt>REXML::</tt>を省くことができます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:23
+#, no-wrap
+msgid ""
+"  include REXML\n"
+"  Document # => REXML::Document\n"
+"  REXML::Document # => REXML::Document\n"
+msgstr ""
+"  include REXML\n"
+"  Document # => REXML::Document\n"
+"  REXML::Document # => REXML::Document\n"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:27
+msgid "Preliminaries"
+msgstr "事前に必要なもの"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:29
+msgid "All examples here assume that the following code has been executed:"
+msgstr "ここにある全ての例では以下のコードが実行されていることを前提にしています。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:31
+#, no-wrap
+msgid ""
+"  require 'rexml'\n"
+"  include REXML\n"
+msgstr ""
+"  require 'rexml'\n"
+"  include REXML\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:34
+msgid ""
+"The source XML for many examples here is from file {books.xml}[https://www."
+"w3schools.com/xml/books.xml] at w3schools.com.  You may find it convenient "
+"to open that page in a new tab (Ctrl-click in some browsers)."
+msgstr "ここにある多くのソースのXMLの例はw3schools.comにある{books.xml}[https://www.w3schools.com/xml/books.xml]が元になっています。そちらのページを新しいタブで開いておく（ブラウザによってはCtrl-クリック）と便利かもしれません。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:39
+msgid ""
+"Note that your browser may display the XML with modified whitespace and "
+"without the XML declaration, which in this case is:"
+msgstr "なお、ブラウザはXMLの空白を変更しXMLの宣言がないものを表示するかもしれません。このような場合がそうです。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:42
+#, no-wrap
+msgid "  <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+msgstr "  <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:44
+msgid "For convenience, we capture the XML into a string variable:"
+msgstr "便宜上XMLを文字列変数に保存しておきます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:46
+#, no-wrap
+msgid ""
+"  require 'open-uri'\n"
+"  source_string = URI.open('https://www.w3schools.com/xml/books.xml').read\n"
+msgstr ""
+"  require 'open-uri'\n"
+"  source_string = URI.open('https://www.w3schools.com/xml/books.xml').read\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:49
+msgid "And into a file:"
+msgstr "またファイルにも保存しておきます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:51
+#, no-wrap
+msgid "  File.write('source_file.xml', source_string)\n"
+msgstr "  File.write('source_file.xml', source_string)\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:53
+msgid ""
+"Throughout these examples, variable +doc+ will hold only the document "
+"derived from these sources:"
+msgstr "ここにある例では全て、変数+doc+にはこれらのソースから派生したドキュメントのみが入っています。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:56 ../doc/rexml/tutorial.rdoc:66
+#, no-wrap
+msgid "  doc = Document.new(source_string)\n"
+msgstr "  doc = Document.new(source_string)\n"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:58
+msgid "Parsing \\XML \\Source"
+msgstr "\\XMLのソースを解析する"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:60
+msgid "Parsing a Document"
+msgstr "ドキュメントを解析する"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:62
+msgid "Use method REXML::Document::new to parse XML source."
+msgstr "XMLのソースの解析にはREXML::Document::newメソッドを使います。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:64
+msgid "The source may be a string:"
+msgstr "ソースには文字列が使えます。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:68
+msgid "Or an \\IO stream:"
+msgstr "もしくはIOストリームも使えます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:70
+#, no-wrap
+msgid ""
+"  doc = File.open('source_file.xml', 'r') do |io|\n"
+"    Document.new(io)\n"
+"  end\n"
+msgstr ""
+"  doc = File.open('source_file.xml', 'r') do |io|\n"
+"    Document.new(io)\n"
+"  end\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:74
+msgid ""
+"Method <tt>URI.open</tt> returns a StringIO object, so the source can be "
+"from a web page:"
+msgstr "メソッド<tt>URI.open</tt>はStringIOオブジェクトを返すので、ソースはwebページからとすることもできます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:77
+#, no-wrap
+msgid ""
+"  require 'open-uri'\n"
+"  io = URI.open(\"https://www.w3schools.com/xml/books.xml\")\n"
+"  io.class # => StringIO\n"
+"  doc = Document.new(io)\n"
+msgstr ""
+"  require 'open-uri'\n"
+"  io = URI.open(\"https://www.w3schools.com/xml/books.xml\")\n"
+"  io.class # => StringIO\n"
+"  doc = Document.new(io)\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:82
+msgid "For any of these sources, the returned object is an REXML::Document:"
+msgstr "こうしたソースが何であれ、返されるオブジェクトはREXML::Documentです。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:84
+#, no-wrap
+msgid ""
+"  doc       # => <UNDEFINED> ... </>\n"
+"  doc.class # => REXML::Document\n"
+msgstr ""
+"  doc       # => <UNDEFINED> ... </>\n"
+"  doc.class # => REXML::Document\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:87
+msgid ""
+"Note: <tt>'UNDEFINED'</tt> is the \"name\" displayed for a document, even "
+"though <tt>doc.name</tt> returns an empty string <tt>\"\"</tt>."
+msgstr "補足：<tt>'UNDEFINED'</tt>はドキュメントについて表示される「名前」です。<tt>doc.name</tt>が空の文字列<tt>\"\"</tt>を返す場合でも同じことです。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:90
+msgid ""
+"A parsed document may produce \\REXML objects of many classes, but the two "
+"that are likely to be of greatest interest are REXML::Document and REXML::"
+"Element.  These two classes are covered in great detail in this tutorial."
+msgstr "解析されたドキュメントは多様なクラスの\\REXMLオブジェクトを生成しますが、特に注目すべきは恐らくREXML::DocumentとREXML::Elementの2つでしょう。これら2つのクラスはこの入門でかなり詳しく押さえます。"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:95
+msgid "Context (Parsing Options)"
+msgstr "文脈（解析オプション）"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:97
+msgid ""
+"The context for parsing a document is a hash that influences the way the XML "
+"is read and stored."
+msgstr "ドキュメントを解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッシュです。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:100
+msgid "The context entries are:"
+msgstr "文脈の各項目は次の通り。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:102
+msgid ""
+"- +:respect_whitespace+: controls treatment of whitespace.  - +:"
+"compress_whitespace+: determines whether whitespace is compressed.  - +:"
+"ignore_whitespace_nodes+: determines whether whitespace-only nodes are to be "
+"ignored.  - +:raw+: controls treatment of special characters and entities."
+msgstr ""
+"- +:respect_whitespace+: 空白の扱いを制御します。\n"
+"- +:compress_whitespace+: 空白が圧縮されるかを決定します。\n"
+"- +:ignore_whitespace_nodes+: 空白のみのノードが無視されるかどうかを決定します。\n"
+"- +:raw+: 特殊な文字と実体の扱いを制御します。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:107
+msgid "See {Element Context}[../context_rdoc.html]."
+msgstr "{要素の文脈}[../context_rdoc.html]を参照してください。"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:109
+msgid "Exploring the Document"
+msgstr "ドキュメントを探索する"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:111
+msgid "An REXML::Document object represents an XML document."
+msgstr "REXML::DocumentオブジェクトはXMLドキュメントを表現します。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:113 ../doc/rexml/tutorial.rdoc:302
+msgid "The object inherits from its ancestor classes:"
+msgstr "オブジェクトはその先祖のクラスから継承します。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:115 ../doc/rexml/tutorial.rdoc:304
+msgid "- REXML::Child (includes module REXML::Node)"
+msgstr "- REXML::Child（モジュールREXML::Nodeがincludeされています）"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:116
+#, no-wrap
+msgid ""
+"  - REXML::Parent (includes module {Enumerable}[rdoc-ref:Enumerable]).\n"
+"    - REXML::Element (includes module REXML::Namespace).\n"
+"      - REXML::Document\n"
+msgstr ""
+"  - REXML::Parent（モジュール{Enumerable}[rdoc-ref:Enumerable]がincludeされています）\n"
+"    - REXML::Element（モジュールREXML::Namespaceがincludeされています）\n"
+"      - REXML::Document\n"
+
+# 属性というよりは、プロパティとして区別したほうがよさそうです
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:120
+msgid ""
+"This section covers only those properties and methods that are unique to a "
+"document (that is, not inherited or included)."
+msgstr "この節ではこれらのプロパティとメソッドのうちドキュメントに特有なもののみを押さえます（つまり、継承したりincludeされたりしたものは除きます）。"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:123
+msgid "Document Properties"
+msgstr "ドキュメントのプロパティ"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:125
+msgid "A document has several properties (other than its children);"
+msgstr "ドキュメントには（子要素の他に）いくつかのプロパティがあります。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:127
+msgid "- Document type.  - Node type.  - Name.  - Document.  - XPath"
+msgstr ""
+"- ドキュメントの種類\n"
+"- ノードの種類\n"
+"- 名前\n"
+"- ドキュメント\n"
+"- XPath"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:133
+msgid "[Document Type]"
+msgstr "[ドキュメントの種類]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:135
+#, no-wrap
+msgid "  A document may have a document type:\n"
+msgstr "  ドキュメントはドキュメントの種類を持つことがあります。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:137
+#, no-wrap
+msgid ""
+"    my_xml = '<!DOCTYPE foo>'\n"
+"    my_doc = Document.new(my_xml)\n"
+"    doc_type = my_doc.doctype\n"
+"    doc_type.class # => REXML::DocType\n"
+"    doc_type.to_s  # => \"<!DOCTYPE foo>\"\n"
+msgstr ""
+"    my_xml = '<!DOCTYPE foo>'\n"
+"    my_doc = Document.new(my_xml)\n"
+"    doc_type = my_doc.doctype\n"
+"    doc_type.class # => REXML::DocType\n"
+"    doc_type.to_s  # => \"<!DOCTYPE foo>\"\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:143 ../doc/rexml/tutorial.rdoc:338
+msgid "[Node Type]"
+msgstr "[ノードの種類]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:145
+#, no-wrap
+msgid "  A document also has a node type (always +:document+):\n"
+msgstr "  ドキュメントはノードの種類も持ちます（常に+:document+です）。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:147
+#, no-wrap
+msgid "    doc.node_type # => :document\n"
+msgstr "    doc.node_type # => :document\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:149
+msgid "[Name]"
+msgstr "[名前]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:151
+#, no-wrap
+msgid "  A document has a name (always an empty string):\n"
+msgstr "  ドキュメントは名前を持ちます（常に空文字列です）。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:153
+#, no-wrap
+msgid "    doc.name # => \"\"\n"
+msgstr "    doc.name # => \"\"\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:155
+msgid "[Document]"
+msgstr "[ドキュメント]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:157
+#, no-wrap
+msgid "  \\Method REXML::Document#document returns +self+:\n"
+msgstr "  メソッドREXML::Document#documentは+self+を返します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:159
+#, no-wrap
+msgid "    doc.document == doc # => true\n"
+msgstr "    doc.document == doc # => true\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:161
+#, no-wrap
+msgid ""
+"  An object of a different class (\\REXML::Element or \\REXML::Child)\n"
+"  may have a document, which is the document to which the object belongs;\n"
+"  if so, that document will be an \\REXML::Document object.\n"
+msgstr "  それぞれのクラス（\\REXML::Elementや\\REXML::Child）のオブジェクトはドキュメントを持つかもしれません。これはオブジェクトが属するドキュメントです。もしそのようなドキュメントがあれば、そのドキュメントは\\REXML::Documentオブジェクトです。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:165
+#, no-wrap
+msgid "    doc.root.document.class # => REXML::Document\n"
+msgstr "    doc.root.document.class # => REXML::Document\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:167
+msgid "[XPath]"
+msgstr "[XPath]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:169
+#, no-wrap
+msgid ""
+"  \\method REXML::Element#xpath returns the string xpath to the element,\n"
+"  relative to its most distant ancestor:\n"
+msgstr "  メソッドREXML::Element#xpathは要素へのxpath文字列を返します。最も距離の離れた先祖からの相対的なものです。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:172
+#, no-wrap
+msgid ""
+"    doc.root.class             # => REXML::Element\n"
+"    doc.root.xpath             # => \"/bookstore\"\n"
+"    doc.root.texts.first       # => \"\\n\\n\"\n"
+"    doc.root.texts.first.xpath # => \"/bookstore/text()\"\n"
+msgstr ""
+"    doc.root.class             # => REXML::Element\n"
+"    doc.root.xpath             # => \"/bookstore\"\n"
+"    doc.root.texts.first       # => \"\\n\\n\"\n"
+"    doc.root.texts.first.xpath # => \"/bookstore/text()\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:177
+#, no-wrap
+msgid "  If there is no ancestor, returns the expanded name of the element:\n"
+msgstr "  先祖がいなければ要素の展開された名前を返します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:179
+#, no-wrap
+msgid "    Element.new('foo').xpath # => \"foo\"\n"
+msgstr "    Element.new('foo').xpath # => \"foo\"\n"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:181
+msgid "Document Children"
+msgstr "ドキュメントの子内容"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:183
+msgid "A document may have children of these types:"
+msgstr "ドキュメントにはこれらの種類の子を持ち得ます。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:185
+msgid ""
+"- XML declaration.  - Root element.  - Text.  - Processing instructions.  - "
+"Comments.  - CDATA."
+msgstr ""
+"- XML宣言。\n"
+"- ルート要素。\n"
+"- テキスト。\n"
+"- 処理手続き。\n"
+"- コメント。\n"
+"- CDATA。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:192
+msgid "[XML Declaration]"
+msgstr "[XML宣言]"
+
+# TODO: may haveの単語抜けな気がする
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:194
+#, no-wrap
+msgid "  A document may an XML declaration, which is stored as an REXML::XMLDecl object:\n"
+msgstr "  ドキュメントにはXML宣言があることがあります。この宣言はREXML::XMLDeclオブジェクトとして格納されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:196
+#, no-wrap
+msgid ""
+"    doc.xml_decl       # => <?xml ... ?>\n"
+"    doc.xml_decl.class # => REXML::XMLDecl\n"
+msgstr ""
+"    doc.xml_decl       # => <?xml ... ?>\n"
+"    doc.xml_decl.class # => REXML::XMLDecl\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:199
+#, no-wrap
+msgid "    Document.new('').xml_decl # => <?xml ... ?>\n"
+msgstr "    Document.new('').xml_decl # => <?xml ... ?>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:201
+#, no-wrap
+msgid ""
+"    my_xml = '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\"'\n"
+"    my_doc = Document.new(my_xml)\n"
+"    xml_decl = my_doc.xml_decl\n"
+"    xml_decl.to_s  # => \"<?xml version='1.0' encoding='UTF-8' standalone=\"yes\"?>\"\n"
+msgstr ""
+"    my_xml = '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\"'\n"
+"    my_doc = Document.new(my_xml)\n"
+"    xml_decl = my_doc.xml_decl\n"
+"    xml_decl.to_s  # => \"<?xml version='1.0' encoding='UTF-8' standalone=\"yes\"?>\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:206
+#, no-wrap
+msgid "  The version, encoding, and stand-alone values may be retrieved separately:\n"
+msgstr "  バージョン、エンコーディング、独立したものかどうかの値は個別に取得できます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:208
+#, no-wrap
+msgid ""
+"    my_doc.version      # => \"1.0\"\n"
+"    my_doc.encoding     # => \"UTF-8\"\n"
+"    my_doc.stand_alone? # => \"yes\"\n"
+msgstr ""
+"    my_doc.version      # => \"1.0\"\n"
+"    my_doc.encoding     # => \"UTF-8\"\n"
+"    my_doc.stand_alone? # => \"yes\"\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:212 ../doc/rexml/tutorial.rdoc:377
+msgid "[Root Element]"
+msgstr "[ルート要素]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:214
+#, no-wrap
+msgid ""
+"  A document may have a single element child, called the _root_ _element_,\n"
+"  which is stored as an REXML::Element object;\n"
+"  it may be retrieved with method +root+:\n"
+msgstr "  ドキュメントは*ルート要素*と呼ばれる単一の子要素を持ち得ます。この要素はREXML::Elementオブジェクトとして格納され、メソッド+root+で取得できます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:218
+#, no-wrap
+msgid ""
+"    doc.root           # => <bookstore> ... </>\n"
+"    doc.root.class     # => REXML::Element\n"
+msgstr ""
+"    doc.root           # => <bookstore> ... </>\n"
+"    doc.root.class     # => REXML::Element\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:221
+#, no-wrap
+msgid "    Document.new('').root # => nil\n"
+msgstr "    Document.new('').root # => nil\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:223
+msgid "[Text]"
+msgstr "[テキスト]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:225
+#, no-wrap
+msgid ""
+"  A document may have text passages, each of which is stored\n"
+"  as an REXML::Text object:\n"
+msgstr "ドキュメントにはテキストの集まりを持つことがあり、それぞれはREXML::Textオブジェクトとして保管されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:228
+#, no-wrap
+msgid "    doc.texts.each {|t| p [t.class, t] }\n"
+msgstr "    doc.texts.each {|t| p [t.class, t] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:230 ../doc/rexml/tutorial.rdoc:241
+#: ../doc/rexml/tutorial.rdoc:258 ../doc/rexml/tutorial.rdoc:275
+#: ../doc/rexml/tutorial.rdoc:439 ../doc/rexml/tutorial.rdoc:458
+#: ../doc/rexml/tutorial.rdoc:478 ../doc/rexml/tutorial.rdoc:503
+#: ../doc/rexml/tutorial.rdoc:587 ../doc/rexml/tutorial.rdoc:784
+#: ../doc/rexml/tutorial.rdoc:803 ../doc/rexml/tutorial.rdoc:818
+#: ../doc/rexml/tutorial.rdoc:829 ../doc/rexml/tutorial.rdoc:839
+#: ../doc/rexml/tutorial.rdoc:848 ../doc/rexml/tutorial.rdoc:860
+#: ../doc/rexml/tutorial.rdoc:871 ../doc/rexml/tutorial.rdoc:881
+#: ../doc/rexml/tutorial.rdoc:890 ../doc/rexml/tutorial.rdoc:901
+#: ../doc/rexml/tutorial.rdoc:911
+#, no-wrap
+msgid "  Output:\n"
+msgstr "  出力：\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:232
+#, no-wrap
+msgid "    [REXML::Text, \"\\n\"]\n"
+msgstr "    [REXML::Text, \"\\n\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:234
+msgid "[Processing Instructions]"
+msgstr "[処理手続き]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:236
+#, no-wrap
+msgid ""
+"  A document may have processing instructions, which are stored\n"
+"  as REXML::Instruction objects:\n"
+msgstr "  ドキュメントは処理手続きを持つことがあり、REXML::Instructionオブジェクトとして保管されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:243
+#, no-wrap
+msgid ""
+"    [REXML::Instruction, <?p-i my-application ...?>]\n"
+"    [REXML::Instruction, <?p-i my-application ...?>]\n"
+msgstr ""
+"    [REXML::Instruction, <?p-i my-application ...?>]\n"
+"    [REXML::Instruction, <?p-i my-application ...?>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:246
+msgid "[Comments]"
+msgstr "[コメント]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:248
+#, no-wrap
+msgid ""
+"  A document may have comments, which are stored\n"
+"  as REXML::Comment objects:\n"
+msgstr "  ドキュメントにはコメントがあることがあり、REXML::Commentオブジェクトとして保管されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:251
+#, no-wrap
+msgid ""
+"    my_xml = <<-EOT\n"
+"      <!--foo-->\n"
+"      <!--bar-->\n"
+"    EOT\n"
+"    my_doc = Document.new(my_xml)\n"
+"    my_doc.comments.each {|c| p [c.class, c] }\n"
+msgstr ""
+"    my_xml = <<-EOT\n"
+"      <!--foo-->\n"
+"      <!--bar-->\n"
+"    EOT\n"
+"    my_doc = Document.new(my_xml)\n"
+"    my_doc.comments.each {|c| p [c.class, c] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:260
+#, no-wrap
+msgid ""
+"    [REXML::Comment, #<REXML::Comment: @parent=<UNDEFINED> ... </>, @string=\"foo\">]\n"
+"    [REXML::Comment, #<REXML::Comment: @parent=<UNDEFINED> ... </>, @string=\"bar\">]\n"
+msgstr ""
+"    [REXML::Comment, #<REXML::Comment: @parent=<UNDEFINED> ... </>, @string=\"foo\">]\n"
+"    [REXML::Comment, #<REXML::Comment: @parent=<UNDEFINED> ... </>, @string=\"bar\">]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:263
+msgid "[CDATA]"
+msgstr "[CDATA]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:265
+#, no-wrap
+msgid ""
+"  A document may have CDATA entries, which are stored\n"
+"  as REXML::CData objects:\n"
+msgstr "  ドキュメントにはCDATA項目があることがあり、REXML::CDataオブジェクトを保管します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:268
+#, no-wrap
+msgid ""
+"    my_xml = <<-EOT\n"
+"      <![CDATA[foo]]>\n"
+"      <![CDATA[bar]]>\n"
+"    EOT\n"
+"    my_doc = Document.new(my_xml)\n"
+"    my_doc.cdatas.each {|cd| p [cd.class, cd] }\n"
+msgstr ""
+"    my_xml = <<-EOT\n"
+"      <![CDATA[foo]]>\n"
+"      <![CDATA[bar]]>\n"
+"    EOT\n"
+"    my_doc = Document.new(my_xml)\n"
+"    my_doc.cdatas.each {|cd| p [cd.class, cd] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:277
+#, no-wrap
+msgid ""
+"    [REXML::CData, \"foo\"]\n"
+"    [REXML::CData, \"bar\"]\n"
+msgstr ""
+"    [REXML::CData, \"foo\"]\n"
+"    [REXML::CData, \"bar\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:280
+msgid ""
+"The payload of a document is a tree of nodes, descending from the root "
+"element:"
+msgstr "ドキュメントの内容物はノードからなる木であり、ルート要素から枝分かれします。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:282
+#, no-wrap
+msgid ""
+"  doc.root.children.each do |child|\n"
+"    p [child, child.class]\n"
+"  end\n"
+msgstr ""
+"  doc.root.children.each do |child|\n"
+"    p [child, child.class]\n"
+"  end\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:286 ../doc/rexml/tutorial.rdoc:1321
+msgid "Output:"
+msgstr "出力："
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:288
+#, no-wrap
+msgid ""
+"  [REXML::Text, \"\\n\\n\"]\n"
+"  [REXML::Element, <book category='cooking'> ... </>]\n"
+"  [REXML::Text, \"\\n\\n\"]\n"
+"  [REXML::Element, <book category='children'> ... </>]\n"
+"  [REXML::Text, \"\\n\\n\"]\n"
+"  [REXML::Element, <book category='web'> ... </>]\n"
+"  [REXML::Text, \"\\n\\n\"]\n"
+"  [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"  [REXML::Text, \"\\n\\n\"]\n"
+msgstr ""
+"  [REXML::Text, \"\\n\\n\"]\n"
+"  [REXML::Element, <book category='cooking'> ... </>]\n"
+"  [REXML::Text, \"\\n\\n\"]\n"
+"  [REXML::Element, <book category='children'> ... </>]\n"
+"  [REXML::Text, \"\\n\\n\"]\n"
+"  [REXML::Element, <book category='web'> ... </>]\n"
+"  [REXML::Text, \"\\n\\n\"]\n"
+"  [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"  [REXML::Text, \"\\n\\n\"]\n"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:298
+msgid "Exploring an Element"
+msgstr "要素を探索する"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:300
+msgid "An REXML::Element object represents an XML element."
+msgstr "REXML::ElementオブジェクトはXML要素を表現します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:305
+#, no-wrap
+msgid ""
+"  - REXML::Parent (includes module {Enumerable}[rdoc-ref:Enumerable]).\n"
+"    - REXML::Element (includes module REXML::Namespace).\n"
+msgstr ""
+"  - REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールを含む）\n"
+"    - REXML::Element（REXML::Namespaceを含む）\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:308
+msgid "This section covers methods:"
+msgstr "この節は以下のメソッドを押さえます。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:310
+msgid ""
+"- Defined in REXML::Element itself.  - Inherited from REXML::Parent and "
+"REXML::Child.  - Included from REXML::Node."
+msgstr ""
+"- REXML::Element自体で定義されているもの。\n"
+"- REXML::ParentとREXML::Childから継承されているもの。\n"
+"- REXML::Nodeに含まれているもの。"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:314
+msgid "Inside the Element"
+msgstr "要素の中身"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:316
+msgid "[Brief String Representation]"
+msgstr "[短い文字列表現]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:318
+#, no-wrap
+msgid "  Use method REXML::Element#inspect to retrieve a brief string representation.\n"
+msgstr "  REXML::Element#inspectを使うと短い文字列表現が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:320
+#, no-wrap
+msgid "    doc.root.inspect # => \"<bookstore> ... </>\"\n"
+msgstr "    doc.root.inspect # => \"<bookstore> ... </>\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:322
+#, no-wrap
+msgid ""
+"  The ellipsis (<tt>...</tt>) indicates that the element has children.\n"
+"  When there are no children, the ellipsis is omitted:\n"
+msgstr ""
+"  点々 (<tt>...</tt>) は要素が子を持つことを示します。\n"
+"  子がなければ点々は省かれます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:325
+#, no-wrap
+msgid "    Element.new('foo').inspect # => \"<foo/>\"\n"
+msgstr "    Element.new('foo').inspect # => \"<foo/>\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:327
+#, no-wrap
+msgid "  If the element has attributes, those are also included:\n"
+msgstr "  要素に属性があれば、その属性も含まれます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:329
+#, no-wrap
+msgid "    doc.root.elements.first.inspect # => \"<book category='cooking'> ... </>\"\n"
+msgstr "    doc.root.elements.first.inspect # => \"<book category='cooking'> ... </>\"\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:331
+msgid "[Extended String Representation]"
+msgstr "[拡張された文字列表現]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:333
+#, no-wrap
+msgid ""
+"  Use inherited method REXML::Child.bytes to retrieve an extended\n"
+"  string representation.\n"
+msgstr "  継承されたメソッドREXML::Child.bytesを使うと拡張された文字列表現が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:336
+#, no-wrap
+msgid "    doc.root.bytes # => \"<bookstore>\\n\\n<book category='cooking'>\\n  <title lang='en'>Everyday Italian</title>\\n  <author>Giada De Laurentiis</author>\\n  <year>2005</year>\\n  <price>30.00</price>\\n</book>\\n\\n<book category='children'>\\n  <title lang='en'>Harry Potter</title>\\n  <author>J K. Rowling</author>\\n  <year>2005</year>\\n  <price>29.99</price>\\n</book>\\n\\n<book category='web'>\\n  <title lang='en'>XQuery Kick Start</title>\\n  <author>James McGovern</author>\\n  <author>Per Bothner</author>\\n  <author>Kurt Cagle</author>\\n  <author>James Linn</author>\\n  <author>Vaidyanathan Nagarajan</author>\\n  <year>2003</year>\\n  <price>49.99</price>\\n</book>\\n\\n<book category='web' cover='paperback'>\\n  <title lang='en'>Learning XML</title>\\n  <author>Erik T. Ray</author>\\n  <year>2003</year>\\n  <price>39.95</price>\\n</book>\\n\\n</bookstore>\"\n"
+msgstr "    doc.root.bytes # => \"<bookstore>\\n\\n<book category='cooking'>\\n  <title lang='en'>Everyday Italian</title>\\n  <author>Giada De Laurentiis</author>\\n  <year>2005</year>\\n  <price>30.00</price>\\n</book>\\n\\n<book category='children'>\\n  <title lang='en'>Harry Potter</title>\\n  <author>J K. Rowling</author>\\n  <year>2005</year>\\n  <price>29.99</price>\\n</book>\\n\\n<book category='web'>\\n  <title lang='en'>XQuery Kick Start</title>\\n  <author>James McGovern</author>\\n  <author>Per Bothner</author>\\n  <author>Kurt Cagle</author>\\n  <author>James Linn</author>\\n  <author>Vaidyanathan Nagarajan</author>\\n  <year>2003</year>\\n  <price>49.99</price>\\n</book>\\n\\n<book category='web' cover='paperback'>\\n  <title lang='en'>Learning XML</title>\\n  <author>Erik T. Ray</author>\\n  <year>2003</year>\\n  <price>39.95</price>\\n</book>\\n\\n</bookstore>\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:340
+#, no-wrap
+msgid "  Use method REXML::Element#node_type to retrieve the node type (always +:element+):\n"
+msgstr "  REXML::Element#node_typeメソッドを使うとノードの種類が取得されます（常に+:element+です）。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:342
+#, no-wrap
+msgid "    doc.root.node_type # => :element\n"
+msgstr "    doc.root.node_type # => :element\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:344
+msgid "[Raw Mode]"
+msgstr "[生モード]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:346
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#raw to retrieve whether (+true+ or +nil+)\n"
+"  raw mode is set.\n"
+msgstr "  REXML::Element#rawメソッドを使うと生モードが設定されているかどうか（+true+または+nil+）が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:349
+#, no-wrap
+msgid "    doc.root.raw # => nil\n"
+msgstr "    doc.root.raw # => nil\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:351
+msgid "[Context]"
+msgstr "[文脈]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:353
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#context to retrieve the context hash\n"
+"  (see {Element Context}[../context_rdoc.html]):\n"
+msgstr "  REXML::Element#contextメソッドを使うと文脈ハッシュが取得されます（{要素の文脈}[../context_rdoc.html]を参照してください）。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:356
+#, no-wrap
+msgid "    doc.root.context # => {}\n"
+msgstr "    doc.root.context # => {}\n"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:358
+msgid "Relationships"
+msgstr "関係"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:360
+msgid "An element may have:"
+msgstr "要素には以下があることがあります。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:362
+msgid "- Ancestors.  - Siblings.  - Children."
+msgstr ""
+"- 先祖。\n"
+"- 兄弟。\n"
+"- 子。"
+
+#. type: Headline ====
+#: ../doc/rexml/tutorial.rdoc:366
+msgid "Ancestors"
+msgstr "先祖"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:368
+msgid "[Containing Document]"
+msgstr "[その要素を含むドキュメント]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:370
+#, no-wrap
+msgid "  Use method REXML::Element#document to retrieve the containing document, if any:\n"
+msgstr "  REXML::Element#documentメソッドを使うと、もしあれば、その要素を含むドキュメントが取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:372
+#, no-wrap
+msgid ""
+"    ele = doc.root.elements.first   # => <book category='cooking'> ... </>\n"
+"    ele.document                    # => <UNDEFINED> ... </>\n"
+"    ele = Element.new('foo')        # => <foo/>\n"
+"    ele.document                    # => nil\n"
+msgstr ""
+"    ele = doc.root.elements.first   # => <book category='cooking'> ... </>\n"
+"    ele.document                    # => <UNDEFINED> ... </>\n"
+"    ele = Element.new('foo')        # => <foo/>\n"
+"    ele.document                    # => nil\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:379
+#, no-wrap
+msgid "  Use method REXML::Element#root to retrieve the root element:\n"
+msgstr "  REXML::Element#rootメソッドを使うと根要素が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:381
+#, no-wrap
+msgid ""
+"    ele = doc.root.elements.first   # => <book category='cooking'> ... </>\n"
+"    ele.root                        # => <bookstore> ... </>\n"
+"    ele = Element.new('foo')        # => <foo/>\n"
+"    ele.root                        # => <foo/>\n"
+msgstr ""
+"    ele = doc.root.elements.first   # => <book category='cooking'> ... </>\n"
+"    ele.root                        # => <bookstore> ... </>\n"
+"    ele = Element.new('foo')        # => <foo/>\n"
+"    ele.root                        # => <foo/>\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:386
+msgid "[Root Node]"
+msgstr "[根ノード]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:388
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#root_node to retrieve the most distant ancestor,\n"
+"  which is the containing document, if any, otherwise the root element:\n"
+msgstr ""
+"  REXML::Element#root_nodeメソッドを使うと最も離れた先祖が取得されます。\n"
+"  先祖は、もしあればその要素を含むドキュメントで、なければ根要素です。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:391
+#, no-wrap
+msgid ""
+"    ele = doc.root.elements.first   # => <book category='cooking'> ... </>\n"
+"    ele.root_node                   # => <UNDEFINED> ... </>\n"
+"    ele = Element.new('foo')        # => <foo/>\n"
+"    ele.root_node                   # => <foo/>\n"
+msgstr ""
+"    ele = doc.root.elements.first   # => <book category='cooking'> ... </>\n"
+"    ele.root_node                   # => <UNDEFINED> ... </>\n"
+"    ele = Element.new('foo')        # => <foo/>\n"
+"    ele.root_node                   # => <foo/>\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:396
+msgid "[Parent]"
+msgstr "[親]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:398
+#, no-wrap
+msgid "  Use inherited method REXML::Child#parent to retrieve the parent\n"
+msgstr "  継承されたメソッドREXML::Child#parentを使うと親が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:400
+#, no-wrap
+msgid ""
+"    ele = doc.root                # => <bookstore> ... </>\n"
+"    ele.parent                    # => <UNDEFINED> ... </>\n"
+"    ele = doc.root.elements.first # => <book category='cooking'> ... </>\n"
+"    ele.parent                    # => <bookstore> ... </>\n"
+msgstr ""
+"    ele = doc.root                # => <bookstore> ... </>\n"
+"    ele.parent                    # => <UNDEFINED> ... </>\n"
+"    ele = doc.root.elements.first # => <book category='cooking'> ... </>\n"
+"    ele.parent                    # => <bookstore> ... </>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:405
+#, no-wrap
+msgid ""
+"  Use included method REXML::Node#index_in_parent to retrieve the index\n"
+"  of the element among all of its parents children (not just the element children).\n"
+"  Note that while the index for <tt>doc.root.elements[n]</tt> is 1-based,\n"
+"  the returned index is 0-based.\n"
+msgstr ""
+"  インクルードされたメソッド REXML::Node#index_in_parent を使うと、（要素の子だけでなく）その要素の親の全ての子のうちその要素のインデックスが取得されます。\n"
+"  なお<tt>doc.root.elements[n]</tt>のインデックスは1起点ですが、返却されるインデックスは0起点です。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:410
+#, no-wrap
+msgid ""
+"    doc.root.children # =>\n"
+"      # [\"\\n\\n\",\n"
+"      #  <book category='cooking'> ... </>,\n"
+"      #  \"\\n\\n\",\n"
+"      #  <book category='children'> ... </>,\n"
+"      #  \"\\n\\n\",\n"
+"      #  <book category='web'> ... </>,\n"
+"      #  \"\\n\\n\",\n"
+"      #  <book category='web' cover='paperback'> ... </>,\n"
+"      #  \"\\n\\n\"]\n"
+"    ele = doc.root.elements[1] # => <book category='cooking'> ... </>\n"
+"    ele.index_in_parent # => 2\n"
+"    ele = doc.root.elements[2]  # => <book category='children'> ... </>\n"
+"    ele.index_in_parent# => 4\n"
+msgstr ""
+"    doc.root.children # =>\n"
+"      # [\"\\n\\n\",\n"
+"      #  <book category='cooking'> ... </>,\n"
+"      #  \"\\n\\n\",\n"
+"      #  <book category='children'> ... </>,\n"
+"      #  \"\\n\\n\",\n"
+"      #  <book category='web'> ... </>,\n"
+"      #  \"\\n\\n\",\n"
+"      #  <book category='web' cover='paperback'> ... </>,\n"
+"      #  \"\\n\\n\"]\n"
+"    ele = doc.root.elements[1] # => <book category='cooking'> ... </>\n"
+"    ele.index_in_parent # => 2\n"
+"    ele = doc.root.elements[2]  # => <book category='children'> ... </>\n"
+"    ele.index_in_parent# => 4\n"
+
+#. type: Headline ====
+#: ../doc/rexml/tutorial.rdoc:425
+msgid "Siblings"
+msgstr "兄弟"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:427
+msgid "[Next Element]"
+msgstr "[次の要素]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:429
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#next_element to retrieve the first following\n"
+"  sibling that is itself an element (+nil+ if there is none):\n"
+msgstr ""
+"  メソッド REXML::Element#next_element を使うと後続する最初の兄弟が取得されます。\n"
+"  兄弟があるならそれは要素です（なければ+nil+です）。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:432
+#, no-wrap
+msgid ""
+"    ele = doc.root.elements[1]\n"
+"    while ele do\n"
+"      p [ele.class, ele]\n"
+"      ele = ele.next_element\n"
+"    end\n"
+"    p ele\n"
+msgstr ""
+"    ele = doc.root.elements[1]\n"
+"    while ele do\n"
+"      p [ele.class, ele]\n"
+"      ele = ele.next_element\n"
+"    end\n"
+"    p ele\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:441 ../doc/rexml/tutorial.rdoc:805
+#, no-wrap
+msgid ""
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+msgstr ""
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:446
+msgid "[Previous Element]"
+msgstr "[前の要素]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:448
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#previous_element to retrieve the first preceding\n"
+"  sibling that is itself an element (+nil+ if there is none):\n"
+msgstr ""
+"  メソッド REXML::Element#previous_element を使うと先行する最初の兄弟が取得されます。\n"
+"  兄弟があるならそれは要素です（なければ+nil+です）。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:451
+#, no-wrap
+msgid ""
+"    ele = doc.root.elements[4]\n"
+"    while ele do\n"
+"      p [ele.class, ele]\n"
+"      ele = ele.previous_element\n"
+"    end\n"
+"    p ele\n"
+msgstr ""
+"    ele = doc.root.elements[4]\n"
+"    while ele do\n"
+"      p [ele.class, ele]\n"
+"      ele = ele.previous_element\n"
+"    end\n"
+"    p ele\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:460
+#, no-wrap
+msgid ""
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+msgstr ""
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:465
+msgid "[Next Node]"
+msgstr "[次のノード]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:467
+#, no-wrap
+msgid ""
+"  Use included method REXML::Node.next_sibling_node\n"
+"  (or its alias <tt>next_sibling</tt>) to retrieve the first following node\n"
+"  regardless of its class:\n"
+msgstr "  インクルードされるメソッド REXML::Node.next_sibling_node （またはその別称の<tt>next_sibling</tt>）を使うと、そのクラスによらず後続する最初のノードが取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:471
+#, no-wrap
+msgid ""
+"    node = doc.root.children[0]\n"
+"    while node do\n"
+"      p [node.class, node]\n"
+"      node = node.next_sibling\n"
+"    end\n"
+"    p node\n"
+msgstr ""
+"    node = doc.root.children[0]\n"
+"    while node do\n"
+"      p [node.class, node]\n"
+"      node = node.next_sibling\n"
+"    end\n"
+"    p node\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:480 ../doc/rexml/tutorial.rdoc:786
+#, no-wrap
+msgid ""
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+msgstr ""
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:490
+msgid "[Previous Node]"
+msgstr "[前のノード]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:492
+#, no-wrap
+msgid ""
+"  Use included method REXML::Node.previous_sibling_node\n"
+"  (or its alias <tt>previous_sibling</tt>) to retrieve the first preceding node\n"
+"  regardless of its class:\n"
+msgstr "  インクルードされるメソッド REXML::Node.previous_sibling_node （もしくはその別称<tt>previous_sibling</tt>）を使うと、クラスによらず先行する最初のノードが取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:496
+#, no-wrap
+msgid ""
+"    node = doc.root.children[-1]\n"
+"    while node do\n"
+"      p [node.class, node]\n"
+"      node = node.previous_sibling\n"
+"    end\n"
+"    p node\n"
+msgstr ""
+"    node = doc.root.children[-1]\n"
+"    while node do\n"
+"      p [node.class, node]\n"
+"      node = node.previous_sibling\n"
+"    end\n"
+"    p node\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:505
+#, no-wrap
+msgid ""
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+msgstr ""
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+"    [REXML::Text, \"\\n\\n\"]\n"
+
+#. type: Headline ====
+#: ../doc/rexml/tutorial.rdoc:515
+msgid "Children"
+msgstr "子"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:517
+msgid "[Child Count]"
+msgstr "[子の個数]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:519
+#, no-wrap
+msgid ""
+"  Use inherited method REXML::Parent.size to retrieve the count\n"
+"  of nodes (of all types) in the element:\n"
+msgstr "  継承されたメソッド REXML::Parent.size を使うとその要素中の（全種類の）ノードの個数が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:522
+#, no-wrap
+msgid "    doc.root.size # => 9\n"
+msgstr "    doc.root.size # => 9\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:524
+msgid "[Child Nodes]"
+msgstr "[子ノード]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:526
+#, no-wrap
+msgid ""
+"  Use inherited method REXML::Parent.children to retrieve an array\n"
+"  of the child nodes (of all types):\n"
+msgstr "  継承されたメソッド REXML::Parent.children を使うと（全種類の）子ノードの配列が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:529
+#, no-wrap
+msgid ""
+"    doc.root.children # =>\n"
+"                      # [\"\\n\\n\",\n"
+"                      #  <book category='cooking'> ... </>,\n"
+"                      #  \"\\n\\n\",\n"
+"                      #  <book category='children'> ... </>,\n"
+"                      #  \"\\n\\n\",\n"
+"                      #  <book category='web'> ... </>,\n"
+"                      #  \"\\n\\n\",\n"
+"                      #  <book category='web' cover='paperback'> ... </>,\n"
+"                      #  \"\\n\\n\"]\n"
+msgstr ""
+"    doc.root.children # =>\n"
+"                      # [\"\\n\\n\",\n"
+"                      #  <book category='cooking'> ... </>,\n"
+"                      #  \"\\n\\n\",\n"
+"                      #  <book category='children'> ... </>,\n"
+"                      #  \"\\n\\n\",\n"
+"                      #  <book category='web'> ... </>,\n"
+"                      #  \"\\n\\n\",\n"
+"                      #  <book category='web' cover='paperback'> ... </>,\n"
+"                      #  \"\\n\\n\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:540
+msgid "[Child at Index]"
+msgstr "[インデックスにある子]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:542
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#[] to retrieve the child at a given numerical index,\n"
+"  or +nil+ if there is no such child:\n"
+msgstr "  メソッド REXML::Element#[] を使うと、与えられた数値のインデックスに子があればそれを、そのような子がなければ+nil+が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:545
+#, no-wrap
+msgid ""
+"    doc.root[0]  # => \"\\n\\n\"\n"
+"    doc.root[1]  # => <book category='cooking'> ... </>\n"
+"    doc.root[7]  # => <book category='web' cover='paperback'> ... </>\n"
+"    doc.root[8]  # => \"\\n\\n\"\n"
+msgstr ""
+"    doc.root[0]  # => \"\\n\\n\"\n"
+"    doc.root[1]  # => <book category='cooking'> ... </>\n"
+"    doc.root[7]  # => <book category='web' cover='paperback'> ... </>\n"
+"    doc.root[8]  # => \"\\n\\n\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:550
+#, no-wrap
+msgid ""
+"    doc.root[-1] # => \"\\n\\n\"\n"
+"    doc.root[-2] # => <book category='web' cover='paperback'> ... </>\n"
+msgstr ""
+"    doc.root[-1] # => \"\\n\\n\"\n"
+"    doc.root[-2] # => <book category='web' cover='paperback'> ... </>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:553
+#, no-wrap
+msgid "    doc.root[50] # => nil\n"
+msgstr "    doc.root[50] # => nil\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:555
+msgid "[Index of Child]"
+msgstr "[子のインデックス]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:557
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#index to retrieve the zero-based child index\n"
+"  of the given object, or <tt>#size - 1</tt> if there is no such child:\n"
+msgstr "  メソッド REXML::Element#index を使うと、もしあれば与えられたオブジェクトのゼロ起点の子のインデックスが、そのような子がなければ<tt>#size - 1</tt>が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:560
+#, no-wrap
+msgid ""
+"    ele = doc.root     # => <bookstore> ... </>\n"
+"    ele.index(ele[0])  # => 0\n"
+"    ele.index(ele[1])  # => 1\n"
+"    ele.index(ele[7])  # => 7\n"
+"    ele.index(ele[8])  # => 8\n"
+msgstr ""
+"    ele = doc.root     # => <bookstore> ... </>\n"
+"    ele.index(ele[0])  # => 0\n"
+"    ele.index(ele[1])  # => 1\n"
+"    ele.index(ele[7])  # => 7\n"
+"    ele.index(ele[8])  # => 8\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:566
+#, no-wrap
+msgid ""
+"    ele.index(ele[-1]) # => 8\n"
+"    ele.index(ele[-2]) # => 7\n"
+msgstr ""
+"    ele.index(ele[-1]) # => 8\n"
+"    ele.index(ele[-2]) # => 7\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:569
+#, no-wrap
+msgid "    ele.index(ele[50]) # => 8\n"
+msgstr "    ele.index(ele[50]) # => 8\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:571
+msgid "[Element Children]"
+msgstr "[要素の子]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:573
+#, no-wrap
+msgid ""
+"  Use method REXML::.has_elements? to retrieve whether the element\n"
+"  has element children:\n"
+msgstr "  メソッド REXML::.has_elements? を使うと要素に要素の子があるかどうかが取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:576
+#, no-wrap
+msgid ""
+"    doc.root.has_elements?                  # => true\n"
+"    REXML::Element.new('foo').has_elements? # => false\n"
+msgstr ""
+"    doc.root.has_elements?                  # => true\n"
+"    REXML::Element.new('foo').has_elements? # => false\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:579
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#elements to retrieve the REXML::Elements object\n"
+"  containing the element children:\n"
+msgstr "  メソッド REXML::Element#elements を使うと、その要素の子を含む REXML::Elements オブジェクトが取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:582
+#, no-wrap
+msgid ""
+"    eles = doc.root.elements\n"
+"    eles      # => #<REXML::Elements:0x000001ee2848e960 @element=<bookstore> ... </>>\n"
+"    eles.size # => 4\n"
+"    eles.each {|e| p [e.class], e }\n"
+msgstr ""
+"    eles = doc.root.elements\n"
+"    eles      # => #<REXML::Elements:0x000001ee2848e960 @element=<bookstore> ... </>>\n"
+"    eles.size # => 4\n"
+"    eles.each {|e| p [e.class], e }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:589
+#, no-wrap
+msgid ""
+"    [<book category='cooking'> ... </>,\n"
+"     <book category='children'> ... </>,\n"
+"     <book category='web'> ... </>,\n"
+"     <book category='web' cover='paperback'> ... </>\n"
+"    ]\n"
+msgstr ""
+"    [<book category='cooking'> ... </>,\n"
+"     <book category='children'> ... </>,\n"
+"     <book category='web'> ... </>,\n"
+"     <book category='web' cover='paperback'> ... </>\n"
+"    ]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:595
+msgid ""
+"Note that while in this example, all the element children of the root "
+"element are elements of the same name, <tt>'book'</tt>, that is not true of "
+"all documents; a root element (or any other element) may have any mixture of "
+"child elements."
+msgstr ""
+"なおこの例ではルート要素の全ての子要素は<tt>'book'</tt>という同じ名前の要素になっていますが、全ての文書についてそうではありません。\n"
+"根要素（あるいは他の任意の要素）は自由に混ざった子要素を持ちえます。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:599
+msgid "[CDATA Children]"
+msgstr "[子のCDATA]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:601
+#, no-wrap
+msgid "  Use method REXML::Element#cdatas to retrieve a frozen array of CDATA children:\n"
+msgstr "  メソッド REXML::Element#cdatas を使うと子のCDATAの凍結された配列が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:603
+#, no-wrap
+msgid ""
+"    my_xml = <<-EOT\n"
+"      <root>\n"
+"        <![CDATA[foo]]>\n"
+"        <![CDATA[bar]]>\n"
+"      </root>\n"
+"    EOT\n"
+"    my_doc = REXML::Document.new(my_xml)\n"
+"    cdatas my_doc.root.cdatas\n"
+"    cdatas.frozen?              # => true\n"
+"    cdatas.map {|cd| cd.class } # => [REXML::CData, REXML::CData]\n"
+msgstr ""
+"    my_xml = <<-EOT\n"
+"      <root>\n"
+"        <![CDATA[foo]]>\n"
+"        <![CDATA[bar]]>\n"
+"      </root>\n"
+"    EOT\n"
+"    my_doc = REXML::Document.new(my_xml)\n"
+"    cdatas my_doc.root.cdatas\n"
+"    cdatas.frozen?              # => true\n"
+"    cdatas.map {|cd| cd.class } # => [REXML::CData, REXML::CData]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:614
+msgid "[Comment Children]"
+msgstr "[子のコメント]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:616
+#, no-wrap
+msgid "  Use method REXML::Element#comments to retrieve a frozen array of comment children:\n"
+msgstr "  メソッド REXML::Element#comments を使うと子のコメントの凍結された配列が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:618
+#, no-wrap
+msgid ""
+"    my_xml = <<-EOT\n"
+"      <root>\n"
+"        <!--foo-->\n"
+"        <!--bar-->\n"
+"      </root>\n"
+"    EOT\n"
+"    my_doc = REXML::Document.new(my_xml)\n"
+"    comments = my_doc.root.comments\n"
+"    comments.frozen?            # => true\n"
+"    comments.map {|c| c.class } # => [REXML::Comment, REXML::Comment]\n"
+"    comments.map {|c| c.to_s }  # => [\"foo\", \"bar\"]\n"
+msgstr ""
+"    my_xml = <<-EOT\n"
+"      <root>\n"
+"        <!--foo-->\n"
+"        <!--bar-->\n"
+"      </root>\n"
+"    EOT\n"
+"    my_doc = REXML::Document.new(my_xml)\n"
+"    comments = my_doc.root.comments\n"
+"    comments.frozen?            # => true\n"
+"    comments.map {|c| c.class } # => [REXML::Comment, REXML::Comment]\n"
+"    comments.map {|c| c.to_s }  # => [\"foo\", \"bar\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:630
+msgid "[Processing Instruction Children]"
+msgstr "[子の処理指示]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:632
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#instructions to retrieve a frozen array\n"
+"  of processing instruction children:\n"
+msgstr "  メソッド REXML::Element#instructions を使うと子の処理指示の凍結された配列が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:635
+#, no-wrap
+msgid ""
+"    my_xml = <<-EOT\n"
+"      <root>\n"
+"        <?target0 foo?>\n"
+"        <?target1 bar?>\n"
+"      </root>\n"
+"    EOT\n"
+"    my_doc = REXML::Document.new(my_xml)\n"
+"    instrs = my_doc.root.instructions\n"
+"    instrs.frozen?            # => true\n"
+"    instrs.map {|i| i.class } # => [REXML::Instruction, REXML::Instruction]\n"
+"    instrs.map {|i| i.to_s }  # => [\"<?target0 foo?>\", \"<?target1 bar?>\"]\n"
+msgstr ""
+"    my_xml = <<-EOT\n"
+"      <root>\n"
+"        <?target0 foo?>\n"
+"        <?target1 bar?>\n"
+"      </root>\n"
+"    EOT\n"
+"    my_doc = REXML::Document.new(my_xml)\n"
+"    instrs = my_doc.root.instructions\n"
+"    instrs.frozen?            # => true\n"
+"    instrs.map {|i| i.class } # => [REXML::Instruction, REXML::Instruction]\n"
+"    instrs.map {|i| i.to_s }  # => [\"<?target0 foo?>\", \"<?target1 bar?>\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:647
+msgid "[Text Children]"
+msgstr "[子のテキスト]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:649
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#has_text? to retrieve whether the element\n"
+"  has text children:\n"
+msgstr "  メソッド REXML::Element#has_text? を使うと要素に子のテキストを持つかどうかが取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:652
+#, no-wrap
+msgid ""
+"    doc.root.has_text?                  # => true\n"
+"    REXML::Element.new('foo').has_text? # => false\n"
+msgstr ""
+"    doc.root.has_text?                  # => true\n"
+"    REXML::Element.new('foo').has_text? # => false\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:655
+#, no-wrap
+msgid "  Use method REXML::Element#texts to retrieve a frozen array of text children:\n"
+msgstr "  メソッド REXML::Element#texts を使うと子のテキストの凍結された配列が取得されます。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:657
+#, no-wrap
+msgid ""
+"    my_xml = '<root><a/>text<b/>more<c/></root>'\n"
+"    my_doc = REXML::Document.new(my_xml)\n"
+"    texts = my_doc.root.texts\n"
+"    texts.frozen?            # => true\n"
+"    texts.map {|t| t.class } # => [REXML::Text, REXML::Text]\n"
+"    texts.map {|t| t.to_s }  # => [\"text\", \"more\"]\n"
+msgstr ""
+"    my_xml = '<root><a/>text<b/>more<c/></root>'\n"
+"    my_doc = REXML::Document.new(my_xml)\n"
+"    texts = my_doc.root.texts\n"
+"    texts.frozen?            # => true\n"
+"    texts.map {|t| t.class } # => [REXML::Text, REXML::Text]\n"
+"    texts.map {|t| t.to_s }  # => [\"text\", \"more\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:664
+msgid "[Parenthood]"
+msgstr "[親]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:666
+#, no-wrap
+msgid ""
+"  Use inherited method REXML::Parent.parent? to retrieve whether the element is a parent;\n"
+"  always returns +true+; only REXML::Child#parent returns +false+.\n"
+msgstr ""
+"  継承されたメソッド REXML::Parent.parent? を使うと要素が親かどうかが取得されます。\n"
+"  REXML::Child#parent が+false+を返す他は常に+true+を返します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:669
+#, no-wrap
+msgid "     doc.root.parent? # => true\n"
+msgstr "     doc.root.parent? # => true\n"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:671
+msgid "Element Attributes"
+msgstr "要素の属性"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:673
+msgid ""
+"Use method REXML::Element#has_attributes? to return whether the element has "
+"attributes:"
+msgstr "メソッド REXML::Element#has_attributes? を使うと要素に属性があるかが返ります。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:676
+#, no-wrap
+msgid ""
+"  ele = doc.root           # => <bookstore> ... </>\n"
+"  ele.has_attributes?      # => false\n"
+"  ele = ele.elements.first # => <book category='cooking'> ... </>\n"
+"  ele.has_attributes?      # => true\n"
+msgstr ""
+"  ele = doc.root           # => <bookstore> ... </>\n"
+"  ele.has_attributes?      # => false\n"
+"  ele = ele.elements.first # => <book category='cooking'> ... </>\n"
+"  ele.has_attributes?      # => true\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:681
+msgid ""
+"Use method REXML::Element#attributes to return the hash containing the "
+"attributes for the element.  Each hash key is a string attribute name; each "
+"hash value is an REXML::Attribute object."
+msgstr ""
+"メソッド REXML::Element#attributes を使うとその要素の属性を含むハッシュが返ります。\n"
+"それぞれのハッシュのキーは文字列の属性名です。\n"
+"それぞれのハッシュのバリューは REXML::Attribute オブジェクトです。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:686
+#, no-wrap
+msgid ""
+"  ele = doc.root                  # => <bookstore> ... </>\n"
+"  attrs = ele.attributes          # => {}\n"
+msgstr ""
+"  ele = doc.root                  # => <bookstore> ... </>\n"
+"  attrs = ele.attributes          # => {}\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:689
+#, no-wrap
+msgid ""
+"  ele = ele.elements.first        # => <book category='cooking'> ... </>\n"
+"  attrs = ele.attributes          # => {\"category\"=>category='cooking'}\n"
+"  attrs.size                      # => 1\n"
+"  attr_name = attrs.keys.first    # => \"category\"\n"
+"  attr_name.class                 # => String\n"
+"  attr_value = attrs.values.first # => category='cooking'\n"
+"  attr_value.class                # => REXML::Attribute\n"
+msgstr ""
+"  ele = ele.elements.first        # => <book category='cooking'> ... </>\n"
+"  attrs = ele.attributes          # => {\"category\"=>category='cooking'}\n"
+"  attrs.size                      # => 1\n"
+"  attr_name = attrs.keys.first    # => \"category\"\n"
+"  attr_name.class                 # => String\n"
+"  attr_value = attrs.values.first # => category='cooking'\n"
+"  attr_value.class                # => REXML::Attribute\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:697
+msgid ""
+"Use method REXML::Element#[] to retrieve the string value for a given "
+"attribute, which may be given as either a string or a symbol:"
+msgstr ""
+"メソッド REXML::Element#[] を使うと与えられた属性の文字列値が取得されます。\n"
+"属性は文字列ないしシンボルとして与えることができます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:700
+#, no-wrap
+msgid ""
+"  ele = doc.root.elements.first # => <book category='cooking'> ... </>\n"
+"  attr_value = ele['category']  # => \"cooking\"\n"
+"  attr_value.class              # => String\n"
+"  ele['nosuch']                  # => nil\n"
+msgstr ""
+"  ele = doc.root.elements.first # => <book category='cooking'> ... </>\n"
+"  attr_value = ele['category']  # => \"cooking\"\n"
+"  attr_value.class              # => String\n"
+"  ele['nosuch']                  # => nil\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:705
+msgid ""
+"Use method REXML::Element#attribute to retrieve the value of a named "
+"attribute:"
+msgstr "メソッド REXML::Element#attribute を使うと名前付き属性の値が取得されます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:707
+#, no-wrap
+msgid ""
+"  my_xml = \"<root xmlns:a='a' a:x='a:x' x='x'/>\"\n"
+"  my_doc = REXML::Document.new(my_xml)\n"
+"  my_doc.root.attribute(\"x\")      # => x='x'\n"
+"  my_doc.root.attribute(\"x\", \"a\") # => a:x='a:x'\n"
+msgstr ""
+"  my_xml = \"<root xmlns:a='a' a:x='a:x' x='x'/>\"\n"
+"  my_doc = REXML::Document.new(my_xml)\n"
+"  my_doc.root.attribute(\"x\")      # => x='x'\n"
+"  my_doc.root.attribute(\"x\", \"a\") # => a:x='a:x'\n"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:712
+msgid "Whitespace"
+msgstr "空白"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:714
+msgid ""
+"Use method REXML::Element#ignore_whitespace_nodes to determine whether "
+"whitespace nodes were ignored when the XML was parsed; returns +true+ if so, "
+"+nil+ otherwise."
+msgstr ""
+"メソッド REXML::Element#ignore_whitespace_nodes を使うとXMLが構文解析されるときに空白のノードが無視されるかどうかが決められます。\n"
+"もし無視されるなら+true+を、そうでなければ+nil+を返します。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:718
+msgid ""
+"Use method REXML::Element#whitespace to determine whether whitespace is "
+"respected for the element; returns +true+ if so, +false+ otherwise."
+msgstr ""
+"メソッド REXML::Element#whitespace を使うとその要素で空白が認められているかどうかを見定めます。\n"
+"もし認められているなら+true+を、そうでなければ+false+が返ります。"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:721
+msgid "Namespaces"
+msgstr "名前空間"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:723
+msgid ""
+"Use method REXML::Element#namespace to retrieve the string namespace URI for "
+"the element, which may derive from one of its ancestors:"
+msgstr ""
+"メソッド REXML::Element#namespace を使うとその要素の名前空間URIの文字列が取得されます。\n"
+"この名前空間はその先祖の名前空間から導出されることがあります。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:726
+#, no-wrap
+msgid ""
+"  xml_string = <<-EOT\n"
+"    <root>\n"
+"       <a xmlns='1' xmlns:y='2'>\n"
+"         <b/>\n"
+"         <c xmlns:z='3'/>\n"
+"       </a>\n"
+"    </root>\n"
+"  EOT\n"
+"  d = Document.new(xml_string)\n"
+"  b = d.elements['//b']\n"
+"  b.namespace      # => \"1\"\n"
+"  b.namespace('y') # => \"2\"\n"
+"  b.namespace('nosuch') # => nil\n"
+msgstr ""
+"  xml_string = <<-EOT\n"
+"    <root>\n"
+"       <a xmlns='1' xmlns:y='2'>\n"
+"         <b/>\n"
+"         <c xmlns:z='3'/>\n"
+"       </a>\n"
+"    </root>\n"
+"  EOT\n"
+"  d = Document.new(xml_string)\n"
+"  b = d.elements['//b']\n"
+"  b.namespace      # => \"1\"\n"
+"  b.namespace('y') # => \"2\"\n"
+"  b.namespace('nosuch') # => nil\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:740
+msgid ""
+"Use method REXML::Element#namespaces to retrieve a hash of all defined "
+"namespaces in the element and its ancestors:"
+msgstr "メソッド REXML::Element#namespaces を使うとその要素とその先祖で定義された全ての名前空間のハッシュが取得されます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:743
+#, no-wrap
+msgid ""
+"  xml_string = <<-EOT\n"
+"    <root>\n"
+"       <a xmlns:x='1' xmlns:y='2'>\n"
+"         <b/>\n"
+"         <c xmlns:z='3'/>\n"
+"       </a>\n"
+"    </root>\n"
+"  EOT\n"
+"  d = Document.new(xml_string)\n"
+"  d.elements['//a'].namespaces # => {\"x\"=>\"1\", \"y\"=>\"2\"}\n"
+"  d.elements['//b'].namespaces # => {\"x\"=>\"1\", \"y\"=>\"2\"}\n"
+"  d.elements['//c'].namespaces # => {\"x\"=>\"1\", \"y\"=>\"2\", \"z\"=>\"3\"}\n"
+msgstr ""
+"  xml_string = <<-EOT\n"
+"    <root>\n"
+"       <a xmlns:x='1' xmlns:y='2'>\n"
+"         <b/>\n"
+"         <c xmlns:z='3'/>\n"
+"       </a>\n"
+"    </root>\n"
+"  EOT\n"
+"  d = Document.new(xml_string)\n"
+"  d.elements['//a'].namespaces # => {\"x\"=>\"1\", \"y\"=>\"2\"}\n"
+"  d.elements['//b'].namespaces # => {\"x\"=>\"1\", \"y\"=>\"2\"}\n"
+"  d.elements['//c'].namespaces # => {\"x\"=>\"1\", \"y\"=>\"2\", \"z\"=>\"3\"}\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:756
+msgid ""
+"Use method REXML::Element#prefixes to retrieve an array of the string "
+"prefixes (names)  of all defined namespaces in the element and its ancestors:"
+msgstr "メソッド REXML::Element#prefixes を使うとその要素とその先祖で定義された全ての名前空間の文字列前置詞（名前）の配列が取得されます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:759
+#, no-wrap
+msgid ""
+"  xml_string = <<-EOT\n"
+"    <root>\n"
+"       <a xmlns:x='1' xmlns:y='2'>\n"
+"         <b/>\n"
+"         <c xmlns:z='3'/>\n"
+"       </a>\n"
+"    </root>\n"
+"  EOT\n"
+"  d = Document.new(xml_string, {compress_whitespace: :all})\n"
+"  d.elements['//a'].prefixes # => [\"x\", \"y\"]\n"
+"  d.elements['//b'].prefixes # => [\"x\", \"y\"]\n"
+"  d.elements['//c'].prefixes # => [\"x\", \"y\", \"z\"]\n"
+msgstr ""
+"  xml_string = <<-EOT\n"
+"    <root>\n"
+"       <a xmlns:x='1' xmlns:y='2'>\n"
+"         <b/>\n"
+"         <c xmlns:z='3'/>\n"
+"       </a>\n"
+"    </root>\n"
+"  EOT\n"
+"  d = Document.new(xml_string, {compress_whitespace: :all})\n"
+"  d.elements['//a'].prefixes # => [\"x\", \"y\"]\n"
+"  d.elements['//b'].prefixes # => [\"x\", \"y\"]\n"
+"  d.elements['//c'].prefixes # => [\"x\", \"y\", \"z\"]\n"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:772
+msgid "Traversing"
+msgstr "巡回"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:774
+msgid ""
+"You can use certain methods to traverse children of the element.  Each child "
+"that meets given criteria is yielded to the given block."
+msgstr ""
+"特定のメソッドを使うと要素の子を巡回できます。\n"
+"与えられた条件に合うそれぞれの子は与えられたブロックにyieldされます。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:777
+msgid "[Traverse All Children]"
+msgstr "[全ての子を巡回する]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:779
+#, no-wrap
+msgid ""
+"  Use inherited method REXML::Parent#each (or its alias #each_child) to traverse\n"
+"  all children of the element:\n"
+msgstr "  継承されたメソッド REXML::Parent#each （またはその別称である #each_child ）を使うとその要素の全ての子を巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:782
+#, no-wrap
+msgid "    doc.root.each {|child| p [child.class, child] }\n"
+msgstr "    doc.root.each {|child| p [child.class, child] }\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:796
+msgid "[Traverse Element Children]"
+msgstr "[要素な子を巡回する]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:798
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#each_element to traverse only the element children\n"
+"  of the element:\n"
+msgstr "  メソッド REXML::Element#each_element を使うとその要素の要素な子のみを巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:801
+#, no-wrap
+msgid "    doc.root.each_element {|e| p [e.class, e] }\n"
+msgstr "    doc.root.each_element {|e| p [e.class, e] }\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:810
+msgid "[Traverse Element Children with Attribute]"
+msgstr "[要素な子を属性付きで巡回する]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:812
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#each_element_with_attribute with the single argument\n"
+"  +attr_name+ to traverse each element child that has the given attribute:\n"
+msgstr "  メソッド REXML::Element#each_element_with_attribute を単一の引数+attr_name+を使うと、与えられた属性を持つ要素な子を順に巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:815
+#, no-wrap
+msgid ""
+"    my_doc = Document.new '<a><b id=\"1\"/><c id=\"2\"/><d id=\"1\"/><e/></a>'\n"
+"    my_doc.root.each_element_with_attribute('id') {|e| p [e.class, e] }\n"
+msgstr ""
+"    my_doc = Document.new '<a><b id=\"1\"/><c id=\"2\"/><d id=\"1\"/><e/></a>'\n"
+"    my_doc.root.each_element_with_attribute('id') {|e| p [e.class, e] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:820
+#, no-wrap
+msgid ""
+"    [REXML::Element, <b id='1'/>]\n"
+"    [REXML::Element, <c id='2'/>]\n"
+"    [REXML::Element, <d id='1'/>]\n"
+msgstr ""
+"    [REXML::Element, <b id='1'/>]\n"
+"    [REXML::Element, <c id='2'/>]\n"
+"    [REXML::Element, <d id='1'/>]\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:824
+#, no-wrap
+msgid ""
+"  Use the same method with a second argument +value+ to traverse\n"
+"  each element child element that has the given attribute and value:\n"
+msgstr "  2つ目の引数+value+付きで同じメソッドを使うと与えられた属性とバリューを持つ要素の子要素を順に巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:827
+#, no-wrap
+msgid "    my_doc.root.each_element_with_attribute('id', '1') {|e| p [e.class, e] }\n"
+msgstr "    my_doc.root.each_element_with_attribute('id', '1') {|e| p [e.class, e] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:831
+#, no-wrap
+msgid ""
+"    [REXML::Element, <b id='1'/>]\n"
+"    [REXML::Element, <d id='1'/>]\n"
+msgstr ""
+"    [REXML::Element, <b id='1'/>]\n"
+"    [REXML::Element, <d id='1'/>]\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:834
+#, no-wrap
+msgid ""
+"  Use the same method with a third argument +max+ to traverse\n"
+"  no more than the given number of element children:\n"
+msgstr "  3つ目の引数+max+付きで同じメソッドを使うと、与えられた数を越えない分の要素な子を巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:837
+#, no-wrap
+msgid "    my_doc.root.each_element_with_attribute('id', '1', 1) {|e| p [e.class, e] }\n"
+msgstr "    my_doc.root.each_element_with_attribute('id', '1', 1) {|e| p [e.class, e] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:841
+#, no-wrap
+msgid "    [REXML::Element, <b id='1'/>]\n"
+msgstr "    [REXML::Element, <b id='1'/>]\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:843
+#, no-wrap
+msgid ""
+"  Use the same method with a fourth argument +xpath+ to traverse\n"
+"  only those element children that match the given xpath:\n"
+msgstr "  4つ目の引数+xpath+付きで同じメソッドを使うと与えられたxpathに照合する要素な子のみを巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:846
+#, no-wrap
+msgid "    my_doc.root.each_element_with_attribute('id', '1', 2, '//d') {|e| p [e.class, e] }\n"
+msgstr "    my_doc.root.each_element_with_attribute('id', '1', 2, '//d') {|e| p [e.class, e] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:850
+#, no-wrap
+msgid "    [REXML::Element, <d id='1'/>]\n"
+msgstr "    [REXML::Element, <d id='1'/>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:852
+msgid "[Traverse Element Children with Text]"
+msgstr "[テキスト付きの要素な子を巡回する]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:854
+#, no-wrap
+msgid ""
+"  Use method REXML::Element#each_element_with_text with no arguments\n"
+"  to traverse those element children that have text:\n"
+msgstr "  引数なしでメソッド REXML::Element#each_element_with_text を使うとテキストを持つ要素な子を巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:857
+#, no-wrap
+msgid ""
+"    my_doc = Document.new '<a><b>b</b><c>b</c><d>d</d><e/></a>'\n"
+"    my_doc.root.each_element_with_text {|e| p [e.class, e] }\n"
+msgstr ""
+"    my_doc = Document.new '<a><b>b</b><c>b</c><d>d</d><e/></a>'\n"
+"    my_doc.root.each_element_with_text {|e| p [e.class, e] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:862
+#, no-wrap
+msgid ""
+"    [REXML::Element, <b> ... </>]\n"
+"    [REXML::Element, <c> ... </>]\n"
+"    [REXML::Element, <d> ... </>]\n"
+msgstr ""
+"    [REXML::Element, <b> ... </>]\n"
+"    [REXML::Element, <c> ... </>]\n"
+"    [REXML::Element, <d> ... </>]\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:866
+#, no-wrap
+msgid ""
+"  Use the same method with the single argument +text+ to traverse\n"
+"  those element children that have exactly that text:\n"
+msgstr "  単一の引数+text+で同じメソッドを使うと厳密にそのテキストを持つ要素な子を巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:869
+#, no-wrap
+msgid "    my_doc.root.each_element_with_text('b') {|e| p [e.class, e] }\n"
+msgstr "    my_doc.root.each_element_with_text('b') {|e| p [e.class, e] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:873
+#, no-wrap
+msgid ""
+"    [REXML::Element, <b> ... </>]\n"
+"    [REXML::Element, <c> ... </>]\n"
+msgstr ""
+"    [REXML::Element, <b> ... </>]\n"
+"    [REXML::Element, <c> ... </>]\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:876
+#, no-wrap
+msgid ""
+"  Use the same method with additional second argument +max+ to traverse\n"
+"  no more than the given number of element children:\n"
+msgstr "  さらに2つ目の引数+max+付きで同じメソッドを使うと与えられた数を越えない要素な子を巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:879
+#, no-wrap
+msgid "    my_doc.root.each_element_with_text('b', 1) {|e| p [e.class, e] }\n"
+msgstr "    my_doc.root.each_element_with_text('b', 1) {|e| p [e.class, e] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:883
+#, no-wrap
+msgid "    [REXML::Element, <b> ... </>]\n"
+msgstr "    [REXML::Element, <b> ... </>]\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:885
+#, no-wrap
+msgid ""
+"  Use the same method with additional third argument +xpath+ to traverse\n"
+"  only those element children that also match the given xpath:\n"
+msgstr "  さらに3つ目の引数+xpath+付きで同じメソッドを使うと、与えられたxpathにも照合する要素な子のみを巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:888
+#, no-wrap
+msgid "    my_doc.root.each_element_with_text('b', 2, '//c') {|e| p [e.class, e] }\n"
+msgstr "    my_doc.root.each_element_with_text('b', 2, '//c') {|e| p [e.class, e] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:892
+#, no-wrap
+msgid "    [REXML::Element, <c> ... </>]\n"
+msgstr "    [REXML::Element, <c> ... </>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:894
+msgid "[Traverse Element Children's Indexes]"
+msgstr "[要素な子のインデックスを巡回する]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:896
+#, no-wrap
+msgid ""
+"  Use inherited method REXML::Parent#each_index to traverse all children's indexes\n"
+"  (not just those of element children):\n"
+msgstr "  継承されたメソッド REXML::Parent#each_index を使うと（要素の子のものだけではなく）全ての要素のインデックスを巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:899
+#, no-wrap
+msgid "    doc.root.each_index {|i| print i }\n"
+msgstr "    doc.root.each_index {|i| print i }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:903
+#, no-wrap
+msgid "    012345678\n"
+msgstr "    012345678\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:905
+msgid "[Traverse Children Recursively]"
+msgstr "[子を再帰的に巡回する]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:907
+#, no-wrap
+msgid "  Use included method REXML::Node#each_recursive to traverse all children recursively:\n"
+msgstr "  インクルードされたメソッド REXML::Node#each_recursive を使うと全ての子を再帰的に巡回します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:909
+#, no-wrap
+msgid "    doc.root.each_recursive {|child| p [child.class, child] }\n"
+msgstr "    doc.root.each_recursive {|child| p [child.class, child] }\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:913
+#, no-wrap
+msgid ""
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+"    [REXML::Element, <title lang='en'> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <year> ... </>]\n"
+"    [REXML::Element, <price> ... </>]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Element, <title lang='en'> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <year> ... </>]\n"
+"    [REXML::Element, <price> ... </>]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Element, <title lang='en'> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <year> ... </>]\n"
+"    [REXML::Element, <price> ... </>]\n"
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"    [REXML::Element, <title lang='en'> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <year> ... </>]\n"
+"    [REXML::Element, <price> ... </>]\n"
+msgstr ""
+"    [REXML::Element, <book category='cooking'> ... </>]\n"
+"    [REXML::Element, <title lang='en'> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <year> ... </>]\n"
+"    [REXML::Element, <price> ... </>]\n"
+"    [REXML::Element, <book category='children'> ... </>]\n"
+"    [REXML::Element, <title lang='en'> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <year> ... </>]\n"
+"    [REXML::Element, <price> ... </>]\n"
+"    [REXML::Element, <book category='web'> ... </>]\n"
+"    [REXML::Element, <title lang='en'> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <year> ... </>]\n"
+"    [REXML::Element, <price> ... </>]\n"
+"    [REXML::Element, <book category='web' cover='paperback'> ... </>]\n"
+"    [REXML::Element, <title lang='en'> ... </>]\n"
+"    [REXML::Element, <author> ... </>]\n"
+"    [REXML::Element, <year> ... </>]\n"
+"    [REXML::Element, <price> ... </>]\n"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:938
+msgid "Searching"
+msgstr "検索"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:940
+msgid ""
+"You can use certain methods to search among the descendants of an element."
+msgstr "要素の子孫から検索するメソッドがあり、使えます。"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:942
+msgid ""
+"Use method REXML::Element#get_elements to retrieve all element children of "
+"the element that match the given +xpath+:"
+msgstr "メソッド REXML::Element#get_elements を使い、与えられた+xpath+に照合する要素の全ての要素な子を取得できます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:945
+#, no-wrap
+msgid ""
+"  xml_string = <<-EOT\n"
+"  <root>\n"
+"    <a level='1'>\n"
+"      <a level='2'/>\n"
+"    </a>\n"
+"  </root>\n"
+"  EOT\n"
+"  d = Document.new(xml_string)\n"
+"  d.root.get_elements('//a') # => [<a level='1'> ... </>, <a level='2'/>]\n"
+msgstr ""
+"  xml_string = <<-EOT\n"
+"  <root>\n"
+"    <a level='1'>\n"
+"      <a level='2'/>\n"
+"    </a>\n"
+"  </root>\n"
+"  EOT\n"
+"  d = Document.new(xml_string)\n"
+"  d.root.get_elements('//a') # => [<a level='1'> ... </>, <a level='2'/>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:955
+msgid ""
+"Use method REXML::Element#get_text with no argument to retrieve the first "
+"text node in the first child:"
+msgstr "引数なしでメソッド  REXML::Element#get_text を使うと、最初の子の最初のテキストノードを取得します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:958
+#, no-wrap
+msgid ""
+"  my_doc = Document.new \"<p>some text <b>this is bold!</b> more text</p>\"\n"
+"  text_node = my_doc.root.get_text\n"
+"  text_node.class # => REXML::Text\n"
+"  text_node.to_s  # => \"some text \"\n"
+msgstr ""
+"  my_doc = Document.new \"<p>some text <b>this is bold!</b> more text</p>\"\n"
+"  text_node = my_doc.root.get_text\n"
+"  text_node.class # => REXML::Text\n"
+"  text_node.to_s  # => \"some text \"\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:963
+msgid ""
+"Use the same method with argument +xpath+ to retrieve the first text node in "
+"the first child that matches the xpath:"
+msgstr "同じメソッドを引数+xpath+付きで使うと、xpathに照合する最初の子にある最初のテキストを取得します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:966
+#, no-wrap
+msgid "  my_doc.root.get_text(1) # => \"this is bold!\"\n"
+msgstr "  my_doc.root.get_text(1) # => \"this is bold!\"\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:968
+msgid ""
+"Use method REXML::Element#text with no argument to retrieve the text from "
+"the first text node in the first child:"
+msgstr "メソッド REXML::Element#text を引数なしで使うと、最初の子の最初のテキストノードからテキストを取得します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:971
+#, no-wrap
+msgid ""
+"  my_doc = Document.new \"<p>some text <b>this is bold!</b> more text</p>\"\n"
+"  text_node = my_doc.root.text\n"
+"  text_node.class # => String\n"
+"  text_node       # => \"some text \"\n"
+msgstr ""
+"  my_doc = Document.new \"<p>some text <b>this is bold!</b> more text</p>\"\n"
+"  text_node = my_doc.root.text\n"
+"  text_node.class # => String\n"
+"  text_node       # => \"some text \"\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:976
+msgid ""
+"Use the same method with argument +xpath+ to retrieve the text from the "
+"first text node in the first child that matches the xpath:"
+msgstr "同じメソッドを引数+xpath+付きで使うと、xpathに照合する最初の子の最初のテキストノードからテキストを取得します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:979
+#, no-wrap
+msgid "  my_doc.root.text(1) # => \"this is bold!\"\n"
+msgstr "  my_doc.root.text(1) # => \"this is bold!\"\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:981
+msgid ""
+"Use included method REXML::Node#find_first_recursive to retrieve the first "
+"descendant element for which the given block returns a truthy value, or +nil"
+"+ if none:"
+msgstr ""
+"インクルードされたメソッド REXML::Node#find_first_recursive を使うと、与えられたブロックが真値を返すようなものがあれば最初の子孫の要素を取得します。\n"
+"もし何も無ければ+nil+を返します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:985
+#, no-wrap
+msgid ""
+"  doc.root.find_first_recursive do |ele|\n"
+"    ele.name == 'price'\n"
+"  end # => <price> ... </>\n"
+"  doc.root.find_first_recursive do |ele|\n"
+"    ele.name == 'nosuch'\n"
+"  end # => nil\n"
+msgstr ""
+"  doc.root.find_first_recursive do |ele|\n"
+"    ele.name == 'price'\n"
+"  end # => <price> ... </>\n"
+"  doc.root.find_first_recursive do |ele|\n"
+"    ele.name == 'nosuch'\n"
+"  end # => nil\n"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:992
+msgid "Editing"
+msgstr "編集"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:994
+msgid "Editing a Document"
+msgstr "文書を編集する"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:996
+msgid "[Creating a Document]"
+msgstr "[文書を作成する]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:998
+#, no-wrap
+msgid "  Create a new document with method REXML::Document::new:\n"
+msgstr "  REXML::Document::new メソッドで新しい文書を作成します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1000
+#, no-wrap
+msgid ""
+"    doc = Document.new(source_string)\n"
+"    empty_doc = REXML::Document.new\n"
+msgstr ""
+"    doc = Document.new(source_string)\n"
+"    empty_doc = REXML::Document.new\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1003
+msgid "[Adding to the Document]"
+msgstr "[文書に追加する]"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1005
+#, no-wrap
+msgid ""
+"  Add an XML declaration with method REXML::Document#add\n"
+"  and an argument of type REXML::XMLDecl:\n"
+msgstr "  メソッド REXML::Document#add と型が REXML::XMLDecl の引数でXML宣言を追加します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1008
+#, no-wrap
+msgid ""
+"    my_doc = Document.new\n"
+"    my_doc.xml_decl.to_s # => \"\"\n"
+"    my_doc.add(XMLDecl.new('2.0'))\n"
+"    my_doc.xml_decl.to_s # => \"<?xml version='2.0'?>\"\n"
+msgstr ""
+"    my_doc = Document.new\n"
+"    my_doc.xml_decl.to_s # => \"\"\n"
+"    my_doc.add(XMLDecl.new('2.0'))\n"
+"    my_doc.xml_decl.to_s # => \"<?xml version='2.0'?>\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1013
+#, no-wrap
+msgid ""
+"  Add a document type with method REXML::Document#add\n"
+"  and an argument of type REXML::DocType:\n"
+msgstr "  メソッド REXML::Document#add と型が REXML::DocType の引数で文書種別を追加します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1016
+#, no-wrap
+msgid ""
+"    my_doc = Document.new\n"
+"    my_doc.doctype.to_s # => \"\"\n"
+"    my_doc.add(DocType.new('foo'))\n"
+"    my_doc.doctype.to_s # => \"<!DOCTYPE foo>\"\n"
+msgstr ""
+"    my_doc = Document.new\n"
+"    my_doc.doctype.to_s # => \"\"\n"
+"    my_doc.add(DocType.new('foo'))\n"
+"    my_doc.doctype.to_s # => \"<!DOCTYPE foo>\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1021
+#, no-wrap
+msgid ""
+"  Add a node of any other REXML type with method REXML::Document#add and an argument\n"
+"  that is not of type REXML::XMLDecl or REXML::DocType:\n"
+msgstr "  REXML::Document#add と型が REXML::XMLDecl でも REXML::DocType でもない引数でその他のREXMLの型のノードを追加します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1024
+#, no-wrap
+msgid ""
+"    my_doc = Document.new\n"
+"    my_doc.add(Element.new('foo'))\n"
+"    my_doc.to_s # => \"<foo/>\"\n"
+msgstr ""
+"    my_doc = Document.new\n"
+"    my_doc.add(Element.new('foo'))\n"
+"    my_doc.to_s # => \"<foo/>\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1028
+#, no-wrap
+msgid "  Add an existing element as the root element with method REXML::Document#add_element:\n"
+msgstr "  メソッド REXML::Document#add_element で既存の要素をルート要素として追加します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1030
+#, no-wrap
+msgid ""
+"    ele = Element.new('foo')\n"
+"    my_doc = Document.new\n"
+"    my_doc.add_element(ele)\n"
+"    my_doc.root # => <foo/>\n"
+msgstr ""
+"    ele = Element.new('foo')\n"
+"    my_doc = Document.new\n"
+"    my_doc.add_element(ele)\n"
+"    my_doc.root # => <foo/>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1035
+#, no-wrap
+msgid "  Create and add an element as the root element with method REXML::Document#add_element:\n"
+msgstr "  メソッド REXML::Document#add_element で要素をルート要素として作成し追加します。\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1037
+#, no-wrap
+msgid ""
+"    my_doc = Document.new\n"
+"    my_doc.add_element('foo')\n"
+"    my_doc.root # => <foo/>\n"
+msgstr ""
+"    my_doc = Document.new\n"
+"    my_doc.add_element('foo')\n"
+"    my_doc.root # => <foo/>\n"
+
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:1041
+msgid "Editing an Element"
+msgstr "要素を編集する"
+
+#. type: Headline ====
+#: ../doc/rexml/tutorial.rdoc:1043
+msgid "Creating an Element"
+msgstr "要素を作成する"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1045
+msgid "Create a new element with method REXML::Element::new:"
+msgstr "メソッド REXML::Element::new で新しい要素を作成します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1047
+#, no-wrap
+msgid "  ele = Element.new('foo') # => <foo/>\n"
+msgstr "  ele = Element.new('foo') # => <foo/>\n"
+
+# ここでのpropertyはattributeではないので属性とは訳せません
+#. type: Headline ====
+#: ../doc/rexml/tutorial.rdoc:1049
+msgid "Setting Element Properties"
+msgstr "要素のプロパティを設定する"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1051
+msgid ""
+"Set the context for an element with method REXML::Element#context= (see "
+"{Element Context}[../context_rdoc.html]):"
+msgstr "メソッド REXML::Element#context= で要素に文脈を設定します（{要素の文脈}[../context_rdoc.html]を参照）。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1054
+#, no-wrap
+msgid ""
+"  ele.context # => nil\n"
+"  ele.context = {ignore_whitespace_nodes: :all}\n"
+"  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+msgstr ""
+"  ele.context # => nil\n"
+"  ele.context = {ignore_whitespace_nodes: :all}\n"
+"  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1058
+msgid ""
+"Set the parent for an element with inherited method REXML::Child#parent="
+msgstr "継承されたメソッド REXML::Child#parent= で要素の親を設定します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1060
+#, no-wrap
+msgid ""
+"  ele.parent # => nil\n"
+"  ele.parent = Element.new('bar')\n"
+"  ele.parent # => <bar/>\n"
+msgstr ""
+"  ele.parent # => nil\n"
+"  ele.parent = Element.new('bar')\n"
+"  ele.parent # => <bar/>\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1064
+msgid "Set the text for an element with method REXML::Element#text=:"
+msgstr "メソッド REXML::Element#text= で要素にテキストを設定します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1066
+#, no-wrap
+msgid ""
+"  ele.text # => nil\n"
+"  ele.text = 'bar'\n"
+"  ele.text # => \"bar\"\n"
+msgstr ""
+"  ele.text # => nil\n"
+"  ele.text = 'bar'\n"
+"  ele.text # => \"bar\"\n"
+
+#. type: Headline ====
+#: ../doc/rexml/tutorial.rdoc:1070
+msgid "Adding to an Element"
+msgstr "要素に追加する"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1072
+msgid ""
+"Add a node as the last child with inherited method REXML::Parent#add (or its "
+"alias #push):"
+msgstr "継承されたメソッド REXML::Parent#add （または別称の #push ）で最後の子としてノードを追加します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1074
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.push(Text.new('bar'))\n"
+"  ele.push(Element.new('baz'))\n"
+"  ele.children # => [\"bar\", <baz/>]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.push(Text.new('bar'))\n"
+"  ele.push(Element.new('baz'))\n"
+"  ele.children # => [\"bar\", <baz/>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1079
+msgid ""
+"Add a node as the first child with inherited method REXML::Parent#unshift:"
+msgstr "継承されたメソッド REXML::Parent#unshift で最初の子としてノードを追加します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1081
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.unshift(Element.new('bar'))\n"
+"  ele.unshift(Text.new('baz'))\n"
+"  ele.children # => [\"bar\", <baz/>]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.unshift(Element.new('bar'))\n"
+"  ele.unshift(Text.new('baz'))\n"
+"  ele.children # => [\"bar\", <baz/>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1086
+msgid ""
+"Add an element as the last child with method REXML::Element#add_element:"
+msgstr "メソッド REXML::Element#add_element で最後の子として要素を追加します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1088
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_element(Element.new('baz'))\n"
+"  ele.children # => [<bar/>, <baz/>]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_element(Element.new('baz'))\n"
+"  ele.children # => [<bar/>, <baz/>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1093
+msgid "Add a text node as the last child with method REXML::Element#add_text:"
+msgstr "メソッド REXML::Element#add_text で最後の子としてテキストノードを追加します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1095
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_text('bar')\n"
+"  ele.add_text(Text.new('baz'))\n"
+"  ele.children # => [\"bar\", \"baz\"]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_text('bar')\n"
+"  ele.add_text(Text.new('baz'))\n"
+"  ele.children # => [\"bar\", \"baz\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1100
+msgid ""
+"Insert a node before a given node with method REXML::Parent#insert_before:"
+msgstr "メソッド REXML::Parent#insert_before で与えられたノードの前にノードを挿入します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1102
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_text('bar')\n"
+"  ele.add_text(Text.new('baz'))\n"
+"  ele.children    # => [\"bar\", \"baz\"]\n"
+"  target = ele[1] # => \"baz\"\n"
+"  ele.insert_before(target, Text.new('bat'))\n"
+"  ele.children    # => [\"bar\", \"bat\", \"baz\"]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_text('bar')\n"
+"  ele.add_text(Text.new('baz'))\n"
+"  ele.children    # => [\"bar\", \"baz\"]\n"
+"  target = ele[1] # => \"baz\"\n"
+"  ele.insert_before(target, Text.new('bat'))\n"
+"  ele.children    # => [\"bar\", \"bat\", \"baz\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1110
+msgid ""
+"Insert a node after a given node with method REXML::Parent#insert_after:"
+msgstr "メソッド REXML::Parent#insert_after で与えられたノードの後にノードを挿入します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1112
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_text('bar')\n"
+"  ele.add_text(Text.new('baz'))\n"
+"  ele.children    # => [\"bar\", \"baz\"]\n"
+"  target = ele[0] # => \"bar\"\n"
+"  ele.insert_after(target, Text.new('bat'))\n"
+"  ele.children    # => [\"bar\", \"bat\", \"baz\"]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_text('bar')\n"
+"  ele.add_text(Text.new('baz'))\n"
+"  ele.children    # => [\"bar\", \"baz\"]\n"
+"  target = ele[0] # => \"bar\"\n"
+"  ele.insert_after(target, Text.new('bat'))\n"
+"  ele.children    # => [\"bar\", \"bat\", \"baz\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1120
+msgid "Add an attribute with method REXML::Element#add_attribute:"
+msgstr "メソッド REXML::Element#add_attribute で属性を追加します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1122
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_attribute('bar', 'baz')\n"
+"  ele.add_attribute(Attribute.new('bat', 'bam'))\n"
+"  ele.attributes # => {\"bar\"=>bar='baz', \"bat\"=>bat='bam'}\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_attribute('bar', 'baz')\n"
+"  ele.add_attribute(Attribute.new('bat', 'bam'))\n"
+"  ele.attributes # => {\"bar\"=>bar='baz', \"bat\"=>bat='bam'}\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1127
+msgid "Add multiple attributes with method REXML::Element#add_attributes:"
+msgstr "メソッド REXML::Element#add_attributes で複数の属性を追加します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1129
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_attributes({'bar' => 'baz', 'bat' => 'bam'})\n"
+"  ele.add_attributes([['ban', 'bap'], ['bah', 'bad']])\n"
+"  ele.attributes # => {\"bar\"=>bar='baz', \"bat\"=>bat='bam', \"ban\"=>ban='bap', \"bah\"=>bah='bad'}\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_attributes({'bar' => 'baz', 'bat' => 'bam'})\n"
+"  ele.add_attributes([['ban', 'bap'], ['bah', 'bad']])\n"
+"  ele.attributes # => {\"bar\"=>bar='baz', \"bat\"=>bat='bam', \"ban\"=>ban='bap', \"bah\"=>bah='bad'}\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1134
+msgid "Add a namespace with method REXML::Element#add_namespace:"
+msgstr "メソッド REXML::Element#add_namespace で名前空間を追加します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1136
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_namespace('bar')\n"
+"  ele.add_namespace('baz', 'bat')\n"
+"  ele.namespaces # => {\"xmlns\"=>\"bar\", \"baz\"=>\"bat\"}\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_namespace('bar')\n"
+"  ele.add_namespace('baz', 'bat')\n"
+"  ele.namespaces # => {\"xmlns\"=>\"bar\", \"baz\"=>\"bat\"}\n"
+
+#. type: Headline ====
+#: ../doc/rexml/tutorial.rdoc:1141
+msgid "Deleting from an Element"
+msgstr "要素から削除する"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1143
+msgid ""
+"Delete a specific child object with inherited method REXML::Parent#delete:"
+msgstr "継承されたメソッド REXML::Parent#delete で特定の子オブジェクトを削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1145
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.children             # => [<bar/>, \"baz\"]\n"
+"  target = ele[1]          # => \"baz\"\n"
+"  ele.delete(target)       # => \"baz\"\n"
+"  ele.children             # => [<bar/>]\n"
+"  target = ele[0]          # => <baz/>\n"
+"  ele.delete(target)       # => <baz/>\n"
+"  ele.children             # => []\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.children             # => [<bar/>, \"baz\"]\n"
+"  target = ele[1]          # => \"baz\"\n"
+"  ele.delete(target)       # => \"baz\"\n"
+"  ele.children             # => [<bar/>]\n"
+"  target = ele[0]          # => <baz/>\n"
+"  ele.delete(target)       # => <baz/>\n"
+"  ele.children             # => []\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1156
+msgid ""
+"Delete a child at a specific index with inherited method REXML::"
+"Parent#delete_at:"
+msgstr "継承されたメソッド REXML::Parent#delete_at で特定のインデックスにある子を削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1158
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.children             # => [<bar/>, \"baz\"]\n"
+"  ele.delete_at(1)\n"
+"  ele.children             # => [<bar/>]\n"
+"  ele.delete_at(0)\n"
+"  ele.children             # => []\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.children             # => [<bar/>, \"baz\"]\n"
+"  ele.delete_at(1)\n"
+"  ele.children             # => [<bar/>]\n"
+"  ele.delete_at(0)\n"
+"  ele.children             # => []\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1167
+msgid ""
+"Delete all children meeting a specified criterion with inherited method "
+"REXML::Parent#delete_if:"
+msgstr "継承されたメソッド REXML::Parent#delete_if で特定の条件に合う全ての子を削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1170
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  ele.delete_if {|child| child.instance_of?(Text) }\n"
+"  ele.children # => [<bar/>, <bat/>]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  ele.delete_if {|child| child.instance_of?(Text) }\n"
+"  ele.children # => [<bar/>, <bat/>]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1179
+msgid ""
+"Delete an element at a specific 1-based index with method REXML::"
+"Element#delete_element:"
+msgstr "メソッド REXML::Element#delete_element で1起点で指定されたインデックスにある要素を削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1181
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  ele.delete_element(2)    # => <bat/>\n"
+"  ele.children             # => [<bar/>, \"baz\", \"bam\"]\n"
+"  ele.delete_element(1)    # => <bar/>\n"
+"  ele.children             # => [\"baz\", \"bam\"]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  ele.delete_element(2)    # => <bat/>\n"
+"  ele.children             # => [<bar/>, \"baz\", \"bam\"]\n"
+"  ele.delete_element(1)    # => <bar/>\n"
+"  ele.children             # => [\"baz\", \"bam\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1192
+msgid "Delete a specific element with the same method:"
+msgstr "同じメソッドで指定された要素を削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1194
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo')   # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children               # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  target = ele.elements[2]   # => <bat/>\n"
+"  ele.delete_element(target) # => <bat/>\n"
+"  ele.children               # => [<bar/>, \"baz\", \"bam\"]\n"
+msgstr ""
+"  ele = Element.new('foo')   # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children               # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  target = ele.elements[2]   # => <bat/>\n"
+"  ele.delete_element(target) # => <bat/>\n"
+"  ele.children               # => [<bar/>, \"baz\", \"bam\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1204
+msgid "Delete an element matching an xpath using the same method:"
+msgstr "同じメソッドを使ってxpathに照合する要素を削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1206
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo')    # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children                # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  ele.delete_element('./bat') # => <bat/>\n"
+"  ele.children                # => [<bar/>, \"baz\", \"bam\"]\n"
+"  ele.delete_element('./bar') # => <bar/>\n"
+"  ele.children                # => [\"baz\", \"bam\"]\n"
+msgstr ""
+"  ele = Element.new('foo')    # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children                # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  ele.delete_element('./bat') # => <bat/>\n"
+"  ele.children                # => [<bar/>, \"baz\", \"bam\"]\n"
+"  ele.delete_element('./bar') # => <bar/>\n"
+"  ele.children                # => [\"baz\", \"bam\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1217
+msgid ""
+"Delete an attribute by name with method REXML::Element#delete_attribute:"
+msgstr "メソッド REXML::Element#delete_attribute で名前により属性を削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1219
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_attributes({'bar' => 'baz', 'bam' => 'bat'})\n"
+"  ele.attributes           # => {\"bar\"=>bar='baz', \"bam\"=>bam='bat'}\n"
+"  ele.delete_attribute('bam')\n"
+"  ele.attributes           # => {\"bar\"=>bar='baz'}\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_attributes({'bar' => 'baz', 'bam' => 'bat'})\n"
+"  ele.attributes           # => {\"bar\"=>bar='baz', \"bam\"=>bam='bat'}\n"
+"  ele.delete_attribute('bam')\n"
+"  ele.attributes           # => {\"bar\"=>bar='baz'}\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1225
+msgid "Delete a namespace with method REXML::delete_namespace:"
+msgstr "メソッド REXML::delete_namespace で名前空間を削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1227
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_namespace('bar')\n"
+"  ele.add_namespace('baz', 'bat')\n"
+"  ele.namespaces           # => {\"xmlns\"=>\"bar\", \"baz\"=>\"bat\"}\n"
+"  ele.delete_namespace('xmlns')\n"
+"  ele.namespaces           # => {} # => {\"baz\"=>\"bat\"}\n"
+"  ele.delete_namespace('baz')\n"
+"  ele.namespaces # => {}   # => {}\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_namespace('bar')\n"
+"  ele.add_namespace('baz', 'bat')\n"
+"  ele.namespaces           # => {\"xmlns\"=>\"bar\", \"baz\"=>\"bat\"}\n"
+"  ele.delete_namespace('xmlns')\n"
+"  ele.namespaces           # => {} # => {\"baz\"=>\"bat\"}\n"
+"  ele.delete_namespace('baz')\n"
+"  ele.namespaces # => {}   # => {}\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1236
+msgid ""
+"Remove an element from its parent with inherited method REXML::Child#remove:"
+msgstr "継承されたメソッド REXML::Child#remove で親から要素を削除します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1238
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo')    # => <foo/>\n"
+"  parent = Element.new('bar') # => <bar/>\n"
+"  parent.add_element(ele)     # => <foo/>\n"
+"  parent.children.size        # => 1\n"
+"  ele.remove                  # => <foo/>\n"
+"  parent.children.size        # => 0\n"
+msgstr ""
+"  ele = Element.new('foo')    # => <foo/>\n"
+"  parent = Element.new('bar') # => <bar/>\n"
+"  parent.add_element(ele)     # => <foo/>\n"
+"  parent.children.size        # => 1\n"
+"  ele.remove                  # => <foo/>\n"
+"  parent.children.size        # => 0\n"
+
+#. type: Headline ====
+#: ../doc/rexml/tutorial.rdoc:1245
+msgid "Replacing Nodes"
+msgstr "ノードを入れ替える"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1247
+msgid ""
+"Replace the node at a given 0-based index with inherited method REXML::"
+"Parent#[]=:"
+msgstr "継承されたメソッド REXML::Parent#[]= で、与えられた0起点のインデックスにあるノードを入れ替えます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1249
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  ele[2] = Text.new('bad') # => \"bad\"\n"
+"  ele.children             # => [<bar/>, \"baz\", \"bad\", \"bam\"]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  ele[2] = Text.new('bad') # => \"bad\"\n"
+"  ele.children             # => [<bar/>, \"baz\", \"bad\", \"bam\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1258
+msgid ""
+"Replace a given node with another node with inherited method REXML::"
+"Parent#replace_child:"
+msgstr "継承されたメソッド REXML::Parent#replace_child で、与えられたノードを他のノードで入れ替えます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1260
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  target = ele[2]          # => <bat/>\n"
+"  ele.replace_child(target, Text.new('bah'))\n"
+"  ele.children             # => [<bar/>, \"baz\", \"bah\", \"bam\"]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  target = ele[2]          # => <bat/>\n"
+"  ele.replace_child(target, Text.new('bah'))\n"
+"  ele.children             # => [<bar/>, \"baz\", \"bah\", \"bam\"]\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1270
+msgid ""
+"Replace +self+ with a given node with inherited method REXML::"
+"Child#replace_with:"
+msgstr "継承されたメソッド REXML::Child#replace_with で与えられたノードで +self+ を入れ替えます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1272
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  target = ele[2]          # => <bat/>\n"
+"  target.replace_with(Text.new('bah'))\n"
+"  ele.children             # => [<bar/>, \"baz\", \"bah\", \"bam\"]\n"
+msgstr ""
+"  ele = Element.new('foo') # => <foo/>\n"
+"  ele.add_element('bar')\n"
+"  ele.add_text('baz')\n"
+"  ele.add_element('bat')\n"
+"  ele.add_text('bam')\n"
+"  ele.children             # => [<bar/>, \"baz\", <bat/>, \"bam\"]\n"
+"  target = ele[2]          # => <bat/>\n"
+"  target.replace_with(Text.new('bah'))\n"
+"  ele.children             # => [<bar/>, \"baz\", \"bah\", \"bam\"]\n"
+
+# 以降、複製とは訳しません。
+# コピーとクローンの使い分けがされている可能性があるからです。
+#. type: Headline ===
+#: ../doc/rexml/tutorial.rdoc:1282
+msgid "Cloning"
+msgstr "クローン"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1284
+msgid ""
+"Create a shallow clone of an element with method REXML::Element#clone.  The "
+"clone contains the name and attributes, but not the parent or children:"
+msgstr ""
+"メソッド REXML::Element#clone で浅いクローンを作成します。\n"
+"クローンには名前と属性が含まれますが、親と子は含まれません。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1287
+#, no-wrap
+msgid ""
+"  ele = Element.new('foo')\n"
+"  ele.add_attributes({'bar' => 0, 'baz' => 1})\n"
+"  ele.clone # => <foo bar='0' baz='1'/>\n"
+msgstr ""
+"  ele = Element.new('foo')\n"
+"  ele.add_attributes({'bar' => 0, 'baz' => 1})\n"
+"  ele.clone # => <foo bar='0' baz='1'/>\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1291
+msgid ""
+"Create a shallow clone of a document with method REXML::Document#clone.  The "
+"XML declaration is copied; the document type and root element are not cloned:"
+msgstr ""
+"メソッド REXML::Document#clone で文書の浅いクローンを作成します。\n"
+"XML宣言はコピーされます。\n"
+"文書種別と根要素はクローンされません。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1294
+#, no-wrap
+msgid ""
+"  my_xml = '<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE foo><root/>'\n"
+"  my_doc = Document.new(my_xml)\n"
+"  clone_doc = my_doc.clone\n"
+msgstr ""
+"  my_xml = '<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE foo><root/>'\n"
+"  my_doc = Document.new(my_xml)\n"
+"  clone_doc = my_doc.clone\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1298
+#, no-wrap
+msgid ""
+"  my_doc.xml_decl         # => <?xml ... ?>\n"
+"  clone_doc.xml_decl      # => <?xml ... ?>\n"
+msgstr ""
+"  my_doc.xml_decl         # => <?xml ... ?>\n"
+"  clone_doc.xml_decl      # => <?xml ... ?>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1301
+#, no-wrap
+msgid ""
+"  my_doc.doctype.to_s     # => \"<?xml version='1.0' encoding='UTF-8'?>\"\n"
+"  clone_doc.doctype.to_s  # => \"\"\n"
+msgstr ""
+"  my_doc.doctype.to_s     # => \"<?xml version='1.0' encoding='UTF-8'?>\"\n"
+"  clone_doc.doctype.to_s  # => \"\"\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1304
+#, no-wrap
+msgid ""
+"  my_doc.root             # => <root/>\n"
+"  clone_doc.root          # => nil\n"
+msgstr ""
+"  my_doc.root             # => <root/>\n"
+"  clone_doc.root          # => nil\n"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1307
+msgid ""
+"Create a deep clone of an element with inherited method REXML::"
+"Parent#deep_clone.  All nodes and attributes are copied:"
+msgstr ""
+"継承されたメソッド REXML::Parent#deep_clone で要素の深いクローンを作成します。\n"
+"全てのノードと属性がコピーされます。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1310
+#, no-wrap
+msgid ""
+"  doc.to_s.size   # => 825\n"
+"  clone  = doc.deep_clone\n"
+"  clone.to_s.size # => 825\n"
+msgstr ""
+"  doc.to_s.size   # => 825\n"
+"  clone  = doc.deep_clone\n"
+"  clone.to_s.size # => 825\n"
+
+#. type: Headline ==
+#: ../doc/rexml/tutorial.rdoc:1314
+msgid "Writing the Document"
+msgstr "文書を書き出す"
+
+#. type: TextBlock
+#: ../doc/rexml/tutorial.rdoc:1316
+msgid ""
+"Write a document to an \\IO stream (defaults to <tt>$stdout</tt>)  with "
+"method REXML::Document#write:"
+msgstr "メソッド REXML::Document#write でドキュメントと\\IOストリーム（既定では<tt>$stdout</tt>）に書き出します。"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1319
+#, no-wrap
+msgid "  doc.write\n"
+msgstr "  doc.write\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1323
+#, no-wrap
+msgid ""
+"  <?xml version='1.0' encoding='UTF-8'?>\n"
+"  <bookstore>\n"
+msgstr ""
+"  <?xml version='1.0' encoding='UTF-8'?>\n"
+"  <bookstore>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1326
+#, no-wrap
+msgid ""
+"  <book category='cooking'>\n"
+"    <title lang='en'>Everyday Italian</title>\n"
+"    <author>Giada De Laurentiis</author>\n"
+"    <year>2005</year>\n"
+"    <price>30.00</price>\n"
+"  </book>\n"
+msgstr ""
+"  <book category='cooking'>\n"
+"    <title lang='en'>Everyday Italian</title>\n"
+"    <author>Giada De Laurentiis</author>\n"
+"    <year>2005</year>\n"
+"    <price>30.00</price>\n"
+"  </book>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1333
+#, no-wrap
+msgid ""
+"  <book category='children'>\n"
+"    <title lang='en'>Harry Potter</title>\n"
+"    <author>J K. Rowling</author>\n"
+"    <year>2005</year>\n"
+"    <price>29.99</price>\n"
+"  </book>\n"
+msgstr ""
+"  <book category='children'>\n"
+"    <title lang='en'>Harry Potter</title>\n"
+"    <author>J K. Rowling</author>\n"
+"    <year>2005</year>\n"
+"    <price>29.99</price>\n"
+"  </book>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1340
+#, no-wrap
+msgid ""
+"  <book category='web'>\n"
+"    <title lang='en'>XQuery Kick Start</title>\n"
+"    <author>James McGovern</author>\n"
+"    <author>Per Bothner</author>\n"
+"    <author>Kurt Cagle</author>\n"
+"    <author>James Linn</author>\n"
+"    <author>Vaidyanathan Nagarajan</author>\n"
+"    <year>2003</year>\n"
+"    <price>49.99</price>\n"
+"  </book>\n"
+msgstr ""
+"  <book category='web'>\n"
+"    <title lang='en'>XQuery Kick Start</title>\n"
+"    <author>James McGovern</author>\n"
+"    <author>Per Bothner</author>\n"
+"    <author>Kurt Cagle</author>\n"
+"    <author>James Linn</author>\n"
+"    <author>Vaidyanathan Nagarajan</author>\n"
+"    <year>2003</year>\n"
+"    <price>49.99</price>\n"
+"  </book>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1351
+#, no-wrap
+msgid ""
+"  <book category='web' cover='paperback'>\n"
+"    <title lang='en'>Learning XML</title>\n"
+"    <author>Erik T. Ray</author>\n"
+"    <year>2003</year>\n"
+"    <price>39.95</price>\n"
+"  </book>\n"
+msgstr ""
+"  <book category='web' cover='paperback'>\n"
+"    <title lang='en'>Learning XML</title>\n"
+"    <author>Erik T. Ray</author>\n"
+"    <year>2003</year>\n"
+"    <price>39.95</price>\n"
+"  </book>\n"
+
+#. type: Verbatim
+#: ../doc/rexml/tutorial.rdoc:1358
+#, no-wrap
+msgid "  </bookstore>\n"
+msgstr "  </bookstore>\n"
