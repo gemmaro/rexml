@@ -10,58 +10,55 @@
 # In fact, consider this as a binary, and the PO file as a regular source file:
 # If the PO gets lost, keeping this translation up-to-date will be harder.
 #
-== Element Context
+== [要素の文脈]
 
-Notes: - All code on this page presupposes that the following has been
-executed:
+注意：ここにある全てのコードでは以下が実行されていることを前提にしています。
 
     require 'rexml/document'
 
-- For convenience, examples on this page use +REXML::Document.new+, not
-+REXML::Element.new+.
-  This is completely valid, because REXML::Document is a subclass of REXML::Element.
+- 便宜上、本ページの例では +REXML::Element.new+ ではなく +REXML::Document.new+ を使っています。
+  これは完全に妥当です。
+  なぜなら REXML::Document は REXML::Element の副クラスだからです。
 
-The context for an element is a hash of processing directives that influence
-the way \XML is read, stored, and written.  The context entries are:
+要素の文脈は処理指示のハッシュで、\XMLが読まれたり、格納されたり、書き出されたりするやり方に影響します。
+文脈の各項目は以下の通り。
 
 - +:respect_whitespace+: 空白の扱いを制御します。
 - +:compress_whitespace+: 空白が圧縮されるかを決定します。
 - +:ignore_whitespace_nodes+: 空白のみのノードが無視されるかどうかを決定します。
 - +:raw+: 特殊な文字と実体の扱いを制御します。
 
-The default context for a new element is <tt>{}</tt>.  You can set the
-context at element-creation time:
+新しい要素の既定の文脈は<tt>{}</tt>です。
+文脈は要素の作成時に設定できます。
 
   d = REXML::Document.new('', {compress_whitespace: :all, raw: :all})
   d.context # => {:compress_whitespace=>:all, :raw=>:all}
 
-You can reset the entire context by assigning a new hash:
+新しいハッシュを代入することで文脈全体を白紙に戻せます。
 
   d.context = {ignore_whitespace_nodes: :all}
   d.context # => {:ignore_whitespace_nodes=>:all}
 
-Or you can create or modify an individual entry:
+もしくは個別の項目を作成したり変更したりできます。
 
   d.context[:raw] = :all
   d.context # => {:ignore_whitespace_nodes=>:all, :raw=>:all}
 
 === +:respect_whitespace+
 
-Affects: +REXML::Element.new+, +REXML::Element.text=+.
+影響があるもの：+REXML::Element.new+, +REXML::Element.text=+
 
-By default, all parsed whitespace is respected (that is, stored whitespace
-not compressed):
+既定では全ての解析された空白が保たれます（つまり、保管された空白は圧縮されません）。
 
   xml_string = '<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>'
   d = REXML::Document.new(xml_string)
   d.to_s # => "<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>"
 
-Use +:respect_whitespace+ with an array of element names to specify the
-elements that _are_ to have their whitespace respected; other elements'
-whitespace, and whitespace between elements, will be compressed.
+要素名の配列と共に +:respect_whitespace+ を使うと、 _厳密に_ 空白が保たれる要素を指定します。
+他の要素の空白や要素間の空白は圧縮されます。
 
-In this example: +foo+ and +baz+ will have their whitespace respected;
-+ bar+ and the space between elements will have their whitespace compressed:
+この例では+foo+と+baz+は空白が保たれる名前空間を持ちます。
++ baz+と要素間の空白は、圧縮される名前空間を持ちます。
 
   d = REXML::Document.new(xml_string, {respect_whitespace: ['foo', 'baz']})
   d.to_s # => "<root><foo>a   b</foo> <bar>c d</bar> <baz>e   f</baz></root>"
@@ -71,21 +68,19 @@ In this example: +foo+ and +baz+ will have their whitespace respected;
 
 === +:compress_whitespace+
 
-Affects: +REXML::Element.new+, +REXML::Element.text=+.
+影響があるもの：+REXML::Element.new+, +REXML::Element.text=+
 
-Use <tt>compress_whitespace: :all</tt> to compress whitespace both within
-and between elements:
+<tt>compress_whitespace: :all</tt>を使うと要素の中と要素間の両方で空白を圧縮します。
 
   xml_string = '<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>'
   d = REXML::Document.new(xml_string, {compress_whitespace: :all})
   d.to_s # => "<root><foo>a b</foo> <bar>c d</bar> <baz>e f</baz></root>"
 
-Use +:compress_whitespace+ with an array of element names to compress
-whitespace in those elements, but not in other elements nor between
-elements.
+要素名の配列と一緒に +:compress_whitespace+
+を使うと、それらの要素の空白が圧縮されますが、他の要素の中や他の要素間では圧縮されません。
 
-In this example, +foo+ and +baz+ will have their whitespace compressed;
-+ bar+ and the space between elements will not:
+この例では+foo+と+baz+は空白が圧縮されます。
++ bar+と要素間の空白は圧縮されません。
 
   d = REXML::Document.new(xml_string, {compress_whitespace: ['foo', 'baz']})
   d.to_s # => "<root><foo>a b</foo>    <bar>c   d</bar>   <baz>e f</baz></root>"
@@ -95,12 +90,11 @@ In this example, +foo+ and +baz+ will have their whitespace compressed;
 
 === +:ignore_whitespace_nodes+
 
-Affects: +REXML::Element.new+.
+影響があるもの：+REXML::Element.new+
 
-Use <tt>ignore_whitespace_nodes: :all</tt> to omit all whitespace-only
-elements.
+<tt>ignore_whitespace_nodes: :all</tt>を使うと全ての空白のみの要素が省かれます。
 
-In this example, +bar+ has a text node, while nodes +foo+ and +baz+ do not:
+この例では+bar+にテキストノードがありますが、ノード+foo+および+bar+にはありません。
 
   xml_string = '<root><foo>   </foo><bar> BAR </bar><baz>   </baz></root>'
   d = REXML::Document.new(xml_string, {ignore_whitespace_nodes: :all})
@@ -113,10 +107,10 @@ In this example, +bar+ has a text node, while nodes +foo+ and +baz+ do not:
   bar.first.class # => REXML::Text
   baz.first.class # => NilClass
 
-Use +:ignore_whitespace_nodes+ with an array of element names to specify the
-elements that are to have whitespace nodes ignored.
++:ignore_whitespace_nodes+を要素名の配列と共に使うと、空白ノードが無視される要素が指定されます。
 
-In this example, +bar+ and +baz+ have text nodes, while node +foo+ does not.
+この例では+bar+と+baz+にテキストノードがあります。
+一方で+foo+にはありません。
 
   xml_string = '<root><foo>   </foo><bar> BAR </bar><baz>   </baz></root>'
   d = REXML::Document.new(xml_string, {ignore_whitespace_nodes: ['foo']})
@@ -131,9 +125,9 @@ In this example, +bar+ and +baz+ have text nodes, while node +foo+ does not.
 
 === +:raw+
 
-Affects: +Element.text=+, +Element.add_text+, +Text.to_s+.
+影響するもの：+Element.text=+, +Element.add_text+, +Text.to_s+
 
-Parsing of +a+ elements is not affected by +raw+:
++a+要素の解析は+raw+の影響を受けません。
 
   xml_string = '<root><a>0 &lt; 1</a><b>1 &gt; 0</b></root>'
   d = REXML::Document.new(xml_string, {:raw => ['a']})
@@ -142,14 +136,14 @@ Parsing of +a+ elements is not affected by +raw+:
   a.to_s # => "<a>0 &lt; 1</a>"
   b.to_s # => "<b>1 &gt; 0</b>"
 
-But Element#text= is affected:
+しかし Element#text= は影響を受けます。
 
   a.text = '0 &lt; 1'
   b.text = '1 &gt; 0'
   a.to_s # => "<a>0 &lt; 1</a>"
   b.to_s # => "<b>1 &amp;gt; 0</b>"
 
-As is Element.add_text:
+Element.add_text も同様です。
 
   a.add_text(' so 1 &gt; 0')
   b.add_text(' so 0 &lt; 1')

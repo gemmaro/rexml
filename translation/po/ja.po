@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REXML\n"
 "POT-Creation-Date: 2023-06-10 09:32+0900\n"
-"PO-Revision-Date: 2023-06-10 09:34+0900\n"
+"PO-Revision-Date: 2023-06-10 09:51+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -3567,13 +3567,15 @@ msgstr "    require 'rexml/document'\n"
 msgid ""
 "- For convenience, examples on this page use +REXML::Document.new+, not "
 "+REXML::Element.new+."
-msgstr ""
+msgstr "- 便宜上、本ページの例では +REXML::Element.new+ ではなく +REXML::Document.new+ を使っています。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:9
 #, no-wrap
 msgid "  This is completely valid, because REXML::Document is a subclass of REXML::Element.\n"
 msgstr ""
+"  これは完全に妥当です。\n"
+"  なぜなら REXML::Document は REXML::Element の副クラスだからです。\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:11
@@ -3590,6 +3592,8 @@ msgid ""
 "The default context for a new element is <tt>{}</tt>.  You can set the "
 "context at element-creation time:"
 msgstr ""
+"新しい要素の既定の文脈は<tt>{}</tt>です。\n"
+"文脈は要素の作成時に設定できます。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:23
@@ -3598,11 +3602,13 @@ msgid ""
 "  d = REXML::Document.new('', {compress_whitespace: :all, raw: :all})\n"
 "  d.context # => {:compress_whitespace=>:all, :raw=>:all}\n"
 msgstr ""
+"  d = REXML::Document.new('', {compress_whitespace: :all, raw: :all})\n"
+"  d.context # => {:compress_whitespace=>:all, :raw=>:all}\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:26
 msgid "You can reset the entire context by assigning a new hash:"
-msgstr ""
+msgstr "新しいハッシュを代入することで文脈全体を白紙に戻せます。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:28
@@ -3617,7 +3623,7 @@ msgstr ""
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:31
 msgid "Or you can create or modify an individual entry:"
-msgstr ""
+msgstr "もしくは個別の項目を作成したり変更したりできます。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:33
@@ -3632,19 +3638,19 @@ msgstr ""
 #. type: Headline ===
 #: ../doc/rexml/context.rdoc:36
 msgid "+:respect_whitespace+"
-msgstr ""
+msgstr "+:respect_whitespace+"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:38 ../doc/rexml/context.rdoc:61
 msgid "Affects: +REXML::Element.new+, +REXML::Element.text=+."
-msgstr ""
+msgstr "影響があるもの：+REXML::Element.new+, +REXML::Element.text=+"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:40
 msgid ""
 "By default, all parsed whitespace is respected (that is, stored whitespace "
 "not compressed):"
-msgstr ""
+msgstr "既定では全ての解析された空白が保たれます（つまり、保管された空白は圧縮されません）。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:42
@@ -3654,6 +3660,9 @@ msgid ""
 "  d = REXML::Document.new(xml_string)\n"
 "  d.to_s # => \"<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>\"\n"
 msgstr ""
+"  xml_string = '<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>'\n"
+"  d = REXML::Document.new(xml_string)\n"
+"  d.to_s # => \"<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>\"\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:46
@@ -3662,17 +3671,21 @@ msgid ""
 "elements that _are_ to have their whitespace respected; other elements' "
 "whitespace, and whitespace between elements, will be compressed."
 msgstr ""
+"要素名の配列と共に +:respect_whitespace+ を使うと、 _厳密に_ 空白が保たれる要素を指定します。\n"
+"他の要素の空白や要素間の空白は圧縮されます。"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:50
 msgid "In this example: +foo+ and +baz+ will have their whitespace respected;"
-msgstr ""
+msgstr "この例では+foo+と+baz+は空白が保たれる名前空間を持ちます。"
 
+# XXX: baz+ はマークアップの誤りと思われましたが、po4aのパーサの問題でした。
+# FIXME: whitespaceはnamespaceと思われます。
 #. type: Headline +
 #: ../doc/rexml/context.rdoc:51
 msgid ""
 "bar+ and the space between elements will have their whitespace compressed:"
-msgstr ""
+msgstr "baz+と要素間の空白は、圧縮される名前空間を持ちます。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:53
@@ -3684,18 +3697,23 @@ msgid ""
 "  bar.text = 'X   Y'\n"
 "  d.to_s # => \"<root><foo>a   b</foo> <bar>X Y</bar> <baz>e   f</baz></root>\"\n"
 msgstr ""
+"  d = REXML::Document.new(xml_string, {respect_whitespace: ['foo', 'baz']})\n"
+"  d.to_s # => \"<root><foo>a   b</foo> <bar>c d</bar> <baz>e   f</baz></root>\"\n"
+"  bar = d.root[2] # => <bar> ... </>\n"
+"  bar.text = 'X   Y'\n"
+"  d.to_s # => \"<root><foo>a   b</foo> <bar>X Y</bar> <baz>e   f</baz></root>\"\n"
 
 #. type: Headline ===
 #: ../doc/rexml/context.rdoc:59
 msgid "+:compress_whitespace+"
-msgstr ""
+msgstr "+:compress_whitespace+"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:63
 msgid ""
 "Use <tt>compress_whitespace: :all</tt> to compress whitespace both within "
 "and between elements:"
-msgstr ""
+msgstr "<tt>compress_whitespace: :all</tt>を使うと要素の中と要素間の両方で空白を圧縮します。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:66
@@ -3705,23 +3723,26 @@ msgid ""
 "  d = REXML::Document.new(xml_string, {compress_whitespace: :all})\n"
 "  d.to_s # => \"<root><foo>a b</foo> <bar>c d</bar> <baz>e f</baz></root>\"\n"
 msgstr ""
+"  xml_string = '<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {compress_whitespace: :all})\n"
+"  d.to_s # => \"<root><foo>a b</foo> <bar>c d</bar> <baz>e f</baz></root>\"\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:70
 msgid ""
 "Use +:compress_whitespace+ with an array of element names to compress "
 "whitespace in those elements, but not in other elements nor between elements."
-msgstr ""
+msgstr "要素名の配列と一緒に +:compress_whitespace+ を使うと、それらの要素の空白が圧縮されますが、他の要素の中や他の要素間では圧縮されません。"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:74
 msgid "In this example, +foo+ and +baz+ will have their whitespace compressed;"
-msgstr ""
+msgstr "この例では+foo+と+baz+は空白が圧縮されます。"
 
 #. type: Headline +
 #: ../doc/rexml/context.rdoc:75
 msgid "bar+ and the space between elements will not:"
-msgstr ""
+msgstr "bar+と要素間の空白は圧縮されません。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:77
@@ -3733,29 +3754,34 @@ msgid ""
 "  foo.text= 'X   Y'\n"
 "  d.to_s # => \"<root><foo>X Y</foo>    <bar>c   d</bar>   <baz>e f</baz></root>\"\n"
 msgstr ""
+"  d = REXML::Document.new(xml_string, {compress_whitespace: ['foo', 'baz']})\n"
+"  d.to_s # => \"<root><foo>a b</foo>    <bar>c   d</bar>   <baz>e f</baz></root>\"\n"
+"  foo = d.root[0] # => <foo> ... </>\n"
+"  foo.text= 'X   Y'\n"
+"  d.to_s # => \"<root><foo>X Y</foo>    <bar>c   d</bar>   <baz>e f</baz></root>\"\n"
 
 #. type: Headline ===
 #: ../doc/rexml/context.rdoc:83
 msgid "+:ignore_whitespace_nodes+"
-msgstr ""
+msgstr "+:ignore_whitespace_nodes+"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:85
 msgid "Affects: +REXML::Element.new+."
-msgstr ""
+msgstr "影響があるもの：+REXML::Element.new+"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:87
 msgid ""
 "Use <tt>ignore_whitespace_nodes: :all</tt> to omit all whitespace-only "
 "elements."
-msgstr ""
+msgstr "<tt>ignore_whitespace_nodes: :all</tt>を使うと全ての空白のみの要素が省かれます。"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:89
 msgid ""
 "In this example, +bar+ has a text node, while nodes +foo+ and +baz+ do not:"
-msgstr ""
+msgstr "この例では+bar+にテキストノードがありますが、ノード+foo+および+bar+にはありません。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:91
@@ -3772,19 +3798,31 @@ msgid ""
 "  bar.first.class # => REXML::Text\n"
 "  baz.first.class # => NilClass\n"
 msgstr ""
+"  xml_string = '<root><foo>   </foo><bar> BAR </bar><baz>   </baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {ignore_whitespace_nodes: :all})\n"
+"  d.to_s # => \"<root><foo> FOO </foo><bar/><baz> BAZ </baz></root>\"\n"
+"  root = d.root   # => <root> ... </>\n"
+"  foo = root[0]   # => <foo/>\n"
+"  bar = root[1]   # => <bar> ... </>\n"
+"  baz = root[2]   # => <baz/>\n"
+"  foo.first.class # => NilClass\n"
+"  bar.first.class # => REXML::Text\n"
+"  baz.first.class # => NilClass\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:102
 msgid ""
 "Use +:ignore_whitespace_nodes+ with an array of element names to specify the "
 "elements that are to have whitespace nodes ignored."
-msgstr ""
+msgstr "+:ignore_whitespace_nodes+を要素名の配列と共に使うと、空白ノードが無視される要素が指定されます。"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:105
 msgid ""
 "In this example, +bar+ and +baz+ have text nodes, while node +foo+ does not."
 msgstr ""
+"この例では+bar+と+baz+にテキストノードがあります。\n"
+"一方で+foo+にはありません。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:107
@@ -3801,21 +3839,31 @@ msgid ""
 "  bar.first.class # => REXML::Text\n"
 "  baz.first.class # => REXML::Text\n"
 msgstr ""
+"  xml_string = '<root><foo>   </foo><bar> BAR </bar><baz>   </baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {ignore_whitespace_nodes: ['foo']})\n"
+"  d.to_s # => \"<root><foo/><bar> BAR </bar><baz>   </baz></root>\"\n"
+"  root = d.root   # => <root> ... </>\n"
+"  foo = root[0]   # => <foo/>\n"
+"  bar = root[1]   # => <bar> ... </>\n"
+"  baz = root[2]   # => <baz> ... </>\n"
+"  foo.first.class # => NilClass\n"
+"  bar.first.class # => REXML::Text\n"
+"  baz.first.class # => REXML::Text\n"
 
 #. type: Headline ===
 #: ../doc/rexml/context.rdoc:118
 msgid "+:raw+"
-msgstr ""
+msgstr "+:raw+"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:120
 msgid "Affects: +Element.text=+, +Element.add_text+, +Text.to_s+."
-msgstr ""
+msgstr "影響するもの：+Element.text=+, +Element.add_text+, +Text.to_s+"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:122
 msgid "Parsing of +a+ elements is not affected by +raw+:"
-msgstr ""
+msgstr "+a+要素の解析は+raw+の影響を受けません。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:124
@@ -3828,11 +3876,17 @@ msgid ""
 "  a.to_s # => \"<a>0 &lt; 1</a>\"\n"
 "  b.to_s # => \"<b>1 &gt; 0</b>\"\n"
 msgstr ""
+"  xml_string = '<root><a>0 &lt; 1</a><b>1 &gt; 0</b></root>'\n"
+"  d = REXML::Document.new(xml_string, {:raw => ['a']})\n"
+"  d.root.to_s # => \"<root><a>0 &lt; 1</a><b>1 &gt; 0</b></root>\"\n"
+"  a, b = *d.root.elements\n"
+"  a.to_s # => \"<a>0 &lt; 1</a>\"\n"
+"  b.to_s # => \"<b>1 &gt; 0</b>\"\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:131
 msgid "But Element#text= is affected:"
-msgstr ""
+msgstr "しかし Element#text= は影響を受けます。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:133
@@ -3843,11 +3897,15 @@ msgid ""
 "  a.to_s # => \"<a>0 &lt; 1</a>\"\n"
 "  b.to_s # => \"<b>1 &amp;gt; 0</b>\"\n"
 msgstr ""
+"  a.text = '0 &lt; 1'\n"
+"  b.text = '1 &gt; 0'\n"
+"  a.to_s # => \"<a>0 &lt; 1</a>\"\n"
+"  b.to_s # => \"<b>1 &amp;gt; 0</b>\"\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:138
 msgid "As is Element.add_text:"
-msgstr ""
+msgstr "Element.add_text も同様です。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:140
@@ -3858,3 +3916,7 @@ msgid ""
 "  a.to_s # => \"<a>0 &lt; 1 so 1 &gt; 0</a>\"\n"
 "  b.to_s # => \"<b>1 &amp;gt; 0 so 0 &amp;lt; 1</b>\"\n"
 msgstr ""
+"  a.add_text(' so 1 &gt; 0')\n"
+"  b.add_text(' so 0 &lt; 1')\n"
+"  a.to_s # => \"<a>0 &lt; 1 so 1 &gt; 0</a>\"\n"
+"  b.to_s # => \"<b>1 &amp;gt; 0 so 0 &amp;lt; 1</b>\"\n"
