@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REXML\n"
 "POT-Creation-Date: 2023-06-10 09:32+0900\n"
-"PO-Revision-Date: 2023-06-10 09:51+0900\n"
+"PO-Revision-Date: 2023-06-10 09:53+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -3547,7 +3547,7 @@ msgstr "  </bookstore>\n"
 #. type: Headline ==
 #: ../doc/rexml/context.rdoc:1
 msgid "Element Context"
-msgstr "[要素の文脈]"
+msgstr "要素の文脈"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:3
@@ -3671,7 +3671,7 @@ msgid ""
 "elements that _are_ to have their whitespace respected; other elements' "
 "whitespace, and whitespace between elements, will be compressed."
 msgstr ""
-"要素名の配列と共に +:respect_whitespace+ を使うと、 _厳密に_ 空白が保たれる要素を指定します。\n"
+"要素名の配列と共に +:respect_whitespace+ を使うと、空白が保たれる要素を厳密に指定します。\n"
 "他の要素の空白や要素間の空白は圧縮されます。"
 
 #. type: TextBlock

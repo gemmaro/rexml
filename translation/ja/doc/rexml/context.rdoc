@@ -10,7 +10,7 @@
 # In fact, consider this as a binary, and the PO file as a regular source file:
 # If the PO gets lost, keeping this translation up-to-date will be harder.
 #
-== [要素の文脈]
+== 要素の文脈
 
 注意：ここにある全てのコードでは以下が実行されていることを前提にしています。
 
@@ -54,7 +54,7 @@
   d = REXML::Document.new(xml_string)
   d.to_s # => "<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>"
 
-要素名の配列と共に +:respect_whitespace+ を使うと、 _厳密に_ 空白が保たれる要素を指定します。
+要素名の配列と共に +:respect_whitespace+ を使うと、空白が保たれる要素を厳密に指定します。
 他の要素の空白や要素間の空白は圧縮されます。
 
 この例では+foo+と+baz+は空白が保たれる名前空間を持ちます。
