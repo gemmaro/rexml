@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REXML\n"
 "POT-Creation-Date: 2023-04-11 11:50+0900\n"
-"PO-Revision-Date: 2023-06-10 08:47+0900\n"
+"PO-Revision-Date: 2023-06-10 09:16+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -163,7 +163,7 @@ msgstr "  File.write('source_file.xml', source_string)\n"
 msgid ""
 "Throughout these examples, variable +doc+ will hold only the document "
 "derived from these sources:"
-msgstr "ここにある例では全て、変数+doc+にはこれらのソースから派生したドキュメントのみが入っています。"
+msgstr "ここにある例では全て、変数+doc+にはこれらのソースから派生した文書のみが入っています。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:56 ../doc/rexml/tutorial.rdoc:66
@@ -179,12 +179,12 @@ msgstr "\\XMLのソースを解析する"
 #. type: Headline ===
 #: ../doc/rexml/tutorial.rdoc:60
 msgid "Parsing a Document"
-msgstr "ドキュメントを解析する"
+msgstr "文書を解析する"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:62
 msgid "Use method REXML::Document::new to parse XML source."
-msgstr "XMLのソースの解析にはREXML::Document::newメソッドを使います。"
+msgstr "XMLのソースの解析には REXML::Document::new メソッドを使います。"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:64
@@ -232,7 +232,7 @@ msgstr ""
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:82
 msgid "For any of these sources, the returned object is an REXML::Document:"
-msgstr "こうしたソースが何であれ、返されるオブジェクトはREXML::Documentです。"
+msgstr "こうしたソースが何であれ、返されるオブジェクトは REXML::Document です。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:84
@@ -249,7 +249,9 @@ msgstr ""
 msgid ""
 "Note: <tt>'UNDEFINED'</tt> is the \"name\" displayed for a document, even "
 "though <tt>doc.name</tt> returns an empty string <tt>\"\"</tt>."
-msgstr "補足：<tt>'UNDEFINED'</tt>はドキュメントについて表示される「名前」です。<tt>doc.name</tt>が空の文字列<tt>\"\"</tt>を返す場合でも同じことです。"
+msgstr ""
+"補足：<tt>'UNDEFINED'</tt>は文書について表示される「名前」です。\n"
+"<tt>doc.name</tt>が空の文字列<tt>\"\"</tt>を返す場合でも同じことです。"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:90
@@ -257,7 +259,9 @@ msgid ""
 "A parsed document may produce \\REXML objects of many classes, but the two "
 "that are likely to be of greatest interest are REXML::Document and REXML::"
 "Element.  These two classes are covered in great detail in this tutorial."
-msgstr "解析されたドキュメントは多様なクラスの\\REXMLオブジェクトを生成しますが、特に注目すべきは恐らくREXML::DocumentとREXML::Elementの2つでしょう。これら2つのクラスはこの入門でかなり詳しく押さえます。"
+msgstr ""
+"解析された文書は多様なクラスの\\REXMLオブジェクトを生成しますが、特に注目すべきは恐らく REXML::Document と REXML::Element の2つでしょう。\n"
+"これら2つのクラスはこの入門でかなり詳しく押さえます。"
 
 #. type: Headline ===
 #: ../doc/rexml/tutorial.rdoc:95
@@ -269,7 +273,7 @@ msgstr "文脈（解析オプション）"
 msgid ""
 "The context for parsing a document is a hash that influences the way the XML "
 "is read and stored."
-msgstr "ドキュメントを解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッシュです。"
+msgstr "文書を解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッシュです。"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:100
@@ -297,12 +301,12 @@ msgstr "{要素の文脈}[../context_rdoc.html]を参照してください。"
 #. type: Headline ==
 #: ../doc/rexml/tutorial.rdoc:109
 msgid "Exploring the Document"
-msgstr "ドキュメントを探索する"
+msgstr "文書を探索する"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:111
 msgid "An REXML::Document object represents an XML document."
-msgstr "REXML::DocumentオブジェクトはXMLドキュメントを表現します。"
+msgstr "REXML::DocumentオブジェクトはXML文書を表現します。"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:113 ../doc/rexml/tutorial.rdoc:302
@@ -312,7 +316,7 @@ msgstr "オブジェクトはその先祖のクラスから継承します。"
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:115 ../doc/rexml/tutorial.rdoc:304
 msgid "- REXML::Child (includes module REXML::Node)"
-msgstr "- REXML::Child（モジュールREXML::Nodeがincludeされています）"
+msgstr "- REXML::Child（モジュール REXML::Node がインクルードされています）"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:116
@@ -322,8 +326,8 @@ msgid ""
 "    - REXML::Element (includes module REXML::Namespace).\n"
 "      - REXML::Document\n"
 msgstr ""
-"  - REXML::Parent（モジュール{Enumerable}[rdoc-ref:Enumerable]がincludeされています）\n"
-"    - REXML::Element（モジュールREXML::Namespaceがincludeされています）\n"
+"  - REXML::Parent（モジュール{Enumerable}[rdoc-ref:Enumerable]がインクルードされています）\n"
+"    - REXML::Element（モジュール REXML::Namespace がインクルードされています）\n"
 "      - REXML::Document\n"
 
 # 属性というよりは、プロパティとして区別したほうがよさそうです
@@ -332,38 +336,38 @@ msgstr ""
 msgid ""
 "This section covers only those properties and methods that are unique to a "
 "document (that is, not inherited or included)."
-msgstr "この節ではこれらのプロパティとメソッドのうちドキュメントに特有なもののみを押さえます（つまり、継承したりincludeされたりしたものは除きます）。"
+msgstr "この節ではこれらのプロパティとメソッドのうち文書に特有なもののみを押さえます（つまり、継承したりインクルードされたりしたものは除きます）。"
 
 #. type: Headline ===
 #: ../doc/rexml/tutorial.rdoc:123
 msgid "Document Properties"
-msgstr "ドキュメントのプロパティ"
+msgstr "文書のプロパティ"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:125
 msgid "A document has several properties (other than its children);"
-msgstr "ドキュメントには（子要素の他に）いくつかのプロパティがあります。"
+msgstr "文書には（子要素の他に）いくつかのプロパティがあります。"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:127
 msgid "- Document type.  - Node type.  - Name.  - Document.  - XPath"
 msgstr ""
-"- ドキュメントの種類\n"
+"- 文書種別\n"
 "- ノードの種類\n"
 "- 名前\n"
-"- ドキュメント\n"
+"- 文書\n"
 "- XPath"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:133
 msgid "[Document Type]"
-msgstr "[ドキュメントの種類]"
+msgstr "[文書種別]"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:135
 #, no-wrap
 msgid "  A document may have a document type:\n"
-msgstr "  ドキュメントはドキュメントの種類を持つことがあります。\n"
+msgstr "  文書は文書種別を持つことがあります。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:137
@@ -390,7 +394,7 @@ msgstr "[ノードの種類]"
 #: ../doc/rexml/tutorial.rdoc:145
 #, no-wrap
 msgid "  A document also has a node type (always +:document+):\n"
-msgstr "  ドキュメントはノードの種類も持ちます（常に+:document+です）。\n"
+msgstr "  文書はノードの種類も持ちます（常に+:document+です）。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:147
@@ -407,7 +411,7 @@ msgstr "[名前]"
 #: ../doc/rexml/tutorial.rdoc:151
 #, no-wrap
 msgid "  A document has a name (always an empty string):\n"
-msgstr "  ドキュメントは名前を持ちます（常に空文字列です）。\n"
+msgstr "  文書は名前を持ちます（常に空文字列です）。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:153
@@ -418,13 +422,13 @@ msgstr "    doc.name # => \"\"\n"
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:155
 msgid "[Document]"
-msgstr "[ドキュメント]"
+msgstr "[文書]"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:157
 #, no-wrap
 msgid "  \\Method REXML::Document#document returns +self+:\n"
-msgstr "  メソッドREXML::Document#documentは+self+を返します。\n"
+msgstr "  メソッド REXML::Document#document は+self+を返します。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:159
@@ -432,6 +436,7 @@ msgstr "  メソッドREXML::Document#documentは+self+を返します。\n"
 msgid "    doc.document == doc # => true\n"
 msgstr "    doc.document == doc # => true\n"
 
+# 明示的に自動リンクが無効になっている点に注意。
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:161
 #, no-wrap
@@ -439,7 +444,10 @@ msgid ""
 "  An object of a different class (\\REXML::Element or \\REXML::Child)\n"
 "  may have a document, which is the document to which the object belongs;\n"
 "  if so, that document will be an \\REXML::Document object.\n"
-msgstr "  それぞれのクラス（\\REXML::Elementや\\REXML::Child）のオブジェクトはドキュメントを持つかもしれません。これはオブジェクトが属するドキュメントです。もしそのようなドキュメントがあれば、そのドキュメントは\\REXML::Documentオブジェクトです。\n"
+msgstr ""
+"  それぞれのクラス（\\REXML::Elementや\\REXML::Child）のオブジェクトは文書を持つかもしれません。\n"
+"  これはオブジェクトが属する文書です。\n"
+"  もしそのような文書があれば、その文書は\\REXML::Documentオブジェクトです。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:165
@@ -458,7 +466,9 @@ msgstr "[XPath]"
 msgid ""
 "  \\method REXML::Element#xpath returns the string xpath to the element,\n"
 "  relative to its most distant ancestor:\n"
-msgstr "  メソッドREXML::Element#xpathは要素へのxpath文字列を返します。最も距離の離れた先祖からの相対的なものです。\n"
+msgstr ""
+"  メソッド REXML::Element#xpath は要素へのxpath文字列を返します。\n"
+"  最も距離の離れた先祖からの相対的なものです。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:172
@@ -489,12 +499,12 @@ msgstr "    Element.new('foo').xpath # => \"foo\"\n"
 #. type: Headline ===
 #: ../doc/rexml/tutorial.rdoc:181
 msgid "Document Children"
-msgstr "ドキュメントの子内容"
+msgstr "文書の子内容"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:183
 msgid "A document may have children of these types:"
-msgstr "ドキュメントにはこれらの種類の子を持ち得ます。"
+msgstr "文書にはこれらの種類の子を持ち得ます。"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:185
@@ -519,7 +529,9 @@ msgstr "[XML宣言]"
 #: ../doc/rexml/tutorial.rdoc:194
 #, no-wrap
 msgid "  A document may an XML declaration, which is stored as an REXML::XMLDecl object:\n"
-msgstr "  ドキュメントにはXML宣言があることがあります。この宣言はREXML::XMLDeclオブジェクトとして格納されます。\n"
+msgstr ""
+"  文書にはXML宣言があることがあります。\n"
+"  この宣言は REXML::XMLDecl オブジェクトとして格納されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:196
@@ -581,7 +593,9 @@ msgid ""
 "  A document may have a single element child, called the _root_ _element_,\n"
 "  which is stored as an REXML::Element object;\n"
 "  it may be retrieved with method +root+:\n"
-msgstr "  ドキュメントは*ルート要素*と呼ばれる単一の子要素を持ち得ます。この要素はREXML::Elementオブジェクトとして格納され、メソッド+root+で取得できます。\n"
+msgstr ""
+"  文書は*ルート要素*と呼ばれる単一の子要素を持ち得ます。\n"
+"  この要素は REXML::Element オブジェクトとして格納され、メソッド+root+で取得できます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:218
@@ -610,7 +624,7 @@ msgstr "[テキスト]"
 msgid ""
 "  A document may have text passages, each of which is stored\n"
 "  as an REXML::Text object:\n"
-msgstr "ドキュメントにはテキストの集まりを持つことがあり、それぞれはREXML::Textオブジェクトとして保管されます。\n"
+msgstr "文書にはテキストの集まりを持つことがあり、それぞれは REXML::Text オブジェクトとして保管されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:228
@@ -651,7 +665,7 @@ msgstr "[処理手続き]"
 msgid ""
 "  A document may have processing instructions, which are stored\n"
 "  as REXML::Instruction objects:\n"
-msgstr "  ドキュメントは処理手続きを持つことがあり、REXML::Instructionオブジェクトとして保管されます。\n"
+msgstr "  文書は処理手続きを持つことがあり、 REXML::Instruction オブジェクトとして保管されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:243
@@ -674,7 +688,7 @@ msgstr "[コメント]"
 msgid ""
 "  A document may have comments, which are stored\n"
 "  as REXML::Comment objects:\n"
-msgstr "  ドキュメントにはコメントがあることがあり、REXML::Commentオブジェクトとして保管されます。\n"
+msgstr "  文書にはコメントがあることがあり、 REXML::Comment オブジェクトとして保管されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:251
@@ -715,7 +729,7 @@ msgstr "[CDATA]"
 msgid ""
 "  A document may have CDATA entries, which are stored\n"
 "  as REXML::CData objects:\n"
-msgstr "  ドキュメントにはCDATA項目があることがあり、REXML::CDataオブジェクトを保管します。\n"
+msgstr "  文書にはCDATA項目があることがあり、 REXML::CData オブジェクトを保管します。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:268
@@ -750,7 +764,7 @@ msgstr ""
 msgid ""
 "The payload of a document is a tree of nodes, descending from the root "
 "element:"
-msgstr "ドキュメントの内容物はノードからなる木であり、ルート要素から枝分かれします。"
+msgstr "文書の内容物はノードからなる木であり、ルート要素から枝分かれします。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:282
@@ -810,8 +824,8 @@ msgid ""
 "  - REXML::Parent (includes module {Enumerable}[rdoc-ref:Enumerable]).\n"
 "    - REXML::Element (includes module REXML::Namespace).\n"
 msgstr ""
-"  - REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールを含む）\n"
-"    - REXML::Element（REXML::Namespaceを含む）\n"
+"  - REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールがインクルードされています）\n"
+"    - REXML::Element（モジュール REXML::Namespace がインクルードされています）\n"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:308
@@ -824,9 +838,9 @@ msgid ""
 "- Defined in REXML::Element itself.  - Inherited from REXML::Parent and "
 "REXML::Child.  - Included from REXML::Node."
 msgstr ""
-"- REXML::Element自体で定義されているもの。\n"
-"- REXML::ParentとREXML::Childから継承されているもの。\n"
-"- REXML::Nodeに含まれているもの。"
+"- REXML::Element 自体で定義されているもの。\n"
+"- REXML::Parent と REXML::Child から継承されているもの。\n"
+"- REXML::Node に含まれているもの。"
 
 #. type: Headline ===
 #: ../doc/rexml/tutorial.rdoc:314
@@ -842,7 +856,7 @@ msgstr "[短い文字列表現]"
 #: ../doc/rexml/tutorial.rdoc:318
 #, no-wrap
 msgid "  Use method REXML::Element#inspect to retrieve a brief string representation.\n"
-msgstr "  REXML::Element#inspectを使うと短い文字列表現が取得されます。\n"
+msgstr "  REXML::Element#inspect を使うと短い文字列表現が取得されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:320
@@ -889,7 +903,7 @@ msgstr "[拡張された文字列表現]"
 msgid ""
 "  Use inherited method REXML::Child.bytes to retrieve an extended\n"
 "  string representation.\n"
-msgstr "  継承されたメソッドREXML::Child.bytesを使うと拡張された文字列表現が取得されます。\n"
+msgstr "  継承されたメソッド REXML::Child.bytes を使うと拡張された文字列表現が取得されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:336
@@ -973,13 +987,13 @@ msgstr "先祖"
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:368
 msgid "[Containing Document]"
-msgstr "[その要素を含むドキュメント]"
+msgstr "[その要素を含む文書]"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:370
 #, no-wrap
 msgid "  Use method REXML::Element#document to retrieve the containing document, if any:\n"
-msgstr "  REXML::Element#documentメソッドを使うと、もしあれば、その要素を含むドキュメントが取得されます。\n"
+msgstr "  REXML::Element#documentメソッドを使うと、もしあれば、その要素を含む文書が取得されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:372
@@ -1027,8 +1041,8 @@ msgid ""
 "  Use method REXML::Element#root_node to retrieve the most distant ancestor,\n"
 "  which is the containing document, if any, otherwise the root element:\n"
 msgstr ""
-"  REXML::Element#root_nodeメソッドを使うと最も離れた先祖が取得されます。\n"
-"  先祖は、もしあればその要素を含むドキュメントで、なければ根要素です。\n"
+"  REXML::Element#root_node メソッドを使うと最も離れた先祖が取得されます。\n"
+"  先祖は、もしあればその要素を含む文書で、なければ根要素です。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:391
@@ -1053,7 +1067,7 @@ msgstr "[親]"
 #: ../doc/rexml/tutorial.rdoc:398
 #, no-wrap
 msgid "  Use inherited method REXML::Child#parent to retrieve the parent\n"
-msgstr "  継承されたメソッドREXML::Child#parentを使うと親が取得されます。\n"
+msgstr "  継承されたメソッド REXML::Child#parent を使うと親が取得されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:400
@@ -1437,13 +1451,14 @@ msgstr "    doc.root[50] # => nil\n"
 msgid "[Index of Child]"
 msgstr "[子のインデックス]"
 
+# FIXME: REXML::Element#index は REXML::Parent#index と思われます
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:557
 #, no-wrap
 msgid ""
 "  Use method REXML::Element#index to retrieve the zero-based child index\n"
 "  of the given object, or <tt>#size - 1</tt> if there is no such child:\n"
-msgstr "  メソッド REXML::Element#index を使うと、もしあれば与えられたオブジェクトのゼロ起点の子のインデックスが、そのような子がなければ<tt>#size - 1</tt>が取得されます。\n"
+msgstr "  メソッド REXML::Parent#index を使うと、もしあれば与えられたオブジェクトのゼロ起点の子のインデックスが、そのような子がなければ<tt>#size - 1</tt>が取得されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:560
@@ -1482,13 +1497,14 @@ msgstr "    ele.index(ele[50]) # => 8\n"
 msgid "[Element Children]"
 msgstr "[要素の子]"
 
+# FIXME: 正しくは REXML::Element#has_elements? のようです。
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:573
 #, no-wrap
 msgid ""
 "  Use method REXML::.has_elements? to retrieve whether the element\n"
 "  has element children:\n"
-msgstr "  メソッド REXML::.has_elements? を使うと要素に要素の子があるかどうかが取得されます。\n"
+msgstr "  メソッド REXML::Element#has_elements? を使うと要素に要素の子があるかどうかが取得されます。\n"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:576
@@ -3096,10 +3112,11 @@ msgstr ""
 "  ele.delete_attribute('bam')\n"
 "  ele.attributes           # => {\"bar\"=>bar='baz'}\n"
 
+# FIXME: REXML::Element#delete_namespace に修正
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:1225
 msgid "Delete a namespace with method REXML::delete_namespace:"
-msgstr "メソッド REXML::delete_namespace で名前空間を削除します。"
+msgstr "メソッド REXML::Element#delete_namespace で名前空間を削除します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1227
@@ -3354,7 +3371,7 @@ msgstr "文書を書き出す"
 msgid ""
 "Write a document to an \\IO stream (defaults to <tt>$stdout</tt>)  with "
 "method REXML::Document#write:"
-msgstr "メソッド REXML::Document#write でドキュメントと\\IOストリーム（既定では<tt>$stdout</tt>）に書き出します。"
+msgstr "メソッド REXML::Document#write で文書と\\IOストリーム（既定では<tt>$stdout</tt>）に書き出します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1319

@@ -57,15 +57,15 @@ REXMLはモジュールです。使うためにはrequireせねばなりませ�
 
   File.write('source_file.xml', source_string)
 
-ここにある例では全て、変数+doc+にはこれらのソースから派生したドキュメントのみが入っています。
+ここにある例では全て、変数+doc+にはこれらのソースから派生した文書のみが入っています。
 
   doc = Document.new(source_string)
 
 == \XMLのソースを解析する
 
-=== ドキュメントを解析する
+=== 文書を解析する
 
-XMLのソースの解析にはREXML::Document::newメソッドを使います。
+XMLのソースの解析には REXML::Document::new メソッドを使います。
 
 ソースには文字列が使えます。
 
@@ -84,18 +84,21 @@ XMLのソースの解析にはREXML::Document::newメソッドを使います。
   io.class # => StringIO
   doc = Document.new(io)
 
-こうしたソースが何であれ、返されるオブジェクトはREXML::Documentです。
+こうしたソースが何であれ、返されるオブジェクトは REXML::Document です。
 
   doc       # => <UNDEFINED> ... </>
   doc.class # => REXML::Document
 
-補足：<tt>'UNDEFINED'</tt>はドキュメントについて表示される「名前」です。<tt>doc.name</tt>が空の文字列<tt>""</tt>を返す場合でも同じことです。
+補足：<tt>'UNDEFINED'</tt>は文書について表示される「名前」です。
+<tt>doc.name</tt>が空の文字列<tt>""</tt>を返す場合でも同じことです。
 
-解析されたドキュメントは多様なクラスの\REXMLオブジェクトを生成しますが、特に注目すべきは恐らくREXML::DocumentとREXML::Elementの2つでしょう。これら2つのクラスはこの入門でかなり詳しく押さえます。
+解析された文書は多様なクラスの\REXMLオブジェクトを生成しますが、特に注目すべきは恐らく REXML::Document と
+REXML::Element の2つでしょう。
+これら2つのクラスはこの入門でかなり詳しく押さえます。
 
 === 文脈（解析オプション）
 
-ドキュメントを解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッシュです。
+文書を解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッシュです。
 
 文脈の各項目は次の通り。
 
@@ -106,32 +109,32 @@ XMLのソースの解析にはREXML::Document::newメソッドを使います。
 
 {要素の文脈}[../context_rdoc.html]を参照してください。
 
-== ドキュメントを探索する
+== 文書を探索する
 
-REXML::DocumentオブジェクトはXMLドキュメントを表現します。
+REXML::DocumentオブジェクトはXML文書を表現します。
 
 オブジェクトはその先祖のクラスから継承します。
 
-- REXML::Child（モジュールREXML::Nodeがincludeされています）
-  - REXML::Parent（モジュール{Enumerable}[rdoc-ref:Enumerable]がincludeされています）
-    - REXML::Element（モジュールREXML::Namespaceがincludeされています）
+- REXML::Child（モジュール REXML::Node がインクルードされています）
+  - REXML::Parent（モジュール{Enumerable}[rdoc-ref:Enumerable]がインクルードされています）
+    - REXML::Element（モジュール REXML::Namespace がインクルードされています）
       - REXML::Document
 
-この節ではこれらのプロパティとメソッドのうちドキュメントに特有なもののみを押さえます（つまり、継承したりincludeされたりしたものは除きます）。
+この節ではこれらのプロパティとメソッドのうち文書に特有なもののみを押さえます（つまり、継承したりインクルードされたりしたものは除きます）。
 
-=== ドキュメントのプロパティ
+=== 文書のプロパティ
 
-ドキュメントには（子要素の他に）いくつかのプロパティがあります。
+文書には（子要素の他に）いくつかのプロパティがあります。
 
-- ドキュメントの種類
+- 文書種別
 - ノードの種類
 - 名前
-- ドキュメント
+- 文書
 - XPath
 
-[ドキュメントの種類]
+[文書種別]
 
-  ドキュメントはドキュメントの種類を持つことがあります。
+  文書は文書種別を持つことがあります。
 
     my_xml = '<!DOCTYPE foo>'
     my_doc = Document.new(my_xml)
@@ -141,29 +144,32 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
 
 [ノードの種類]
 
-  ドキュメントはノードの種類も持ちます（常に+:document+です）。
+  文書はノードの種類も持ちます（常に+:document+です）。
 
     doc.node_type # => :document
 
 [名前]
 
-  ドキュメントは名前を持ちます（常に空文字列です）。
+  文書は名前を持ちます（常に空文字列です）。
 
     doc.name # => ""
 
-[ドキュメント]
+[文書]
 
-  メソッドREXML::Document#documentは+self+を返します。
+  メソッド REXML::Document#document は+self+を返します。
 
     doc.document == doc # => true
 
-  それぞれのクラス（\REXML::Elementや\REXML::Child）のオブジェクトはドキュメントを持つかもしれません。これはオブジェクトが属するドキュメントです。もしそのようなドキュメントがあれば、そのドキュメントは\REXML::Documentオブジェクトです。
+  それぞれのクラス（\REXML::Elementや\REXML::Child）のオブジェクトは文書を持つかもしれません。
+  これはオブジェクトが属する文書です。
+  もしそのような文書があれば、その文書は\REXML::Documentオブジェクトです。
 
     doc.root.document.class # => REXML::Document
 
 [XPath]
 
-  メソッドREXML::Element#xpathは要素へのxpath文字列を返します。最も距離の離れた先祖からの相対的なものです。
+  メソッド REXML::Element#xpath は要素へのxpath文字列を返します。
+  最も距離の離れた先祖からの相対的なものです。
 
     doc.root.class             # => REXML::Element
     doc.root.xpath             # => "/bookstore"
@@ -174,9 +180,9 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
 
     Element.new('foo').xpath # => "foo"
 
-=== ドキュメントの子内容
+=== 文書の子内容
 
-ドキュメントにはこれらの種類の子を持ち得ます。
+文書にはこれらの種類の子を持ち得ます。
 
 - XML宣言。
 - ルート要素。
@@ -187,7 +193,8 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
 
 [XML宣言]
 
-  ドキュメントにはXML宣言があることがあります。この宣言はREXML::XMLDeclオブジェクトとして格納されます。
+  文書にはXML宣言があることがあります。
+  この宣言は REXML::XMLDecl オブジェクトとして格納されます。
 
     doc.xml_decl       # => <?xml ... ?>
     doc.xml_decl.class # => REXML::XMLDecl
@@ -207,7 +214,8 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
 
 [ルート要素]
 
-  ドキュメントは*ルート要素*と呼ばれる単一の子要素を持ち得ます。この要素はREXML::Elementオブジェクトとして格納され、メソッド+root+で取得できます。
+  文書は*ルート要素*と呼ばれる単一の子要素を持ち得ます。
+  この要素は REXML::Element オブジェクトとして格納され、メソッド+root+で取得できます。
 
     doc.root           # => <bookstore> ... </>
     doc.root.class     # => REXML::Element
@@ -216,7 +224,7 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
 
 [テキスト]
 
-ドキュメントにはテキストの集まりを持つことがあり、それぞれはREXML::Textオブジェクトとして保管されます。
+文書にはテキストの集まりを持つことがあり、それぞれは REXML::Text オブジェクトとして保管されます。
 
     doc.texts.each {|t| p [t.class, t] }
 
@@ -226,7 +234,7 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
 
 [処理手続き]
 
-  ドキュメントは処理手続きを持つことがあり、REXML::Instructionオブジェクトとして保管されます。
+  文書は処理手続きを持つことがあり、 REXML::Instruction オブジェクトとして保管されます。
 
 
 
@@ -237,7 +245,7 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
 
 [コメント]
 
-  ドキュメントにはコメントがあることがあり、REXML::Commentオブジェクトとして保管されます。
+  文書にはコメントがあることがあり、 REXML::Comment オブジェクトとして保管されます。
 
     my_xml = <<-EOT
       <!--foo-->
@@ -253,7 +261,7 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
 
 [CDATA]
 
-  ドキュメントにはCDATA項目があることがあり、REXML::CDataオブジェクトを保管します。
+  文書にはCDATA項目があることがあり、 REXML::CData オブジェクトを保管します。
 
     my_xml = <<-EOT
       <![CDATA[foo]]>
@@ -267,7 +275,7 @@ REXML::DocumentオブジェクトはXMLドキュメントを表現します。
     [REXML::CData, "foo"]
     [REXML::CData, "bar"]
 
-ドキュメントの内容物はノードからなる木であり、ルート要素から枝分かれします。
+文書の内容物はノードからなる木であり、ルート要素から枝分かれします。
 
   doc.root.children.each do |child|
     p [child, child.class]
@@ -291,21 +299,21 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 オブジェクトはその先祖のクラスから継承します。
 
-- REXML::Child（モジュールREXML::Nodeがincludeされています）
-  - REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールを含む）
-    - REXML::Element（REXML::Namespaceを含む）
+- REXML::Child（モジュール REXML::Node がインクルードされています）
+  - REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールがインクルードされています）
+    - REXML::Element（モジュール REXML::Namespace がインクルードされています）
 
 この節は以下のメソッドを押さえます。
 
-- REXML::Element自体で定義されているもの。
-- REXML::ParentとREXML::Childから継承されているもの。
-- REXML::Nodeに含まれているもの。
+- REXML::Element 自体で定義されているもの。
+- REXML::Parent と REXML::Child から継承されているもの。
+- REXML::Node に含まれているもの。
 
 === 要素の中身
 
 [短い文字列表現]
 
-  REXML::Element#inspectを使うと短い文字列表現が取得されます。
+  REXML::Element#inspect を使うと短い文字列表現が取得されます。
 
     doc.root.inspect # => "<bookstore> ... </>"
 
@@ -320,7 +328,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 [拡張された文字列表現]
 
-  継承されたメソッドREXML::Child.bytesを使うと拡張された文字列表現が取得されます。
+  継承されたメソッド REXML::Child.bytes を使うと拡張された文字列表現が取得されます。
 
     doc.root.bytes # => "<bookstore>\n\n<book category='cooking'>\n  <title lang='en'>Everyday Italian</title>\n  <author>Giada De Laurentiis</author>\n  <year>2005</year>\n  <price>30.00</price>\n</book>\n\n<book category='children'>\n  <title lang='en'>Harry Potter</title>\n  <author>J K. Rowling</author>\n  <year>2005</year>\n  <price>29.99</price>\n</book>\n\n<book category='web'>\n  <title lang='en'>XQuery Kick Start</title>\n  <author>James McGovern</author>\n  <author>Per Bothner</author>\n  <author>Kurt Cagle</author>\n  <author>James Linn</author>\n  <author>Vaidyanathan Nagarajan</author>\n  <year>2003</year>\n  <price>49.99</price>\n</book>\n\n<book category='web' cover='paperback'>\n  <title lang='en'>Learning XML</title>\n  <author>Erik T. Ray</author>\n  <year>2003</year>\n  <price>39.95</price>\n</book>\n\n</bookstore>"
 
@@ -352,9 +360,9 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 ==== 先祖
 
-[その要素を含むドキュメント]
+[その要素を含む文書]
 
-  REXML::Element#documentメソッドを使うと、もしあれば、その要素を含むドキュメントが取得されます。
+  REXML::Element#documentメソッドを使うと、もしあれば、その要素を含む文書が取得されます。
 
     ele = doc.root.elements.first   # => <book category='cooking'> ... </>
     ele.document                    # => <UNDEFINED> ... </>
@@ -372,8 +380,8 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 [根ノード]
 
-  REXML::Element#root_nodeメソッドを使うと最も離れた先祖が取得されます。
-  先祖は、もしあればその要素を含むドキュメントで、なければ根要素です。
+  REXML::Element#root_node メソッドを使うと最も離れた先祖が取得されます。
+  先祖は、もしあればその要素を含む文書で、なければ根要素です。
 
     ele = doc.root.elements.first   # => <book category='cooking'> ... </>
     ele.root_node                   # => <UNDEFINED> ... </>
@@ -382,7 +390,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 [親]
 
-  継承されたメソッドREXML::Child#parentを使うと親が取得されます。
+  継承されたメソッド REXML::Child#parent を使うと親が取得されます。
 
     ele = doc.root                # => <bookstore> ... </>
     ele.parent                    # => <UNDEFINED> ... </>
@@ -532,7 +540,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 [子のインデックス]
 
-  メソッド REXML::Element#index を使うと、もしあれば与えられたオブジェクトのゼロ起点の子のインデックスが、そのような子がなければ<tt>#size - 1</tt>が取得されます。
+  メソッド REXML::Parent#index を使うと、もしあれば与えられたオブジェクトのゼロ起点の子のインデックスが、そのような子がなければ<tt>#size - 1</tt>が取得されます。
 
     ele = doc.root     # => <bookstore> ... </>
     ele.index(ele[0])  # => 0
@@ -547,7 +555,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 [要素の子]
 
-  メソッド REXML::.has_elements? を使うと要素に要素の子があるかどうかが取得されます。
+  メソッド REXML::Element#has_elements? を使うと要素に要素の子があるかどうかが取得されます。
 
     doc.root.has_elements?                  # => true
     REXML::Element.new('foo').has_elements? # => false
@@ -1170,7 +1178,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
   ele.delete_attribute('bam')
   ele.attributes           # => {"bar"=>bar='baz'}
 
-メソッド REXML::delete_namespace で名前空間を削除します。
+メソッド REXML::Element#delete_namespace で名前空間を削除します。
 
   ele = Element.new('foo') # => <foo/>
   ele.add_namespace('bar')
@@ -1262,7 +1270,7 @@ XML宣言はコピーされます。
 
 == 文書を書き出す
 
-メソッド REXML::Document#write でドキュメントと\IOストリーム（既定では<tt>$stdout</tt>）に書き出します。
+メソッド REXML::Document#write で文書と\IOストリーム（既定では<tt>$stdout</tt>）に書き出します。
 
   doc.write
 
