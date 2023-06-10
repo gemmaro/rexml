@@ -42,6 +42,16 @@ Gem::Specification.new do |spec|
       end
     end
   end
+  translation_path = "translation/ja"
+  translation_dir = File.join(__dir__, translation_path)
+  if File.exist?(translation_dir)
+    Dir.chdir(translation_dir) do
+      Dir.glob("**/*.rdoc").each do |rdoc_file|
+        files << "#{translation_path}/#{rdoc_file}"
+        rdoc_files << "#{translation_path}/#{rdoc_file}"
+      end
+    end
+  end
   tasks_path = "tasks"
   tasks_dir = File.join(__dir__, tasks_path)
   Dir.chdir(doc_dir) do
