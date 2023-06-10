@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REXML\n"
 "POT-Creation-Date: 2023-06-10 09:32+0900\n"
-"PO-Revision-Date: 2023-06-10 09:31+0900\n"
+"PO-Revision-Date: 2023-06-10 09:34+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -3546,27 +3546,21 @@ msgstr "  </bookstore>\n"
 
 #. type: Headline ==
 #: ../doc/rexml/context.rdoc:1
-#, fuzzy
-#| msgid "[Element Children]"
 msgid "Element Context"
-msgstr "[要素の子]"
+msgstr "[要素の文脈]"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:3
-#, fuzzy
-#| msgid "All examples here assume that the following code has been executed:"
 msgid ""
 "Notes: - All code on this page presupposes that the following has been "
 "executed:"
-msgstr ""
-"ここにある全ての例では以下のコードが実行されていることを前提にしています。"
+msgstr "注意：ここにある全てのコードでは以下が実行されていることを前提にしています。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:6
-#, fuzzy, no-wrap
-#| msgid "  require 'rexml' # => true\n"
+#, no-wrap
 msgid "    require 'rexml/document'\n"
-msgstr "  require 'rexml' # => true\n"
+msgstr "    require 'rexml/document'\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:8
@@ -3583,16 +3577,12 @@ msgstr ""
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:11
-#, fuzzy
-#| msgid ""
-#| "The context for parsing a document is a hash that influences the way the "
-#| "XML is read and stored."
 msgid ""
 "The context for an element is a hash of processing directives that influence "
 "the way \\XML is read, stored, and written.  The context entries are:"
 msgstr ""
-"文書を解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッ"
-"シュです。"
+"要素の文脈は処理指示のハッシュで、\\XMLが読まれたり、格納されたり、書き出されたりするやり方に影響します。\n"
+"文脈の各項目は以下の通り。"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:20
@@ -3616,18 +3606,13 @@ msgstr ""
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:28
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  ele.context # => nil\n"
-#| "  ele.context = {ignore_whitespace_nodes: :all}\n"
-#| "  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+#, no-wrap
 msgid ""
 "  d.context = {ignore_whitespace_nodes: :all}\n"
 "  d.context # => {:ignore_whitespace_nodes=>:all}\n"
 msgstr ""
-"  ele.context # => nil\n"
-"  ele.context = {ignore_whitespace_nodes: :all}\n"
-"  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+"  d.context = {ignore_whitespace_nodes: :all}\n"
+"  d.context # => {:ignore_whitespace_nodes=>:all}\n"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:31
@@ -3636,18 +3621,13 @@ msgstr ""
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:33
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  ele.context # => nil\n"
-#| "  ele.context = {ignore_whitespace_nodes: :all}\n"
-#| "  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+#, no-wrap
 msgid ""
 "  d.context[:raw] = :all\n"
 "  d.context # => {:ignore_whitespace_nodes=>:all, :raw=>:all}\n"
 msgstr ""
-"  ele.context # => nil\n"
-"  ele.context = {ignore_whitespace_nodes: :all}\n"
-"  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+"  d.context[:raw] = :all\n"
+"  d.context # => {:ignore_whitespace_nodes=>:all, :raw=>:all}\n"
 
 #. type: Headline ===
 #: ../doc/rexml/context.rdoc:36
