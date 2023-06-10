@@ -1,13 +1,12 @@
 # Japanese translation of REXML documentation
-# Copyright (C) YEAR Yukihiro Matsumoto
 # Copyright (C) 2023 gemmaro
 # This file is distributed under the same license as the REXML.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: REXML\n"
-"POT-Creation-Date: 2023-04-11 11:50+0900\n"
-"PO-Revision-Date: 2023-06-10 09:16+0900\n"
+"POT-Creation-Date: 2023-06-10 09:32+0900\n"
+"PO-Revision-Date: 2023-06-10 09:31+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -65,7 +64,8 @@ msgstr "  require 'rexml' # => true\n"
 #: ../doc/rexml/tutorial.rdoc:17
 msgid ""
 "If you do not also include it, you must fully qualify references to REXML:"
-msgstr "また、includeしなければREXMLを参照するのに完全な修飾を付けねばなりません。"
+msgstr ""
+"また、includeしなければREXMLを参照するのに完全な修飾を付けねばなりません。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:19
@@ -77,7 +77,9 @@ msgstr "  REXML::Document # => REXML::Document\n"
 #: ../doc/rexml/tutorial.rdoc:21
 msgid ""
 "If you also include the module, you may optionally omit <tt>REXML::</tt>:"
-msgstr "ここからモジュールをincludeすれば、お好みで<tt>REXML::</tt>を省くことができます。"
+msgstr ""
+"ここからモジュールをincludeすれば、お好みで<tt>REXML::</tt>を省くことができま"
+"す。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:23
@@ -99,7 +101,8 @@ msgstr "事前に必要なもの"
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:29
 msgid "All examples here assume that the following code has been executed:"
-msgstr "ここにある全ての例では以下のコードが実行されていることを前提にしています。"
+msgstr ""
+"ここにある全ての例では以下のコードが実行されていることを前提にしています。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:31
@@ -117,14 +120,19 @@ msgid ""
 "The source XML for many examples here is from file {books.xml}[https://www."
 "w3schools.com/xml/books.xml] at w3schools.com.  You may find it convenient "
 "to open that page in a new tab (Ctrl-click in some browsers)."
-msgstr "ここにある多くのソースのXMLの例はw3schools.comにある{books.xml}[https://www.w3schools.com/xml/books.xml]が元になっています。そちらのページを新しいタブで開いておく（ブラウザによってはCtrl-クリック）と便利かもしれません。"
+msgstr ""
+"ここにある多くのソースのXMLの例はw3schools.comにある{books.xml}[https://www."
+"w3schools.com/xml/books.xml]が元になっています。そちらのページを新しいタブで"
+"開いておく（ブラウザによってはCtrl-クリック）と便利かもしれません。"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:39
 msgid ""
 "Note that your browser may display the XML with modified whitespace and "
 "without the XML declaration, which in this case is:"
-msgstr "なお、ブラウザはXMLの空白を変更しXMLの宣言がないものを表示するかもしれません。このような場合がそうです。"
+msgstr ""
+"なお、ブラウザはXMLの空白を変更しXMLの宣言がないものを表示するかもしれませ"
+"ん。このような場合がそうです。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:42
@@ -163,7 +171,9 @@ msgstr "  File.write('source_file.xml', source_string)\n"
 msgid ""
 "Throughout these examples, variable +doc+ will hold only the document "
 "derived from these sources:"
-msgstr "ここにある例では全て、変数+doc+にはこれらのソースから派生した文書のみが入っています。"
+msgstr ""
+"ここにある例では全て、変数+doc+にはこれらのソースから派生した文書のみが入って"
+"います。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:56 ../doc/rexml/tutorial.rdoc:66
@@ -213,7 +223,9 @@ msgstr ""
 msgid ""
 "Method <tt>URI.open</tt> returns a StringIO object, so the source can be "
 "from a web page:"
-msgstr "メソッド<tt>URI.open</tt>はStringIOオブジェクトを返すので、ソースはwebページからとすることもできます。"
+msgstr ""
+"メソッド<tt>URI.open</tt>はStringIOオブジェクトを返すので、ソースはwebページ"
+"からとすることもできます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:77
@@ -232,7 +244,8 @@ msgstr ""
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:82
 msgid "For any of these sources, the returned object is an REXML::Document:"
-msgstr "こうしたソースが何であれ、返されるオブジェクトは REXML::Document です。"
+msgstr ""
+"こうしたソースが何であれ、返されるオブジェクトは REXML::Document です。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:84
@@ -260,7 +273,8 @@ msgid ""
 "that are likely to be of greatest interest are REXML::Document and REXML::"
 "Element.  These two classes are covered in great detail in this tutorial."
 msgstr ""
-"解析された文書は多様なクラスの\\REXMLオブジェクトを生成しますが、特に注目すべきは恐らく REXML::Document と REXML::Element の2つでしょう。\n"
+"解析された文書は多様なクラスの\\REXMLオブジェクトを生成しますが、特に注目すべ"
+"きは恐らく REXML::Document と REXML::Element の2つでしょう。\n"
 "これら2つのクラスはこの入門でかなり詳しく押さえます。"
 
 #. type: Headline ===
@@ -273,7 +287,9 @@ msgstr "文脈（解析オプション）"
 msgid ""
 "The context for parsing a document is a hash that influences the way the XML "
 "is read and stored."
-msgstr "文書を解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッシュです。"
+msgstr ""
+"文書を解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッ"
+"シュです。"
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:100
@@ -281,7 +297,7 @@ msgid "The context entries are:"
 msgstr "文脈の各項目は次の通り。"
 
 #. type: TextBlock
-#: ../doc/rexml/tutorial.rdoc:102
+#: ../doc/rexml/tutorial.rdoc:102 ../doc/rexml/context.rdoc:15
 msgid ""
 "- +:respect_whitespace+: controls treatment of whitespace.  - +:"
 "compress_whitespace+: determines whether whitespace is compressed.  - +:"
@@ -290,7 +306,8 @@ msgid ""
 msgstr ""
 "- +:respect_whitespace+: 空白の扱いを制御します。\n"
 "- +:compress_whitespace+: 空白が圧縮されるかを決定します。\n"
-"- +:ignore_whitespace_nodes+: 空白のみのノードが無視されるかどうかを決定します。\n"
+"- +:ignore_whitespace_nodes+: 空白のみのノードが無視されるかどうかを決定しま"
+"す。\n"
 "- +:raw+: 特殊な文字と実体の扱いを制御します。"
 
 #. type: TextBlock
@@ -336,7 +353,9 @@ msgstr ""
 msgid ""
 "This section covers only those properties and methods that are unique to a "
 "document (that is, not inherited or included)."
-msgstr "この節ではこれらのプロパティとメソッドのうち文書に特有なもののみを押さえます（つまり、継承したりインクルードされたりしたものは除きます）。"
+msgstr ""
+"この節ではこれらのプロパティとメソッドのうち文書に特有なもののみを押さえます"
+"（つまり、継承したりインクルードされたりしたものは除きます）。"
 
 #. type: Headline ===
 #: ../doc/rexml/tutorial.rdoc:123
@@ -1562,7 +1581,8 @@ msgid ""
 "all documents; a root element (or any other element) may have any mixture of "
 "child elements."
 msgstr ""
-"なおこの例ではルート要素の全ての子要素は<tt>'book'</tt>という同じ名前の要素になっていますが、全ての文書についてそうではありません。\n"
+"なおこの例ではルート要素の全ての子要素は<tt>'book'</tt>という同じ名前の要素に"
+"なっていますが、全ての文書についてそうではありません。\n"
 "根要素（あるいは他の任意の要素）は自由に混ざった子要素を持ちえます。"
 
 #. type: TextBlock
@@ -1760,7 +1780,9 @@ msgstr "要素の属性"
 msgid ""
 "Use method REXML::Element#has_attributes? to return whether the element has "
 "attributes:"
-msgstr "メソッド REXML::Element#has_attributes? を使うと要素に属性があるかが返ります。"
+msgstr ""
+"メソッド REXML::Element#has_attributes? を使うと要素に属性があるかが返りま"
+"す。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:676
@@ -1783,7 +1805,8 @@ msgid ""
 "attributes for the element.  Each hash key is a string attribute name; each "
 "hash value is an REXML::Attribute object."
 msgstr ""
-"メソッド REXML::Element#attributes を使うとその要素の属性を含むハッシュが返ります。\n"
+"メソッド REXML::Element#attributes を使うとその要素の属性を含むハッシュが返り"
+"ます。\n"
 "それぞれのハッシュのキーは文字列の属性名です。\n"
 "それぞれのハッシュのバリューは REXML::Attribute オブジェクトです。"
 
@@ -1845,7 +1868,8 @@ msgstr ""
 msgid ""
 "Use method REXML::Element#attribute to retrieve the value of a named "
 "attribute:"
-msgstr "メソッド REXML::Element#attribute を使うと名前付き属性の値が取得されます。"
+msgstr ""
+"メソッド REXML::Element#attribute を使うと名前付き属性の値が取得されます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:707
@@ -1873,7 +1897,8 @@ msgid ""
 "whitespace nodes were ignored when the XML was parsed; returns +true+ if so, "
 "+nil+ otherwise."
 msgstr ""
-"メソッド REXML::Element#ignore_whitespace_nodes を使うとXMLが構文解析されるときに空白のノードが無視されるかどうかが決められます。\n"
+"メソッド REXML::Element#ignore_whitespace_nodes を使うとXMLが構文解析されると"
+"きに空白のノードが無視されるかどうかが決められます。\n"
 "もし無視されるなら+true+を、そうでなければ+nil+を返します。"
 
 #. type: TextBlock
@@ -1882,7 +1907,8 @@ msgid ""
 "Use method REXML::Element#whitespace to determine whether whitespace is "
 "respected for the element; returns +true+ if so, +false+ otherwise."
 msgstr ""
-"メソッド REXML::Element#whitespace を使うとその要素で空白が認められているかどうかを見定めます。\n"
+"メソッド REXML::Element#whitespace を使うとその要素で空白が認められているかど"
+"うかを見定めます。\n"
 "もし認められているなら+true+を、そうでなければ+false+が返ります。"
 
 #. type: Headline ==
@@ -1896,7 +1922,8 @@ msgid ""
 "Use method REXML::Element#namespace to retrieve the string namespace URI for "
 "the element, which may derive from one of its ancestors:"
 msgstr ""
-"メソッド REXML::Element#namespace を使うとその要素の名前空間URIの文字列が取得されます。\n"
+"メソッド REXML::Element#namespace を使うとその要素の名前空間URIの文字列が取得"
+"されます。\n"
 "この名前空間はその先祖の名前空間から導出されることがあります。"
 
 #. type: Verbatim
@@ -1936,7 +1963,9 @@ msgstr ""
 msgid ""
 "Use method REXML::Element#namespaces to retrieve a hash of all defined "
 "namespaces in the element and its ancestors:"
-msgstr "メソッド REXML::Element#namespaces を使うとその要素とその先祖で定義された全ての名前空間のハッシュが取得されます。"
+msgstr ""
+"メソッド REXML::Element#namespaces を使うとその要素とその先祖で定義された全て"
+"の名前空間のハッシュが取得されます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:743
@@ -1973,7 +2002,9 @@ msgstr ""
 msgid ""
 "Use method REXML::Element#prefixes to retrieve an array of the string "
 "prefixes (names)  of all defined namespaces in the element and its ancestors:"
-msgstr "メソッド REXML::Element#prefixes を使うとその要素とその先祖で定義された全ての名前空間の文字列前置詞（名前）の配列が取得されます。"
+msgstr ""
+"メソッド REXML::Element#prefixes を使うとその要素とその先祖で定義された全ての"
+"名前空間の文字列前置詞（名前）の配列が取得されます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:759
@@ -2367,7 +2398,9 @@ msgstr "要素の子孫から検索するメソッドがあり、使えます。
 msgid ""
 "Use method REXML::Element#get_elements to retrieve all element children of "
 "the element that match the given +xpath+:"
-msgstr "メソッド REXML::Element#get_elements を使い、与えられた+xpath+に照合する要素の全ての要素な子を取得できます。"
+msgstr ""
+"メソッド REXML::Element#get_elements を使い、与えられた+xpath+に照合する要素"
+"の全ての要素な子を取得できます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:945
@@ -2398,7 +2431,9 @@ msgstr ""
 msgid ""
 "Use method REXML::Element#get_text with no argument to retrieve the first "
 "text node in the first child:"
-msgstr "引数なしでメソッド  REXML::Element#get_text を使うと、最初の子の最初のテキストノードを取得します。"
+msgstr ""
+"引数なしでメソッド  REXML::Element#get_text を使うと、最初の子の最初のテキス"
+"トノードを取得します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:958
@@ -2419,7 +2454,9 @@ msgstr ""
 msgid ""
 "Use the same method with argument +xpath+ to retrieve the first text node in "
 "the first child that matches the xpath:"
-msgstr "同じメソッドを引数+xpath+付きで使うと、xpathに照合する最初の子にある最初のテキストを取得します。"
+msgstr ""
+"同じメソッドを引数+xpath+付きで使うと、xpathに照合する最初の子にある最初のテ"
+"キストを取得します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:966
@@ -2432,7 +2469,9 @@ msgstr "  my_doc.root.get_text(1) # => \"this is bold!\"\n"
 msgid ""
 "Use method REXML::Element#text with no argument to retrieve the text from "
 "the first text node in the first child:"
-msgstr "メソッド REXML::Element#text を引数なしで使うと、最初の子の最初のテキストノードからテキストを取得します。"
+msgstr ""
+"メソッド REXML::Element#text を引数なしで使うと、最初の子の最初のテキストノー"
+"ドからテキストを取得します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:971
@@ -2453,7 +2492,9 @@ msgstr ""
 msgid ""
 "Use the same method with argument +xpath+ to retrieve the text from the "
 "first text node in the first child that matches the xpath:"
-msgstr "同じメソッドを引数+xpath+付きで使うと、xpathに照合する最初の子の最初のテキストノードからテキストを取得します。"
+msgstr ""
+"同じメソッドを引数+xpath+付きで使うと、xpathに照合する最初の子の最初のテキス"
+"トノードからテキストを取得します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:979
@@ -2465,10 +2506,11 @@ msgstr "  my_doc.root.text(1) # => \"this is bold!\"\n"
 #: ../doc/rexml/tutorial.rdoc:981
 msgid ""
 "Use included method REXML::Node#find_first_recursive to retrieve the first "
-"descendant element for which the given block returns a truthy value, or +nil"
-"+ if none:"
+"descendant element for which the given block returns a truthy value, or "
+"+nil+ if none:"
 msgstr ""
-"インクルードされたメソッド REXML::Node#find_first_recursive を使うと、与えられたブロックが真値を返すようなものがあれば最初の子孫の要素を取得します。\n"
+"インクルードされたメソッド REXML::Node#find_first_recursive を使うと、与えら"
+"れたブロックが真値を返すようなものがあれば最初の子孫の要素を取得します。\n"
 "もし何も無ければ+nil+を返します。"
 
 #. type: Verbatim
@@ -2659,7 +2701,9 @@ msgstr "要素のプロパティを設定する"
 msgid ""
 "Set the context for an element with method REXML::Element#context= (see "
 "{Element Context}[../context_rdoc.html]):"
-msgstr "メソッド REXML::Element#context= で要素に文脈を設定します（{要素の文脈}[../context_rdoc.html]を参照）。"
+msgstr ""
+"メソッド REXML::Element#context= で要素に文脈を設定します（{要素の文脈}[../"
+"context_rdoc.html]を参照）。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1054
@@ -2718,7 +2762,9 @@ msgstr "要素に追加する"
 msgid ""
 "Add a node as the last child with inherited method REXML::Parent#add (or its "
 "alias #push):"
-msgstr "継承されたメソッド REXML::Parent#add （または別称の #push ）で最後の子としてノードを追加します。"
+msgstr ""
+"継承されたメソッド REXML::Parent#add （または別称の #push ）で最後の子として"
+"ノードを追加します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1074
@@ -2738,7 +2784,8 @@ msgstr ""
 #: ../doc/rexml/tutorial.rdoc:1079
 msgid ""
 "Add a node as the first child with inherited method REXML::Parent#unshift:"
-msgstr "継承されたメソッド REXML::Parent#unshift で最初の子としてノードを追加します。"
+msgstr ""
+"継承されたメソッド REXML::Parent#unshift で最初の子としてノードを追加します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1081
@@ -2777,7 +2824,8 @@ msgstr ""
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:1093
 msgid "Add a text node as the last child with method REXML::Element#add_text:"
-msgstr "メソッド REXML::Element#add_text で最後の子としてテキストノードを追加します。"
+msgstr ""
+"メソッド REXML::Element#add_text で最後の子としてテキストノードを追加します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1095
@@ -2797,7 +2845,9 @@ msgstr ""
 #: ../doc/rexml/tutorial.rdoc:1100
 msgid ""
 "Insert a node before a given node with method REXML::Parent#insert_before:"
-msgstr "メソッド REXML::Parent#insert_before で与えられたノードの前にノードを挿入します。"
+msgstr ""
+"メソッド REXML::Parent#insert_before で与えられたノードの前にノードを挿入しま"
+"す。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1102
@@ -2823,7 +2873,9 @@ msgstr ""
 #: ../doc/rexml/tutorial.rdoc:1110
 msgid ""
 "Insert a node after a given node with method REXML::Parent#insert_after:"
-msgstr "メソッド REXML::Parent#insert_after で与えられたノードの後にノードを挿入します。"
+msgstr ""
+"メソッド REXML::Parent#insert_after で与えられたノードの後にノードを挿入しま"
+"す。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1112
@@ -2911,7 +2963,8 @@ msgstr "要素から削除する"
 #: ../doc/rexml/tutorial.rdoc:1143
 msgid ""
 "Delete a specific child object with inherited method REXML::Parent#delete:"
-msgstr "継承されたメソッド REXML::Parent#delete で特定の子オブジェクトを削除します。"
+msgstr ""
+"継承されたメソッド REXML::Parent#delete で特定の子オブジェクトを削除します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1145
@@ -2944,7 +2997,9 @@ msgstr ""
 msgid ""
 "Delete a child at a specific index with inherited method REXML::"
 "Parent#delete_at:"
-msgstr "継承されたメソッド REXML::Parent#delete_at で特定のインデックスにある子を削除します。"
+msgstr ""
+"継承されたメソッド REXML::Parent#delete_at で特定のインデックスにある子を削除"
+"します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1158
@@ -2973,7 +3028,9 @@ msgstr ""
 msgid ""
 "Delete all children meeting a specified criterion with inherited method "
 "REXML::Parent#delete_if:"
-msgstr "継承されたメソッド REXML::Parent#delete_if で特定の条件に合う全ての子を削除します。"
+msgstr ""
+"継承されたメソッド REXML::Parent#delete_if で特定の条件に合う全ての子を削除し"
+"ます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1170
@@ -3002,7 +3059,9 @@ msgstr ""
 msgid ""
 "Delete an element at a specific 1-based index with method REXML::"
 "Element#delete_element:"
-msgstr "メソッド REXML::Element#delete_element で1起点で指定されたインデックスにある要素を削除します。"
+msgstr ""
+"メソッド REXML::Element#delete_element で1起点で指定されたインデックスにある"
+"要素を削除します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1181
@@ -3094,7 +3153,8 @@ msgstr ""
 #: ../doc/rexml/tutorial.rdoc:1217
 msgid ""
 "Delete an attribute by name with method REXML::Element#delete_attribute:"
-msgstr "メソッド REXML::Element#delete_attribute で名前により属性を削除します。"
+msgstr ""
+"メソッド REXML::Element#delete_attribute で名前により属性を削除します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1219
@@ -3174,7 +3234,9 @@ msgstr "ノードを入れ替える"
 msgid ""
 "Replace the node at a given 0-based index with inherited method REXML::"
 "Parent#[]=:"
-msgstr "継承されたメソッド REXML::Parent#[]= で、与えられた0起点のインデックスにあるノードを入れ替えます。"
+msgstr ""
+"継承されたメソッド REXML::Parent#[]= で、与えられた0起点のインデックスにある"
+"ノードを入れ替えます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1249
@@ -3203,7 +3265,9 @@ msgstr ""
 msgid ""
 "Replace a given node with another node with inherited method REXML::"
 "Parent#replace_child:"
-msgstr "継承されたメソッド REXML::Parent#replace_child で、与えられたノードを他のノードで入れ替えます。"
+msgstr ""
+"継承されたメソッド REXML::Parent#replace_child で、与えられたノードを他のノー"
+"ドで入れ替えます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1260
@@ -3234,7 +3298,9 @@ msgstr ""
 msgid ""
 "Replace +self+ with a given node with inherited method REXML::"
 "Child#replace_with:"
-msgstr "継承されたメソッド REXML::Child#replace_with で与えられたノードで +self+ を入れ替えます。"
+msgstr ""
+"継承されたメソッド REXML::Child#replace_with で与えられたノードで +self+ を入"
+"れ替えます。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1272
@@ -3346,7 +3412,8 @@ msgid ""
 "Create a deep clone of an element with inherited method REXML::"
 "Parent#deep_clone.  All nodes and attributes are copied:"
 msgstr ""
-"継承されたメソッド REXML::Parent#deep_clone で要素の深いクローンを作成します。\n"
+"継承されたメソッド REXML::Parent#deep_clone で要素の深いクローンを作成しま"
+"す。\n"
 "全てのノードと属性がコピーされます。"
 
 #. type: Verbatim
@@ -3371,7 +3438,9 @@ msgstr "文書を書き出す"
 msgid ""
 "Write a document to an \\IO stream (defaults to <tt>$stdout</tt>)  with "
 "method REXML::Document#write:"
-msgstr "メソッド REXML::Document#write で文書と\\IOストリーム（既定では<tt>$stdout</tt>）に書き出します。"
+msgstr ""
+"メソッド REXML::Document#write で文書と\\IOストリーム（既定では<tt>$stdout</"
+"tt>）に書き出します。"
 
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:1319
@@ -3474,3 +3543,338 @@ msgstr ""
 #, no-wrap
 msgid "  </bookstore>\n"
 msgstr "  </bookstore>\n"
+
+#. type: Headline ==
+#: ../doc/rexml/context.rdoc:1
+#, fuzzy
+#| msgid "[Element Children]"
+msgid "Element Context"
+msgstr "[要素の子]"
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:3
+#, fuzzy
+#| msgid "All examples here assume that the following code has been executed:"
+msgid ""
+"Notes: - All code on this page presupposes that the following has been "
+"executed:"
+msgstr ""
+"ここにある全ての例では以下のコードが実行されていることを前提にしています。"
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:6
+#, fuzzy, no-wrap
+#| msgid "  require 'rexml' # => true\n"
+msgid "    require 'rexml/document'\n"
+msgstr "  require 'rexml' # => true\n"
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:8
+msgid ""
+"- For convenience, examples on this page use +REXML::Document.new+, not "
+"+REXML::Element.new+."
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:9
+#, no-wrap
+msgid "  This is completely valid, because REXML::Document is a subclass of REXML::Element.\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:11
+#, fuzzy
+#| msgid ""
+#| "The context for parsing a document is a hash that influences the way the "
+#| "XML is read and stored."
+msgid ""
+"The context for an element is a hash of processing directives that influence "
+"the way \\XML is read, stored, and written.  The context entries are:"
+msgstr ""
+"文書を解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッ"
+"シュです。"
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:20
+msgid ""
+"The default context for a new element is <tt>{}</tt>.  You can set the "
+"context at element-creation time:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:23
+#, no-wrap
+msgid ""
+"  d = REXML::Document.new('', {compress_whitespace: :all, raw: :all})\n"
+"  d.context # => {:compress_whitespace=>:all, :raw=>:all}\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:26
+msgid "You can reset the entire context by assigning a new hash:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:28
+#, fuzzy, no-wrap
+#| msgid ""
+#| "  ele.context # => nil\n"
+#| "  ele.context = {ignore_whitespace_nodes: :all}\n"
+#| "  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+msgid ""
+"  d.context = {ignore_whitespace_nodes: :all}\n"
+"  d.context # => {:ignore_whitespace_nodes=>:all}\n"
+msgstr ""
+"  ele.context # => nil\n"
+"  ele.context = {ignore_whitespace_nodes: :all}\n"
+"  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:31
+msgid "Or you can create or modify an individual entry:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:33
+#, fuzzy, no-wrap
+#| msgid ""
+#| "  ele.context # => nil\n"
+#| "  ele.context = {ignore_whitespace_nodes: :all}\n"
+#| "  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+msgid ""
+"  d.context[:raw] = :all\n"
+"  d.context # => {:ignore_whitespace_nodes=>:all, :raw=>:all}\n"
+msgstr ""
+"  ele.context # => nil\n"
+"  ele.context = {ignore_whitespace_nodes: :all}\n"
+"  ele.context # => {:ignore_whitespace_nodes=>:all}\n"
+
+#. type: Headline ===
+#: ../doc/rexml/context.rdoc:36
+msgid "+:respect_whitespace+"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:38 ../doc/rexml/context.rdoc:61
+msgid "Affects: +REXML::Element.new+, +REXML::Element.text=+."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:40
+msgid ""
+"By default, all parsed whitespace is respected (that is, stored whitespace "
+"not compressed):"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:42
+#, no-wrap
+msgid ""
+"  xml_string = '<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>'\n"
+"  d = REXML::Document.new(xml_string)\n"
+"  d.to_s # => \"<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>\"\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:46
+msgid ""
+"Use +:respect_whitespace+ with an array of element names to specify the "
+"elements that _are_ to have their whitespace respected; other elements' "
+"whitespace, and whitespace between elements, will be compressed."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:50
+msgid "In this example: +foo+ and +baz+ will have their whitespace respected;"
+msgstr ""
+
+#. type: Headline +
+#: ../doc/rexml/context.rdoc:51
+msgid ""
+"bar+ and the space between elements will have their whitespace compressed:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:53
+#, no-wrap
+msgid ""
+"  d = REXML::Document.new(xml_string, {respect_whitespace: ['foo', 'baz']})\n"
+"  d.to_s # => \"<root><foo>a   b</foo> <bar>c d</bar> <baz>e   f</baz></root>\"\n"
+"  bar = d.root[2] # => <bar> ... </>\n"
+"  bar.text = 'X   Y'\n"
+"  d.to_s # => \"<root><foo>a   b</foo> <bar>X Y</bar> <baz>e   f</baz></root>\"\n"
+msgstr ""
+
+#. type: Headline ===
+#: ../doc/rexml/context.rdoc:59
+msgid "+:compress_whitespace+"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:63
+msgid ""
+"Use <tt>compress_whitespace: :all</tt> to compress whitespace both within "
+"and between elements:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:66
+#, no-wrap
+msgid ""
+"  xml_string = '<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   f</baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {compress_whitespace: :all})\n"
+"  d.to_s # => \"<root><foo>a b</foo> <bar>c d</bar> <baz>e f</baz></root>\"\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:70
+msgid ""
+"Use +:compress_whitespace+ with an array of element names to compress "
+"whitespace in those elements, but not in other elements nor between elements."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:74
+msgid "In this example, +foo+ and +baz+ will have their whitespace compressed;"
+msgstr ""
+
+#. type: Headline +
+#: ../doc/rexml/context.rdoc:75
+msgid "bar+ and the space between elements will not:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:77
+#, no-wrap
+msgid ""
+"  d = REXML::Document.new(xml_string, {compress_whitespace: ['foo', 'baz']})\n"
+"  d.to_s # => \"<root><foo>a b</foo>    <bar>c   d</bar>   <baz>e f</baz></root>\"\n"
+"  foo = d.root[0] # => <foo> ... </>\n"
+"  foo.text= 'X   Y'\n"
+"  d.to_s # => \"<root><foo>X Y</foo>    <bar>c   d</bar>   <baz>e f</baz></root>\"\n"
+msgstr ""
+
+#. type: Headline ===
+#: ../doc/rexml/context.rdoc:83
+msgid "+:ignore_whitespace_nodes+"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:85
+msgid "Affects: +REXML::Element.new+."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:87
+msgid ""
+"Use <tt>ignore_whitespace_nodes: :all</tt> to omit all whitespace-only "
+"elements."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:89
+msgid ""
+"In this example, +bar+ has a text node, while nodes +foo+ and +baz+ do not:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:91
+#, no-wrap
+msgid ""
+"  xml_string = '<root><foo>   </foo><bar> BAR </bar><baz>   </baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {ignore_whitespace_nodes: :all})\n"
+"  d.to_s # => \"<root><foo> FOO </foo><bar/><baz> BAZ </baz></root>\"\n"
+"  root = d.root   # => <root> ... </>\n"
+"  foo = root[0]   # => <foo/>\n"
+"  bar = root[1]   # => <bar> ... </>\n"
+"  baz = root[2]   # => <baz/>\n"
+"  foo.first.class # => NilClass\n"
+"  bar.first.class # => REXML::Text\n"
+"  baz.first.class # => NilClass\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:102
+msgid ""
+"Use +:ignore_whitespace_nodes+ with an array of element names to specify the "
+"elements that are to have whitespace nodes ignored."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:105
+msgid ""
+"In this example, +bar+ and +baz+ have text nodes, while node +foo+ does not."
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:107
+#, no-wrap
+msgid ""
+"  xml_string = '<root><foo>   </foo><bar> BAR </bar><baz>   </baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {ignore_whitespace_nodes: ['foo']})\n"
+"  d.to_s # => \"<root><foo/><bar> BAR </bar><baz>   </baz></root>\"\n"
+"  root = d.root   # => <root> ... </>\n"
+"  foo = root[0]   # => <foo/>\n"
+"  bar = root[1]   # => <bar> ... </>\n"
+"  baz = root[2]   # => <baz> ... </>\n"
+"  foo.first.class # => NilClass\n"
+"  bar.first.class # => REXML::Text\n"
+"  baz.first.class # => REXML::Text\n"
+msgstr ""
+
+#. type: Headline ===
+#: ../doc/rexml/context.rdoc:118
+msgid "+:raw+"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:120
+msgid "Affects: +Element.text=+, +Element.add_text+, +Text.to_s+."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:122
+msgid "Parsing of +a+ elements is not affected by +raw+:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:124
+#, no-wrap
+msgid ""
+"  xml_string = '<root><a>0 &lt; 1</a><b>1 &gt; 0</b></root>'\n"
+"  d = REXML::Document.new(xml_string, {:raw => ['a']})\n"
+"  d.root.to_s # => \"<root><a>0 &lt; 1</a><b>1 &gt; 0</b></root>\"\n"
+"  a, b = *d.root.elements\n"
+"  a.to_s # => \"<a>0 &lt; 1</a>\"\n"
+"  b.to_s # => \"<b>1 &gt; 0</b>\"\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:131
+msgid "But Element#text= is affected:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:133
+#, no-wrap
+msgid ""
+"  a.text = '0 &lt; 1'\n"
+"  b.text = '1 &gt; 0'\n"
+"  a.to_s # => \"<a>0 &lt; 1</a>\"\n"
+"  b.to_s # => \"<b>1 &amp;gt; 0</b>\"\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:138
+msgid "As is Element.add_text:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:140
+#, no-wrap
+msgid ""
+"  a.add_text(' so 1 &gt; 0')\n"
+"  b.add_text(' so 0 &lt; 1')\n"
+"  a.to_s # => \"<a>0 &lt; 1 so 1 &gt; 0</a>\"\n"
+"  b.to_s # => \"<b>1 &amp;gt; 0 so 0 &amp;lt; 1</b>\"\n"
+msgstr ""

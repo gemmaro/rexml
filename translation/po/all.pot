@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE
-# Copyright (C) YEAR Yukihiro Matsumoto
+# Copyright (C) YEAR Free Software Foundation, Inc.
 # This file is distributed under the same license as the REXML package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: REXML VERSION\n"
-"POT-Creation-Date: 2023-04-11 11:47+0900\n"
-"PO-Revision-Date: 2023-04-11 12:28+0900\n"
+"POT-Creation-Date: 2023-06-10 09:32+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -260,7 +260,7 @@ msgid "The context entries are:"
 msgstr ""
 
 #. type: TextBlock
-#: ../doc/rexml/tutorial.rdoc:102
+#: ../doc/rexml/tutorial.rdoc:102 ../doc/rexml/context.rdoc:15
 msgid ""
 "- +:respect_whitespace+: controls treatment of whitespace.  - "
 "+:compress_whitespace+: determines whether whitespace is compressed.  - "
@@ -2899,4 +2899,323 @@ msgstr ""
 #: ../doc/rexml/tutorial.rdoc:1358
 #, no-wrap
 msgid "  </bookstore>\n"
+msgstr ""
+
+#. type: Headline ==
+#: ../doc/rexml/context.rdoc:1
+msgid "Element Context"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:3
+msgid ""
+"Notes: - All code on this page presupposes that the following has been "
+"executed:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:6
+#, no-wrap
+msgid "    require 'rexml/document'\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:8
+msgid ""
+"- For convenience, examples on this page use +REXML::Document.new+, not "
+"+REXML::Element.new+."
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:9
+#, no-wrap
+msgid ""
+"  This is completely valid, because REXML::Document is a subclass of "
+"REXML::Element.\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:11
+msgid ""
+"The context for an element is a hash of processing directives that influence "
+"the way \\XML is read, stored, and written.  The context entries are:"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:20
+msgid ""
+"The default context for a new element is <tt>{}</tt>.  You can set the "
+"context at element-creation time:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:23
+#, no-wrap
+msgid ""
+"  d = REXML::Document.new('', {compress_whitespace: :all, raw: :all})\n"
+"  d.context # => {:compress_whitespace=>:all, :raw=>:all}\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:26
+msgid "You can reset the entire context by assigning a new hash:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:28
+#, no-wrap
+msgid ""
+"  d.context = {ignore_whitespace_nodes: :all}\n"
+"  d.context # => {:ignore_whitespace_nodes=>:all}\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:31
+msgid "Or you can create or modify an individual entry:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:33
+#, no-wrap
+msgid ""
+"  d.context[:raw] = :all\n"
+"  d.context # => {:ignore_whitespace_nodes=>:all, :raw=>:all}\n"
+msgstr ""
+
+#. type: Headline ===
+#: ../doc/rexml/context.rdoc:36
+msgid "+:respect_whitespace+"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:38 ../doc/rexml/context.rdoc:61
+msgid "Affects: +REXML::Element.new+, +REXML::Element.text=+."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:40
+msgid ""
+"By default, all parsed whitespace is respected (that is, stored whitespace "
+"not compressed):"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:42
+#, no-wrap
+msgid ""
+"  xml_string = '<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   "
+"f</baz></root>'\n"
+"  d = REXML::Document.new(xml_string)\n"
+"  d.to_s # => \"<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   "
+"f</baz></root>\"\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:46
+msgid ""
+"Use +:respect_whitespace+ with an array of element names to specify the "
+"elements that _are_ to have their whitespace respected; other elements' "
+"whitespace, and whitespace between elements, will be compressed."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:50
+msgid "In this example: +foo+ and +baz+ will have their whitespace respected;"
+msgstr ""
+
+#. type: Headline +
+#: ../doc/rexml/context.rdoc:51
+msgid "bar+ and the space between elements will have their whitespace compressed:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:53
+#, no-wrap
+msgid ""
+"  d = REXML::Document.new(xml_string, {respect_whitespace: ['foo', "
+"'baz']})\n"
+"  d.to_s # => \"<root><foo>a   b</foo> <bar>c d</bar> <baz>e   "
+"f</baz></root>\"\n"
+"  bar = d.root[2] # => <bar> ... </>\n"
+"  bar.text = 'X   Y'\n"
+"  d.to_s # => \"<root><foo>a   b</foo> <bar>X Y</bar> <baz>e   "
+"f</baz></root>\"\n"
+msgstr ""
+
+#. type: Headline ===
+#: ../doc/rexml/context.rdoc:59
+msgid "+:compress_whitespace+"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:63
+msgid ""
+"Use <tt>compress_whitespace: :all</tt> to compress whitespace both within "
+"and between elements:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:66
+#, no-wrap
+msgid ""
+"  xml_string = '<root><foo>a   b</foo>    <bar>c   d</bar>   <baz>e   "
+"f</baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {compress_whitespace: :all})\n"
+"  d.to_s # => \"<root><foo>a b</foo> <bar>c d</bar> <baz>e "
+"f</baz></root>\"\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:70
+msgid ""
+"Use +:compress_whitespace+ with an array of element names to compress "
+"whitespace in those elements, but not in other elements nor between "
+"elements."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:74
+msgid "In this example, +foo+ and +baz+ will have their whitespace compressed;"
+msgstr ""
+
+#. type: Headline +
+#: ../doc/rexml/context.rdoc:75
+msgid "bar+ and the space between elements will not:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:77
+#, no-wrap
+msgid ""
+"  d = REXML::Document.new(xml_string, {compress_whitespace: ['foo', "
+"'baz']})\n"
+"  d.to_s # => \"<root><foo>a b</foo>    <bar>c   d</bar>   <baz>e "
+"f</baz></root>\"\n"
+"  foo = d.root[0] # => <foo> ... </>\n"
+"  foo.text= 'X   Y'\n"
+"  d.to_s # => \"<root><foo>X Y</foo>    <bar>c   d</bar>   <baz>e "
+"f</baz></root>\"\n"
+msgstr ""
+
+#. type: Headline ===
+#: ../doc/rexml/context.rdoc:83
+msgid "+:ignore_whitespace_nodes+"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:85
+msgid "Affects: +REXML::Element.new+."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:87
+msgid ""
+"Use <tt>ignore_whitespace_nodes: :all</tt> to omit all whitespace-only "
+"elements."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:89
+msgid "In this example, +bar+ has a text node, while nodes +foo+ and +baz+ do not:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:91
+#, no-wrap
+msgid ""
+"  xml_string = '<root><foo>   </foo><bar> BAR </bar><baz>   </baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {ignore_whitespace_nodes: :all})\n"
+"  d.to_s # => \"<root><foo> FOO </foo><bar/><baz> BAZ </baz></root>\"\n"
+"  root = d.root   # => <root> ... </>\n"
+"  foo = root[0]   # => <foo/>\n"
+"  bar = root[1]   # => <bar> ... </>\n"
+"  baz = root[2]   # => <baz/>\n"
+"  foo.first.class # => NilClass\n"
+"  bar.first.class # => REXML::Text\n"
+"  baz.first.class # => NilClass\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:102
+msgid ""
+"Use +:ignore_whitespace_nodes+ with an array of element names to specify the "
+"elements that are to have whitespace nodes ignored."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:105
+msgid "In this example, +bar+ and +baz+ have text nodes, while node +foo+ does not."
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:107
+#, no-wrap
+msgid ""
+"  xml_string = '<root><foo>   </foo><bar> BAR </bar><baz>   </baz></root>'\n"
+"  d = REXML::Document.new(xml_string, {ignore_whitespace_nodes: ['foo']})\n"
+"  d.to_s # => \"<root><foo/><bar> BAR </bar><baz>   </baz></root>\"\n"
+"  root = d.root   # => <root> ... </>\n"
+"  foo = root[0]   # => <foo/>\n"
+"  bar = root[1]   # => <bar> ... </>\n"
+"  baz = root[2]   # => <baz> ... </>\n"
+"  foo.first.class # => NilClass\n"
+"  bar.first.class # => REXML::Text\n"
+"  baz.first.class # => REXML::Text\n"
+msgstr ""
+
+#. type: Headline ===
+#: ../doc/rexml/context.rdoc:118
+msgid "+:raw+"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:120
+msgid "Affects: +Element.text=+, +Element.add_text+, +Text.to_s+."
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:122
+msgid "Parsing of +a+ elements is not affected by +raw+:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:124
+#, no-wrap
+msgid ""
+"  xml_string = '<root><a>0 &lt; 1</a><b>1 &gt; 0</b></root>'\n"
+"  d = REXML::Document.new(xml_string, {:raw => ['a']})\n"
+"  d.root.to_s # => \"<root><a>0 &lt; 1</a><b>1 &gt; 0</b></root>\"\n"
+"  a, b = *d.root.elements\n"
+"  a.to_s # => \"<a>0 &lt; 1</a>\"\n"
+"  b.to_s # => \"<b>1 &gt; 0</b>\"\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:131
+msgid "But Element#text= is affected:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:133
+#, no-wrap
+msgid ""
+"  a.text = '0 &lt; 1'\n"
+"  b.text = '1 &gt; 0'\n"
+"  a.to_s # => \"<a>0 &lt; 1</a>\"\n"
+"  b.to_s # => \"<b>1 &amp;gt; 0</b>\"\n"
+msgstr ""
+
+#. type: TextBlock
+#: ../doc/rexml/context.rdoc:138
+msgid "As is Element.add_text:"
+msgstr ""
+
+#. type: Verbatim
+#: ../doc/rexml/context.rdoc:140
+#, no-wrap
+msgid ""
+"  a.add_text(' so 1 &gt; 0')\n"
+"  b.add_text(' so 0 &lt; 1')\n"
+"  a.to_s # => \"<a>0 &lt; 1 so 1 &gt; 0</a>\"\n"
+"  b.to_s # => \"<b>1 &amp;gt; 0 so 0 &amp;lt; 1</b>\"\n"
 msgstr ""
