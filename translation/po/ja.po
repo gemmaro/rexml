@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REXML\n"
 "POT-Creation-Date: 2023-06-11 20:52+0900\n"
-"PO-Revision-Date: 2023-06-11 20:50+0900\n"
+"PO-Revision-Date: 2023-06-11 21:04+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -16,49 +16,37 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:2
-#, fuzzy
-#| msgid "\\REXML Tutorial"
 msgid "= \\REXML Tutorial"
-msgstr "\\REXML入門"
+msgstr "= \\REXML入門"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:4
-#, fuzzy
-#| msgid "Why \\REXML?"
 msgid "== Why \\REXML?"
-msgstr "なぜ\\REXMLなのか"
+msgstr "== なぜ\\REXMLなのか"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:9
-#, fuzzy
-#| msgid "- Ruby's \\REXML library is part of the Ruby distribution,"
 msgid ""
 "Ruby's \\REXML library is part of the Ruby distribution, so using it "
 "requires no gem installations."
-msgstr "- Rubyの\\REXMLライブラリはRubyの配布物の一部です。"
+msgstr ""
+"Rubyの\\REXMLライブラリはRubyの配布物の一部です。\n"
+"そのためgemのインストールは必要ありません。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:9
 msgid "\\REXML is fully maintained."
-msgstr ""
+msgstr "\\REXMLは手厚く維持管理されています。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:9
-#, fuzzy
-#| msgid ""
-#| "- \\REXML is fully maintained.  - \\REXML is mature, having been in use "
-#| "for long years."
 msgid "\\REXML is mature, having been in use for long years."
-msgstr ""
-"- \\REXMLは手厚く維持管理されています。\n"
-"- \\REXMLは成熟しており、長年使われてきました。"
+msgstr "\\REXMLは成熟しており、長年使われてきました。"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:11
-#, fuzzy
-#| msgid "To Include, or Not to Include?"
 msgid "== To Include, or Not to Include?"
-msgstr "インクルードすべきや否や"
+msgstr "== インクルードすべきや否や"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:14
@@ -106,10 +94,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:28
-#, fuzzy
-#| msgid "Preliminaries"
 msgid "== Preliminaries"
-msgstr "事前に必要なもの"
+msgstr "== 事前に必要なもの"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:30
@@ -196,17 +182,13 @@ msgstr "  doc = Document.new(source_string)\n"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:59
-#, fuzzy
-#| msgid "Parsing \\XML \\Source"
 msgid "== Parsing \\XML \\Source"
-msgstr "\\XMLのソースを解析する"
+msgstr "== \\XMLのソースを解析する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:61
-#, fuzzy
-#| msgid "Parsing a Document"
 msgid "=== Parsing a Document"
-msgstr "文書を解析する"
+msgstr "=== 文書を解析する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:63
@@ -296,10 +278,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:96
-#, fuzzy
-#| msgid "Context (Parsing Options)"
 msgid "=== Context (Parsing Options)"
-msgstr "文脈（解析オプション）"
+msgstr "=== 文脈（解析オプション）"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:99
@@ -318,35 +298,24 @@ msgstr "文脈の各項目は次の通り。"
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:106 ../doc/rexml/context.rdoc:19
 msgid "+:respect_whitespace+: controls treatment of whitespace."
-msgstr ""
+msgstr "+:respect_whitespace+: 空白の扱いを制御します。"
 
-# XXX: baz+ はマークアップの誤りと思われましたが、po4aのパーサの問題でした。
-# FIXME: whitespaceはnamespaceと思われます。
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:106 ../doc/rexml/context.rdoc:19
-#, fuzzy
-#| msgid ""
-#| "bar+ and the space between elements will have their whitespace compressed:"
 msgid "+:compress_whitespace+: determines whether whitespace is compressed."
-msgstr "baz+と要素間の空白は、圧縮される名前空間を持ちます。"
+msgstr "+:compress_whitespace+: 空白が圧縮されるかどうかを決めます。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:106 ../doc/rexml/context.rdoc:19
-#, fuzzy
-#| msgid ""
-#| "Use <tt>ignore_whitespace_nodes: :all</tt> to omit all whitespace-only "
-#| "elements."
 msgid ""
 "+:ignore_whitespace_nodes+: determines whether whitespace-only nodes are to "
 "be ignored."
-msgstr ""
-"<tt>ignore_whitespace_nodes: :all</tt>を使うと全ての空白のみの要素が省かれま"
-"す。"
+msgstr "+:ignore_whitespace_nodes+: 空白のみのノードが無視されるかを決めます。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:106 ../doc/rexml/context.rdoc:19
 msgid "+:raw+: controls treatment of special characters and entities."
-msgstr ""
+msgstr "+:raw+: 特殊文字と実体の扱いを制御します。"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:108
@@ -355,10 +324,8 @@ msgstr "{要素の文脈}[../context_rdoc.html]を参照してください。"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:110
-#, fuzzy
-#| msgid "Exploring the Document"
 msgid "== Exploring the Document"
-msgstr "文書を探索する"
+msgstr "== 文書を探索する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:112
@@ -372,37 +339,23 @@ msgstr "オブジェクトはその先祖のクラスから継承します。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:119 ../doc/rexml/tutorial.rdoc:307
-#, fuzzy
-#| msgid "- REXML::Child (includes module REXML::Node)"
 msgid "REXML::Child (includes module REXML::Node)"
-msgstr "- REXML::Child（モジュール REXML::Node がインクルードされています）"
+msgstr "REXML::Child（モジュール REXML::Node がインクルードされています）"
 
 #. type: Bullet: '  - '
 #: ../doc/rexml/tutorial.rdoc:119 ../doc/rexml/tutorial.rdoc:307
-#, fuzzy
-#| msgid ""
-#| "  - REXML::Parent (includes module {Enumerable}[rdoc-ref:Enumerable]).\n"
-#| "    - REXML::Element (includes module REXML::Namespace).\n"
 msgid "REXML::Parent (includes module {Enumerable}[rdoc-ref:Enumerable])."
-msgstr ""
-"  - REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールがインクルード"
-"されています）\n"
-"    - REXML::Element（モジュール REXML::Namespace がインクルードされていま"
-"す）\n"
+msgstr "REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールがインクルードされています）"
 
 #. type: Bullet: '    - '
 #: ../doc/rexml/tutorial.rdoc:119 ../doc/rexml/tutorial.rdoc:307
-#, fuzzy
-#| msgid "- REXML::Child (includes module REXML::Node)"
 msgid "REXML::Element (includes module REXML::Namespace)."
-msgstr "- REXML::Child（モジュール REXML::Node がインクルードされています）"
+msgstr "REXML::Element（モジュール REXML::Namespace がインクルードされています）"
 
 #. type: Bullet: '      - '
 #: ../doc/rexml/tutorial.rdoc:119
-#, fuzzy
-#| msgid "[Document]"
 msgid "REXML::Document"
-msgstr "[文書]"
+msgstr "REXML::Document"
 
 # 属性というよりは、プロパティとして区別したほうがよさそうです
 #. type: Plain text
@@ -416,10 +369,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:124
-#, fuzzy
-#| msgid "Document Properties"
 msgid "=== Document Properties"
-msgstr "文書のプロパティ"
+msgstr "=== 文書のプロパティ"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:126
@@ -428,38 +379,28 @@ msgstr "文書には（子要素の他に）いくつかのプロパティがあ
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:132
-#, fuzzy
-#| msgid "[Document Type]"
 msgid "Document type."
-msgstr "[文書種別]"
+msgstr "文書種別"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:132
-#, fuzzy
-#| msgid "[Node Type]"
 msgid "Node type."
-msgstr "[ノードの種類]"
+msgstr "ノードの種類"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:132
-#, fuzzy
-#| msgid "[Name]"
 msgid "Name."
-msgstr "[名前]"
+msgstr "名前"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:132
-#, fuzzy
-#| msgid "[Document]"
 msgid "Document."
-msgstr "[文書]"
+msgstr "文書"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:132
-#, fuzzy
-#| msgid "[XPath]"
 msgid "XPath"
-msgstr "[XPath]"
+msgstr "XPath"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:134
@@ -601,10 +542,8 @@ msgstr "    Element.new('foo').xpath # => \"foo\"\n"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:182
-#, fuzzy
-#| msgid "Document Children"
 msgid "=== Document Children"
-msgstr "文書の子内容"
+msgstr "=== 文書の子"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:184
@@ -613,45 +552,33 @@ msgstr "文書にはこれらの種類の子を持ち得ます。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:191
-#, fuzzy
-#| msgid "[XML Declaration]"
 msgid "XML declaration."
-msgstr "[XML宣言]"
+msgstr "XML宣言"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:191
-#, fuzzy
-#| msgid "[Root Element]"
 msgid "Root element."
-msgstr "[ルート要素]"
+msgstr "ルート要素"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:191
-#, fuzzy
-#| msgid "[Text]"
 msgid "Text."
-msgstr "[テキスト]"
+msgstr "テキスト"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:191
-#, fuzzy
-#| msgid "[Processing Instructions]"
 msgid "Processing instructions."
-msgstr "[処理手続き]"
+msgstr "処理手続き"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:191
-#, fuzzy
-#| msgid "[Comments]"
 msgid "Comments."
-msgstr "[コメント]"
+msgstr "コメント"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:191
-#, fuzzy
-#| msgid "[CDATA]"
 msgid "CDATA."
-msgstr "[CDATA]"
+msgstr "CDATA"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:193
@@ -943,10 +870,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:299
-#, fuzzy
-#| msgid "Exploring an Element"
 msgid "== Exploring an Element"
-msgstr "要素を探索する"
+msgstr "== 要素を探索する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:301
@@ -960,27 +885,23 @@ msgstr "この節は以下のメソッドを押さえます。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:313
-#, fuzzy
-#| msgid "Affects: +REXML::Element.new+."
 msgid "Defined in REXML::Element itself."
-msgstr "影響があるもの：+REXML::Element.new+"
+msgstr "REXML::Element 自体に定義されています。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:313
 msgid "Inherited from REXML::Parent and REXML::Child."
-msgstr ""
+msgstr "REXML::Parent と REXML::Child から継承されています。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:313
 msgid "Included from REXML::Node."
-msgstr ""
+msgstr "REXML::Node をインクルードしています。"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:315
-#, fuzzy
-#| msgid "Inside the Element"
 msgid "=== Inside the Element"
-msgstr "要素の中身"
+msgstr "=== 要素の中身"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:317
@@ -1098,10 +1019,8 @@ msgstr "    doc.root.context # => {}\n"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:359
-#, fuzzy
-#| msgid "Relationships"
 msgid "=== Relationships"
-msgstr "関係"
+msgstr "=== 関係"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:361
@@ -1110,31 +1029,23 @@ msgstr "要素には以下があることがあります。"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:365
-#, fuzzy
-#| msgid "Ancestors"
 msgid "Ancestors."
 msgstr "先祖"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:365
-#, fuzzy
-#| msgid "Siblings"
 msgid "Siblings."
 msgstr "兄弟"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/tutorial.rdoc:365
-#, fuzzy
-#| msgid "Children"
 msgid "Children."
 msgstr "子"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:367
-#, fuzzy
-#| msgid "Ancestors"
 msgid "==== Ancestors"
-msgstr "先祖"
+msgstr "==== 先祖"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:369
@@ -1283,10 +1194,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:426
-#, fuzzy
-#| msgid "Siblings"
 msgid "==== Siblings"
-msgstr "兄弟"
+msgstr "==== 兄弟"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:428
@@ -1496,10 +1405,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:516
-#, fuzzy
-#| msgid "Children"
 msgid "==== Children"
-msgstr "子"
+msgstr "==== 子"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:518
@@ -1799,7 +1706,7 @@ msgstr ""
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:631
 msgid "[Processing Instruction Children]"
-msgstr "[子の処理指示]"
+msgstr "[子の処理手続き]"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:634
@@ -1807,7 +1714,7 @@ msgstr "[子の処理指示]"
 msgid ""
 "  Use method REXML::Element#instructions to retrieve a frozen array\n"
 "  of processing instruction children:\n"
-msgstr "  メソッド REXML::Element#instructions を使うと子の処理指示の凍結された配列が取得されます。\n"
+msgstr "  メソッド REXML::Element#instructions を使うと子の処理手続きの凍結された配列が取得されます。\n"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:646
@@ -1907,10 +1814,8 @@ msgstr "     doc.root.parent? # => true\n"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:672
-#, fuzzy
-#| msgid "Element Attributes"
 msgid "=== Element Attributes"
-msgstr "要素の属性"
+msgstr "=== 要素の属性"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:675
@@ -2024,10 +1929,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:713
-#, fuzzy
-#| msgid "Whitespace"
 msgid "== Whitespace"
-msgstr "空白"
+msgstr "== 空白"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:717
@@ -2052,10 +1955,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:722
-#, fuzzy
-#| msgid "Namespaces"
 msgid "== Namespaces"
-msgstr "名前空間"
+msgstr "== 名前空間"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:725
@@ -2179,10 +2080,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:773
-#, fuzzy
-#| msgid "Traversing"
 msgid "== Traversing"
-msgstr "巡回"
+msgstr "== 巡回"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:776
@@ -2527,10 +2426,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:939
-#, fuzzy
-#| msgid "Searching"
 msgid "== Searching"
-msgstr "検索"
+msgstr "== 検索"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:941
@@ -2678,17 +2575,13 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:993
-#, fuzzy
-#| msgid "Editing"
 msgid "== Editing"
-msgstr "編集"
+msgstr "== 編集"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:995
-#, fuzzy
-#| msgid "Editing a Document"
 msgid "=== Editing a Document"
-msgstr "文書を編集する"
+msgstr "=== 文書を編集する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:997
@@ -2820,17 +2713,13 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1042
-#, fuzzy
-#| msgid "Editing an Element"
 msgid "=== Editing an Element"
-msgstr "要素を編集する"
+msgstr "=== 要素を編集する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1044
-#, fuzzy
-#| msgid "Creating an Element"
 msgid "==== Creating an Element"
-msgstr "要素を作成する"
+msgstr "==== 要素を作成する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1046
@@ -2846,10 +2735,8 @@ msgstr "  ele = Element.new('foo') # => <foo/>\n"
 # ここでのpropertyはattributeではないので属性とは訳せません
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1050
-#, fuzzy
-#| msgid "Setting Element Properties"
 msgid "==== Setting Element Properties"
-msgstr "要素のプロパティを設定する"
+msgstr "==== 要素のプロパティを設定する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1053
@@ -2909,10 +2796,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1071
-#, fuzzy
-#| msgid "Adding to an Element"
 msgid "==== Adding to an Element"
-msgstr "要素に追加する"
+msgstr "==== 要素に追加する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1073
@@ -3113,10 +2998,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1142
-#, fuzzy
-#| msgid "Deleting from an Element"
 msgid "==== Deleting from an Element"
-msgstr "要素から削除する"
+msgstr "==== 要素から削除する"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1144
@@ -3384,10 +3267,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1246
-#, fuzzy
-#| msgid "Replacing Nodes"
 msgid "==== Replacing Nodes"
-msgstr "ノードを入れ替える"
+msgstr "==== ノードを入れ替える"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1248
@@ -3490,10 +3371,8 @@ msgstr ""
 # コピーとクローンの使い分けがされている可能性があるからです。
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1283
-#, fuzzy
-#| msgid "Cloning"
 msgid "=== Cloning"
-msgstr "クローン"
+msgstr "=== クローン"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1286
@@ -3592,10 +3471,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1315
-#, fuzzy
-#| msgid "Writing the Document"
 msgid "== Writing the Document"
-msgstr "文書を書き出す"
+msgstr "== 文書を書き出す"
 
 #. type: Plain text
 #: ../doc/rexml/tutorial.rdoc:1318
@@ -3710,10 +3587,8 @@ msgstr "  </bookstore>\n"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:2
-#, fuzzy
-#| msgid "Element Context"
 msgid "== Element Context"
-msgstr "要素の文脈"
+msgstr "== 要素の文脈"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:5
@@ -3731,17 +3606,14 @@ msgstr "    require 'rexml/document'\n"
 
 #. type: Bullet: '- '
 #: ../doc/rexml/context.rdoc:10
-#, fuzzy
-#| msgid ""
-#| "- For convenience, examples on this page use +REXML::Document.new+, not "
-#| "+REXML::Element.new+."
 msgid ""
 "For convenience, examples on this page use +REXML::Document.new+, not "
 "+REXML::Element.new+.  This is completely valid, because REXML::Document is "
 "a subclass of REXML::Element."
 msgstr ""
-"- 便宜上、本ページの例では +REXML::Element.new+ ではなく +REXML::Document."
-"new+ を使っています。"
+"便宜上、本ページの例では +REXML::Element.new+ ではなく +REXML::Document.new+ を使っています。\n"
+"これは完全に妥当です。\n"
+"なぜなら REXML::Document は REXML::Element の副クラスだからです。"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:14
@@ -3804,10 +3676,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:37
-#, fuzzy
-#| msgid "+:respect_whitespace+"
 msgid "=== +:respect_whitespace+"
-msgstr "+:respect_whitespace+"
+msgstr "=== +:respect_whitespace+"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:39 ../doc/rexml/context.rdoc:62
@@ -3846,17 +3716,15 @@ msgstr ""
 "指定します。\n"
 "他の要素の空白や要素間の空白は圧縮されます。"
 
-# XXX: baz+ はマークアップの誤りと思われましたが、po4aのパーサの問題でした。
-# FIXME: whitespaceはnamespaceと思われます。
+# FIXME: 原文について、whitespaceはnamespaceと思われます。
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:52
-#, fuzzy
-#| msgid ""
-#| "bar+ and the space between elements will have their whitespace compressed:"
 msgid ""
 "In this example: +foo+ and +baz+ will have their whitespace respected; +bar+ "
 "and the space between elements will have their whitespace compressed:"
-msgstr "baz+と要素間の空白は、圧縮される名前空間を持ちます。"
+msgstr ""
+"この例において+foo+と+baz+それぞれでは空白が保たれています。\n"
+"+baz+と要素間の空白は、圧縮される名前空間を持ちます。"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:58
@@ -3876,10 +3744,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:60
-#, fuzzy
-#| msgid "+:compress_whitespace+"
 msgid "=== +:compress_whitespace+"
-msgstr "+:compress_whitespace+"
+msgstr "=== +:compress_whitespace+"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:65
@@ -3913,13 +3779,12 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:76
-#, fuzzy
-#| msgid ""
-#| "In this example, +foo+ and +baz+ will have their whitespace compressed;"
 msgid ""
 "In this example, +foo+ and +baz+ will have their whitespace compressed; "
 "+bar+ and the space between elements will not:"
-msgstr "この例では+foo+と+baz+は空白が圧縮されます。"
+msgstr ""
+"この例では+foo+と+baz+は空白が圧縮されます。\n"
+"+bar+と要素間の空白は圧縮されません。"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:82
@@ -3939,10 +3804,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:84
-#, fuzzy
-#| msgid "+:ignore_whitespace_nodes+"
 msgid "=== +:ignore_whitespace_nodes+"
-msgstr "+:ignore_whitespace_nodes+"
+msgstr "=== +:ignore_whitespace_nodes+"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:86
@@ -4037,10 +3900,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:119
-#, fuzzy
-#| msgid "+:raw+"
 msgid "=== +:raw+"
-msgstr "+:raw+"
+msgstr "=== +:raw+"
 
 #. type: Plain text
 #: ../doc/rexml/context.rdoc:121
@@ -4107,76 +3968,3 @@ msgstr ""
 "  b.add_text(' so 0 &lt; 1')\n"
 "  a.to_s # => \"<a>0 &lt; 1 so 1 &gt; 0</a>\"\n"
 "  b.to_s # => \"<b>1 &amp;gt; 0 so 0 &amp;lt; 1</b>\"\n"
-
-#, no-wrap
-#~ msgid "  so using it requires no gem installations.\n"
-#~ msgstr "  そのため使うのにgemのインストールを必要としません。\n"
-
-#~ msgid ""
-#~ "- +:respect_whitespace+: controls treatment of whitespace.  - +:"
-#~ "compress_whitespace+: determines whether whitespace is compressed.  - +:"
-#~ "ignore_whitespace_nodes+: determines whether whitespace-only nodes are to "
-#~ "be ignored.  - +:raw+: controls treatment of special characters and "
-#~ "entities."
-#~ msgstr ""
-#~ "- +:respect_whitespace+: 空白の扱いを制御します。\n"
-#~ "- +:compress_whitespace+: 空白が圧縮されるかを決定します。\n"
-#~ "- +:ignore_whitespace_nodes+: 空白のみのノードが無視されるかどうかを決定し"
-#~ "ます。\n"
-#~ "- +:raw+: 特殊な文字と実体の扱いを制御します。"
-
-#, no-wrap
-#~ msgid ""
-#~ "  - REXML::Parent (includes module {Enumerable}[rdoc-ref:Enumerable]).\n"
-#~ "    - REXML::Element (includes module REXML::Namespace).\n"
-#~ "      - REXML::Document\n"
-#~ msgstr ""
-#~ "  - REXML::Parent（モジュール{Enumerable}[rdoc-ref:Enumerable]がインクルードされています）\n"
-#~ "    - REXML::Element（モジュール REXML::Namespace がインクルードされています）\n"
-#~ "      - REXML::Document\n"
-
-#~ msgid "- Document type.  - Node type.  - Name.  - Document.  - XPath"
-#~ msgstr ""
-#~ "- 文書種別\n"
-#~ "- ノードの種類\n"
-#~ "- 名前\n"
-#~ "- 文書\n"
-#~ "- XPath"
-
-#~ msgid ""
-#~ "- XML declaration.  - Root element.  - Text.  - Processing instructions.  "
-#~ "- Comments.  - CDATA."
-#~ msgstr ""
-#~ "- XML宣言。\n"
-#~ "- ルート要素。\n"
-#~ "- テキスト。\n"
-#~ "- 処理手続き。\n"
-#~ "- コメント。\n"
-#~ "- CDATA。"
-
-#~ msgid ""
-#~ "- Defined in REXML::Element itself.  - Inherited from REXML::Parent and "
-#~ "REXML::Child.  - Included from REXML::Node."
-#~ msgstr ""
-#~ "- REXML::Element 自体で定義されているもの。\n"
-#~ "- REXML::Parent と REXML::Child から継承されているもの。\n"
-#~ "- REXML::Node に含まれているもの。"
-
-#~ msgid "- Ancestors.  - Siblings.  - Children."
-#~ msgstr ""
-#~ "- 先祖。\n"
-#~ "- 兄弟。\n"
-#~ "- 子。"
-
-#, no-wrap
-#~ msgid "  This is completely valid, because REXML::Document is a subclass of REXML::Element.\n"
-#~ msgstr ""
-#~ "  これは完全に妥当です。\n"
-#~ "  なぜなら REXML::Document は REXML::Element の副クラスだからです。\n"
-
-#~ msgid ""
-#~ "In this example: +foo+ and +baz+ will have their whitespace respected;"
-#~ msgstr "この例では+foo+と+baz+は空白が保たれる名前空間を持ちます。"
-
-#~ msgid "bar+ and the space between elements will not:"
-#~ msgstr "bar+と要素間の空白は圧縮されません。"

@@ -1,13 +1,13 @@
-= \REXML Tutorial
+= \REXML入門
 
-== Why \REXML?
+== なぜ\REXMLなのか
 
-- Ruby's \REXML library is part of the Ruby distribution, so using it
-  requires no gem installations.
-- \REXML is fully maintained.
-- \REXML is mature, having been in use for long years.
+- Rubyの\REXMLライブラリはRubyの配布物の一部です。
+  そのためgemのインストールは必要ありません。
+- \REXMLは手厚く維持管理されています。
+- \REXMLは成熟しており、長年使われてきました。
 
-== To Include, or Not to Include?
+== インクルードすべきや否や
 
 REXMLはモジュールです。使うためにはrequireせねばなりません。
 
@@ -23,7 +23,7 @@ REXMLはモジュールです。使うためにはrequireせねばなりませ�
   Document # => REXML::Document
   REXML::Document # => REXML::Document
 
-== Preliminaries
+== 事前に必要なもの
 
 ここにある全ての例では以下のコードが実行されていることを前提にしています。
 
@@ -49,9 +49,9 @@ REXMLはモジュールです。使うためにはrequireせねばなりませ�
 
   doc = Document.new(source_string)
 
-== Parsing \XML \Source
+== \XMLのソースを解析する
 
-=== Parsing a Document
+=== 文書を解析する
 
 XMLのソースの解析には REXML::Document::new メソッドを使います。
 
@@ -84,41 +84,40 @@ XMLのソースの解析には REXML::Document::new メソッドを使います�
 REXML::Element の2つでしょう。
 これら2つのクラスはこの入門でかなり詳しく押さえます。
 
-=== Context (Parsing Options)
+=== 文脈（解析オプション）
 
 文書を解析する文脈は、XMLが読まれたり保管されたりする方法に影響を与えるハッシュです。
 
 文脈の各項目は次の通り。
 
-- +:respect_whitespace+: controls treatment of whitespace.
-- +:compress_whitespace+: determines whether whitespace is compressed.
-- +:ignore_whitespace_nodes+: determines whether whitespace-only nodes are
-  to be ignored.
-- +:raw+: controls treatment of special characters and entities.
+- +:respect_whitespace+: 空白の扱いを制御します。
+- +:compress_whitespace+: 空白が圧縮されるかどうかを決めます。
+- +:ignore_whitespace_nodes+: 空白のみのノードが無視されるかを決めます。
+- +:raw+: 特殊文字と実体の扱いを制御します。
 
 {要素の文脈}[../context_rdoc.html]を参照してください。
 
-== Exploring the Document
+== 文書を探索する
 
 REXML::DocumentオブジェクトはXML文書を表現します。
 
 オブジェクトはその先祖のクラスから継承します。
 
-- REXML::Child (includes module REXML::Node)
-  - REXML::Parent (includes module {Enumerable}[rdoc-ref:Enumerable]).
-    - REXML::Element (includes module REXML::Namespace).
+- REXML::Child（モジュール REXML::Node がインクルードされています）
+  - REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールがインクルードされています）
+    - REXML::Element（モジュール REXML::Namespace がインクルードされています）
       - REXML::Document
 
 この節ではこれらのプロパティとメソッドのうち文書に特有なもののみを押さえます（つまり、継承したりインクルードされたりしたものは除きます）。
 
-=== Document Properties
+=== 文書のプロパティ
 
 文書には（子要素の他に）いくつかのプロパティがあります。
 
-- Document type.
-- Node type.
-- Name.
-- Document.
+- 文書種別
+- ノードの種類
+- 名前
+- 文書
 - XPath
 
 [文書種別]
@@ -169,16 +168,16 @@ REXML::DocumentオブジェクトはXML文書を表現します。
 
     Element.new('foo').xpath # => "foo"
 
-=== Document Children
+=== 文書の子
 
 文書にはこれらの種類の子を持ち得ます。
 
-- XML declaration.
-- Root element.
-- Text.
-- Processing instructions.
-- Comments.
-- CDATA.
+- XML宣言
+- ルート要素
+- テキスト
+- 処理手続き
+- コメント
+- CDATA
 
 [XML宣言]
 
@@ -282,23 +281,23 @@ REXML::DocumentオブジェクトはXML文書を表現します。
   [REXML::Element, <book category='web' cover='paperback'> ... </>]
   [REXML::Text, "\n\n"]
 
-== Exploring an Element
+== 要素を探索する
 
 REXML::ElementオブジェクトはXML要素を表現します。
 
 オブジェクトはその先祖のクラスから継承します。
 
-- REXML::Child (includes module REXML::Node)
-  - REXML::Parent (includes module {Enumerable}[rdoc-ref:Enumerable]).
-    - REXML::Element (includes module REXML::Namespace).
+- REXML::Child（モジュール REXML::Node がインクルードされています）
+  - REXML::Parent（{Enumerable}[rdoc-ref:Enumerable]モジュールがインクルードされています）
+    - REXML::Element（モジュール REXML::Namespace がインクルードされています）
 
 この節は以下のメソッドを押さえます。
 
-- Defined in REXML::Element itself.
-- Inherited from REXML::Parent and REXML::Child.
-- Included from REXML::Node.
+- REXML::Element 自体に定義されています。
+- REXML::Parent と REXML::Child から継承されています。
+- REXML::Node をインクルードしています。
 
-=== Inside the Element
+=== 要素の中身
 
 [短い文字列表現]
 
@@ -339,15 +338,15 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
     doc.root.context # => {}
 
-=== Relationships
+=== 関係
 
 要素には以下があることがあります。
 
-- Ancestors.
-- Siblings.
-- Children.
+- 先祖
+- 兄弟
+- 子
 
-==== Ancestors
+==== 先祖
 
 [その要素を含む文書]
 
@@ -404,7 +403,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
     ele = doc.root.elements[2]  # => <book category='children'> ... </>
     ele.index_in_parent# => 4
 
-==== Siblings
+==== 兄弟
 
 [次の要素]
 
@@ -490,7 +489,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
     [REXML::Element, <book category='cooking'> ... </>]
     [REXML::Text, "\n\n"]
 
-==== Children
+==== 子
 
 [子の個数]
 
@@ -598,9 +597,9 @@ REXML::ElementオブジェクトはXML要素を表現します。
     comments.map {|c| c.class } # => [REXML::Comment, REXML::Comment]
     comments.map {|c| c.to_s }  # => ["foo", "bar"]
 
-[子の処理指示]
+[子の処理手続き]
 
-  メソッド REXML::Element#instructions を使うと子の処理指示の凍結された配列が取得されます。
+  メソッド REXML::Element#instructions を使うと子の処理手続きの凍結された配列が取得されます。
 
     my_xml = <<-EOT
       <root>
@@ -637,7 +636,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
      doc.root.parent? # => true
 
-=== Element Attributes
+=== 要素の属性
 
 メソッド REXML::Element#has_attributes? を使うと要素に属性があるかが返ります。
 
@@ -676,7 +675,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
   my_doc.root.attribute("x")      # => x='x'
   my_doc.root.attribute("x", "a") # => a:x='a:x'
 
-== Whitespace
+== 空白
 
 メソッド REXML::Element#ignore_whitespace_nodes
 を使うとXMLが構文解析されるときに空白のノードが無視されるかどうかが決められます。
@@ -685,7 +684,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
 メソッド REXML::Element#whitespace を使うとその要素で空白が認められているかどうかを見定めます。
 もし認められているなら+true+を、そうでなければ+false+が返ります。
 
-== Namespaces
+== 名前空間
 
 メソッド REXML::Element#namespace を使うとその要素の名前空間URIの文字列が取得されます。
 この名前空間はその先祖の名前空間から導出されることがあります。
@@ -735,7 +734,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
   d.elements['//b'].prefixes # => ["x", "y"]
   d.elements['//c'].prefixes # => ["x", "y", "z"]
 
-== Traversing
+== 巡回
 
 特定のメソッドを使うと要素の子を巡回できます。
 与えられた条件に合うそれぞれの子は与えられたブロックにyieldされます。
@@ -890,7 +889,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
     [REXML::Element, <year> ... </>]
     [REXML::Element, <price> ... </>]
 
-== Searching
+== 検索
 
 要素の子孫から検索するメソッドがあり、使えます。
 
@@ -939,9 +938,9 @@ REXML::ElementオブジェクトはXML要素を表現します。
     ele.name == 'nosuch'
   end # => nil
 
-== Editing
+== 編集
 
-=== Editing a Document
+=== 文書を編集する
 
 [文書を作成する]
 
@@ -985,15 +984,15 @@ REXML::ElementオブジェクトはXML要素を表現します。
     my_doc.add_element('foo')
     my_doc.root # => <foo/>
 
-=== Editing an Element
+=== 要素を編集する
 
-==== Creating an Element
+==== 要素を作成する
 
 メソッド REXML::Element::new で新しい要素を作成します。
 
   ele = Element.new('foo') # => <foo/>
 
-==== Setting Element Properties
+==== 要素のプロパティを設定する
 
 メソッド REXML::Element#context= で要素に文脈を設定します（{要素の文脈}[../context_rdoc.html]を参照）。
 
@@ -1013,7 +1012,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
   ele.text = 'bar'
   ele.text # => "bar"
 
-==== Adding to an Element
+==== 要素に追加する
 
 継承されたメソッド REXML::Parent#add （または別称の #push ）で最後の子としてノードを追加します。
 
@@ -1084,7 +1083,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
   ele.add_namespace('baz', 'bat')
   ele.namespaces # => {"xmlns"=>"bar", "baz"=>"bat"}
 
-==== Deleting from an Element
+==== 要素から削除する
 
 継承されたメソッド REXML::Parent#delete で特定の子オブジェクトを削除します。
 
@@ -1187,7 +1186,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
   ele.remove                  # => <foo/>
   parent.children.size        # => 0
 
-==== Replacing Nodes
+==== ノードを入れ替える
 
 継承されたメソッド REXML::Parent#[]= で、与えられた0起点のインデックスにあるノードを入れ替えます。
 
@@ -1224,7 +1223,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
   target.replace_with(Text.new('bah'))
   ele.children             # => [<bar/>, "baz", "bah", "bam"]
 
-=== Cloning
+=== クローン
 
 メソッド REXML::Element#clone で浅いクローンを作成します。
 クローンには名前と属性が含まれますが、親と子は含まれません。
@@ -1257,7 +1256,7 @@ XML宣言はコピーされます。
   clone  = doc.deep_clone
   clone.to_s.size # => 825
 
-== Writing the Document
+== 文書を書き出す
 
 メソッド REXML::Document#write で文書と\IOストリーム（既定では<tt>$stdout</tt>）に書き出します。
 
