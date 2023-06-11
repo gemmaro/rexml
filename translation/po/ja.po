@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REXML\n"
 "POT-Creation-Date: 2023-06-11 20:50+0900\n"
-"PO-Revision-Date: 2023-06-10 09:53+0900\n"
+"PO-Revision-Date: 2023-06-11 20:50+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -1470,13 +1470,9 @@ msgstr "    doc.root[50] # => nil\n"
 msgid "[Index of Child]"
 msgstr "[子のインデックス]"
 
-# FIXME: REXML::Element#index は REXML::Parent#index と思われます
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:557
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  Use method REXML::Element#index to retrieve the zero-based child index\n"
-#| "  of the given object, or <tt>#size - 1</tt> if there is no such child:\n"
+#, no-wrap
 msgid ""
 "  Use method REXML::Parent#index to retrieve the zero-based child index\n"
 "  of the given object, or <tt>#size - 1</tt> if there is no such child:\n"
@@ -1519,13 +1515,9 @@ msgstr "    ele.index(ele[50]) # => 8\n"
 msgid "[Element Children]"
 msgstr "[要素の子]"
 
-# FIXME: 正しくは REXML::Element#has_elements? のようです。
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:573
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  Use method REXML::.has_elements? to retrieve whether the element\n"
-#| "  has element children:\n"
+#, no-wrap
 msgid ""
 "  Use method REXML::Element#has_elements? to retrieve whether the element\n"
 "  has element children:\n"
@@ -3178,11 +3170,8 @@ msgstr ""
 "  ele.delete_attribute('bam')\n"
 "  ele.attributes           # => {\"bar\"=>bar='baz'}\n"
 
-# FIXME: REXML::Element#delete_namespace に修正
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:1225
-#, fuzzy
-#| msgid "Delete a namespace with method REXML::delete_namespace:"
 msgid "Delete a namespace with method REXML::Element#delete_namespace:"
 msgstr "メソッド REXML::Element#delete_namespace で名前空間を削除します。"
 
