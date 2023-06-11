@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: REXML VERSION\n"
-"POT-Creation-Date: 2023-06-10 09:32+0900\n"
+"POT-Creation-Date: 2023-06-11 20:50+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1277,7 +1277,7 @@ msgstr ""
 #: ../doc/rexml/tutorial.rdoc:557
 #, no-wrap
 msgid ""
-"  Use method REXML::Element#index to retrieve the zero-based child index\n"
+"  Use method REXML::Parent#index to retrieve the zero-based child index\n"
 "  of the given object, or <tt>#size - 1</tt> if there is no such child:\n"
 msgstr ""
 
@@ -1315,7 +1315,7 @@ msgstr ""
 #: ../doc/rexml/tutorial.rdoc:573
 #, no-wrap
 msgid ""
-"  Use method REXML::.has_elements? to retrieve whether the element\n"
+"  Use method REXML::Element#has_elements? to retrieve whether the element\n"
 "  has element children:\n"
 msgstr ""
 
@@ -2634,7 +2634,7 @@ msgstr ""
 
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:1225
-msgid "Delete a namespace with method REXML::delete_namespace:"
+msgid "Delete a namespace with method REXML::Element#delete_namespace:"
 msgstr ""
 
 #. type: Verbatim

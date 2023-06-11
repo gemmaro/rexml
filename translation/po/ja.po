@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: REXML\n"
-"POT-Creation-Date: 2023-06-10 09:32+0900\n"
+"POT-Creation-Date: 2023-06-11 20:50+0900\n"
 "PO-Revision-Date: 2023-06-10 09:53+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
@@ -1473,9 +1473,12 @@ msgstr "[子のインデックス]"
 # FIXME: REXML::Element#index は REXML::Parent#index と思われます
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:557
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "  Use method REXML::Element#index to retrieve the zero-based child index\n"
+#| "  of the given object, or <tt>#size - 1</tt> if there is no such child:\n"
 msgid ""
-"  Use method REXML::Element#index to retrieve the zero-based child index\n"
+"  Use method REXML::Parent#index to retrieve the zero-based child index\n"
 "  of the given object, or <tt>#size - 1</tt> if there is no such child:\n"
 msgstr "  メソッド REXML::Parent#index を使うと、もしあれば与えられたオブジェクトのゼロ起点の子のインデックスが、そのような子がなければ<tt>#size - 1</tt>が取得されます。\n"
 
@@ -1519,9 +1522,12 @@ msgstr "[要素の子]"
 # FIXME: 正しくは REXML::Element#has_elements? のようです。
 #. type: Verbatim
 #: ../doc/rexml/tutorial.rdoc:573
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "  Use method REXML::.has_elements? to retrieve whether the element\n"
+#| "  has element children:\n"
 msgid ""
-"  Use method REXML::.has_elements? to retrieve whether the element\n"
+"  Use method REXML::Element#has_elements? to retrieve whether the element\n"
 "  has element children:\n"
 msgstr "  メソッド REXML::Element#has_elements? を使うと要素に要素の子があるかどうかが取得されます。\n"
 
@@ -3175,7 +3181,9 @@ msgstr ""
 # FIXME: REXML::Element#delete_namespace に修正
 #. type: TextBlock
 #: ../doc/rexml/tutorial.rdoc:1225
-msgid "Delete a namespace with method REXML::delete_namespace:"
+#, fuzzy
+#| msgid "Delete a namespace with method REXML::delete_namespace:"
+msgid "Delete a namespace with method REXML::Element#delete_namespace:"
 msgstr "メソッド REXML::Element#delete_namespace で名前空間を削除します。"
 
 #. type: Verbatim
@@ -3554,7 +3562,8 @@ msgstr "要素の文脈"
 msgid ""
 "Notes: - All code on this page presupposes that the following has been "
 "executed:"
-msgstr "注意：ここにある全てのコードでは以下が実行されていることを前提にしています。"
+msgstr ""
+"注意：ここにある全てのコードでは以下が実行されていることを前提にしています。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:6
@@ -3567,7 +3576,9 @@ msgstr "    require 'rexml/document'\n"
 msgid ""
 "- For convenience, examples on this page use +REXML::Document.new+, not "
 "+REXML::Element.new+."
-msgstr "- 便宜上、本ページの例では +REXML::Element.new+ ではなく +REXML::Document.new+ を使っています。"
+msgstr ""
+"- 便宜上、本ページの例では +REXML::Element.new+ ではなく +REXML::Document."
+"new+ を使っています。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:9
@@ -3583,7 +3594,8 @@ msgid ""
 "The context for an element is a hash of processing directives that influence "
 "the way \\XML is read, stored, and written.  The context entries are:"
 msgstr ""
-"要素の文脈は処理指示のハッシュで、\\XMLが読まれたり、格納されたり、書き出されたりするやり方に影響します。\n"
+"要素の文脈は処理指示のハッシュで、\\XMLが読まれたり、格納されたり、書き出され"
+"たりするやり方に影響します。\n"
 "文脈の各項目は以下の通り。"
 
 #. type: TextBlock
@@ -3650,7 +3662,9 @@ msgstr "影響があるもの：+REXML::Element.new+, +REXML::Element.text=+"
 msgid ""
 "By default, all parsed whitespace is respected (that is, stored whitespace "
 "not compressed):"
-msgstr "既定では全ての解析された空白が保たれます（つまり、保管された空白は圧縮されません）。"
+msgstr ""
+"既定では全ての解析された空白が保たれます（つまり、保管された空白は圧縮されま"
+"せん）。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:42
@@ -3671,7 +3685,8 @@ msgid ""
 "elements that _are_ to have their whitespace respected; other elements' "
 "whitespace, and whitespace between elements, will be compressed."
 msgstr ""
-"要素名の配列と共に +:respect_whitespace+ を使うと、空白が保たれる要素を厳密に指定します。\n"
+"要素名の配列と共に +:respect_whitespace+ を使うと、空白が保たれる要素を厳密に"
+"指定します。\n"
 "他の要素の空白や要素間の空白は圧縮されます。"
 
 #. type: TextBlock
@@ -3713,7 +3728,9 @@ msgstr "+:compress_whitespace+"
 msgid ""
 "Use <tt>compress_whitespace: :all</tt> to compress whitespace both within "
 "and between elements:"
-msgstr "<tt>compress_whitespace: :all</tt>を使うと要素の中と要素間の両方で空白を圧縮します。"
+msgstr ""
+"<tt>compress_whitespace: :all</tt>を使うと要素の中と要素間の両方で空白を圧縮"
+"します。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:66
@@ -3732,7 +3749,9 @@ msgstr ""
 msgid ""
 "Use +:compress_whitespace+ with an array of element names to compress "
 "whitespace in those elements, but not in other elements nor between elements."
-msgstr "要素名の配列と一緒に +:compress_whitespace+ を使うと、それらの要素の空白が圧縮されますが、他の要素の中や他の要素間では圧縮されません。"
+msgstr ""
+"要素名の配列と一緒に +:compress_whitespace+ を使うと、それらの要素の空白が圧"
+"縮されますが、他の要素の中や他の要素間では圧縮されません。"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:74
@@ -3775,13 +3794,17 @@ msgstr "影響があるもの：+REXML::Element.new+"
 msgid ""
 "Use <tt>ignore_whitespace_nodes: :all</tt> to omit all whitespace-only "
 "elements."
-msgstr "<tt>ignore_whitespace_nodes: :all</tt>を使うと全ての空白のみの要素が省かれます。"
+msgstr ""
+"<tt>ignore_whitespace_nodes: :all</tt>を使うと全ての空白のみの要素が省かれま"
+"す。"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:89
 msgid ""
 "In this example, +bar+ has a text node, while nodes +foo+ and +baz+ do not:"
-msgstr "この例では+bar+にテキストノードがありますが、ノード+foo+および+bar+にはありません。"
+msgstr ""
+"この例では+bar+にテキストノードがありますが、ノード+foo+および+bar+にはありま"
+"せん。"
 
 #. type: Verbatim
 #: ../doc/rexml/context.rdoc:91
@@ -3814,7 +3837,9 @@ msgstr ""
 msgid ""
 "Use +:ignore_whitespace_nodes+ with an array of element names to specify the "
 "elements that are to have whitespace nodes ignored."
-msgstr "+:ignore_whitespace_nodes+を要素名の配列と共に使うと、空白ノードが無視される要素が指定されます。"
+msgstr ""
+"+:ignore_whitespace_nodes+を要素名の配列と共に使うと、空白ノードが無視される"
+"要素が指定されます。"
 
 #. type: TextBlock
 #: ../doc/rexml/context.rdoc:105

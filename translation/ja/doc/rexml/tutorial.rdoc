@@ -540,7 +540,8 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 [子のインデックス]
 
-  メソッド REXML::Parent#index を使うと、もしあれば与えられたオブジェクトのゼロ起点の子のインデックスが、そのような子がなければ<tt>#size - 1</tt>が取得されます。
+  Use method REXML::Parent#index to retrieve the zero-based child index
+  of the given object, or <tt>#size - 1</tt> if there is no such child:
 
     ele = doc.root     # => <bookstore> ... </>
     ele.index(ele[0])  # => 0
@@ -555,7 +556,8 @@ REXML::ElementオブジェクトはXML要素を表現します。
 
 [要素の子]
 
-  メソッド REXML::Element#has_elements? を使うと要素に要素の子があるかどうかが取得されます。
+  Use method REXML::Element#has_elements? to retrieve whether the element
+  has element children:
 
     doc.root.has_elements?                  # => true
     REXML::Element.new('foo').has_elements? # => false
@@ -1178,7 +1180,7 @@ REXML::ElementオブジェクトはXML要素を表現します。
   ele.delete_attribute('bam')
   ele.attributes           # => {"bar"=>bar='baz'}
 
-メソッド REXML::Element#delete_namespace で名前空間を削除します。
+Delete a namespace with method REXML::Element#delete_namespace:
 
   ele = Element.new('foo') # => <foo/>
   ele.add_namespace('bar')
