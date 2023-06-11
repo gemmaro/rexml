@@ -35,7 +35,8 @@ jobs:
         run: bundle exec rake rdoc
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        path: html
+        with:
+          path: html
 
   deploy:
     environment:
